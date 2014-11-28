@@ -81,7 +81,7 @@ public class UIAvAtendimento extends javax.swing.JFrame {
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Tempo na Oficina"));
         jPanel3.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 2, 0));
 
-        jLabel3.setText("1 dia");
+        jLabel3.setText("2 dia");
         jLabel3.setToolTipText("");
         jPanel3.add(jLabel3);
 
