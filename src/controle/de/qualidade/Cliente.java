@@ -45,6 +45,13 @@ public class Cliente {
 		return vetorAvVendas;
 	}
 
+	public Vector obterAtendimentos() throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
+		Vector vetorAtend;
+		ConexaoBD con = new ConexaoBD();
+		vetorAtend = con.buscaTodosAtendimentosNaoAvaliados(this.cpf);
+		return vetorAtend;
+	}
+
 	public String getCpf() {
 		return cpf;
 	}

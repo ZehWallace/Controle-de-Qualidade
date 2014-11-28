@@ -64,7 +64,7 @@ public class AvVenda extends Avaliacao {
 	public void adicionarAvVenda() throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
 		ConexaoBD con;
 		con = new ConexaoBD();
-		this.setCod_av(String.format("%05d", con.gerarCodigoAvVenda()));
+		this.setCod_av(String.format("%05d", con.gerarCodigoAvaliacao()));
 		con.inserirAvVenda(this);
 	}
 

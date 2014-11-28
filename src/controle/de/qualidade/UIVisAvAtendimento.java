@@ -10,12 +10,18 @@ package controle.de.qualidade;
  * @author davys_000
  */
 public class UIVisAvAtendimento extends javax.swing.JFrame {
-
+	private Atendimento a;
+	private Cliente c;
+	
     /**
      * Creates new form UIVisAvAtendimento
+	 * @param c
+	 * @param a
      */
-    public UIVisAvAtendimento() {
-        initComponents();
+    public UIVisAvAtendimento(Cliente c, Atendimento a) {
+        this.a = a;
+		this.c = c;
+		initComponents();
     }
 
     /**

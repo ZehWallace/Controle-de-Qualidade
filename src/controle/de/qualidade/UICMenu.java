@@ -37,17 +37,19 @@ public class UICMenu extends javax.swing.JFrame {
 		this.jLabel10.setText(c.getNome());
 		this.vetorVendasNaoAvaliadas = c.obterVendas();
 		this.vetorAvVendas = c.obterAvVendas();
+		this.vetorAtendimentosNaoAvaliados = c.obterAtendimentos();
 		iniciaTables();
 	}
 
 	private void iniciaTables() throws SQLException {
-		cria_model_criar_av_venda();
-		cria_model_visualizar_av_venda();
+		jTable1.setSelectionMode(SINGLE_SELECTION);
+		jTable2.setSelectionMode(SINGLE_SELECTION);
+		this.cria_model_criar_av_venda();
+		this.cria_model_visualizar_av_venda();
+		this.cria_model_criar_av_atendimento();
 	}
 
 	private void cria_model_criar_av_venda() {
-//		ConexaoBD con = new ConexaoBD();
-		jTable1.setSelectionMode(SINGLE_SELECTION);
 		int i;
 		//magica
 		String rows[] = vetorVendasNaoAvaliadas.toString().replace("[", "").replace("]", "").split(",");
@@ -66,7 +68,6 @@ public class UICMenu extends javax.swing.JFrame {
 	}
 
 	private void cria_model_visualizar_av_venda() {
-		jTable2.setSelectionMode(SINGLE_SELECTION);
 		//magica
 		String rows[] = vetorAvVendas.toString().replace("[", "").replace("]", "").split(",");
 		Vector<Vector<String>> dataVector = new Vector<Vector<String>>();
@@ -82,6 +83,23 @@ public class UICMenu extends javax.swing.JFrame {
 		header.add("Vendedor");
 		header.add("Nota");
 		visualizar_av_venda_model = new DefaultTableModel(dataVector, header);
+	}
+
+	private void cria_model_criar_av_atendimento() {
+		//magica
+		System.out.println(vetorAtendimentosNaoAvaliados.toString());
+		String rows[] = vetorAtendimentosNaoAvaliados.toString().replace("[", "").replace("]", "").split(",");
+		Vector<Vector<String>> dataVector = new Vector<Vector<String>>();
+		for (String row : rows) {
+			row = row.trim();  //UPDATE
+			Vector<String> data = new Vector<String>();
+			data.addAll(Arrays.asList(row.split("@")));
+			dataVector.add(data);
+		}
+		Vector<String> header = new Vector<String>(2);
+		header.add("Nome Atendente");
+		header.add("Data Atendimento");
+		criar_av_atendimento_model = new DefaultTableModel(dataVector, header);
 	}
 
 	private UICMenu() {
@@ -322,7 +340,7 @@ public class UICMenu extends javax.swing.JFrame {
 		} else if (opc == 2) {
 
 		} else if (opc == 3) {
-
+			jTable1.setModel(criar_av_atendimento_model);
 		}
     }//GEN-LAST:event_selectActionPerformed
 
@@ -330,7 +348,7 @@ public class UICMenu extends javax.swing.JFrame {
 		// TODO add your handling code here:
 		int opc;
 
-		opc = select1.getSelectedIndex();
+		opc = select.getSelectedIndex();
 
 		if (opc == 0) {
 
@@ -349,23 +367,28 @@ public class UICMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-		int opc = jTable1.getSelectedRow();
-		
-		if (vetorVendasNaoAvaliadas.size() > 0 && opc!=-1) {
-			Venda v = (Venda) vetorVendasNaoAvaliadas.get(opc);
+		int row = jTable1.getSelectedRow();
+		int opc = select.getSelectedIndex();
+
+		if (vetorVendasNaoAvaliadas.size() > 0 && opc == 1 && row != -1) {
+			Venda v = (Venda) vetorVendasNaoAvaliadas.get(row);
 			new UIAvVenda(c, (Venda) vetorVendasNaoAvaliadas.get(jTable1.getSelectedRow())).setVisible(true);
 			this.dispose();
-		}else{
+		} else if (vetorAtendimentosNaoAvaliados.size()>0 && opc == 3 && row != -1) {
+			Atendimento a = (Atendimento) vetorAtendimentosNaoAvaliados.get(row);
+			new UIAvAtendimento(c, a).setVisible(true);
+			this.dispose();
+		} else {
 			jLabel2.setText("Nenhum item selecionado!");
 		}
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-		int opc = jTable2.getSelectedRow();
-		if(vetorAvVendas.size()>0 && opc!=-1){
-			AvVenda av = (AvVenda) vetorAvVendas.get(opc);
-			new UIVisAvVenda(c, (AvVenda) vetorAvVendas.get(opc)).setVisible(true);
-		}else{
+		int row = jTable2.getSelectedRow();
+		if (vetorAvVendas.size() > 0 && row != -1) {
+			AvVenda av = (AvVenda) vetorAvVendas.get(row);
+			new UIVisAvVenda(c, (AvVenda) vetorAvVendas.get(row)).setVisible(true);
+		} else {
 			jLabel3.setText("Nenhum item selecionado!");
 		}
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -416,7 +439,8 @@ public class UICMenu extends javax.swing.JFrame {
     private Cliente c;
 	private TableModel criar_av_venda_model;
 	private TableModel visualizar_av_venda_model;
-	private Vector vetorVendas;
+	private TableModel criar_av_atendimento_model;
 	private Vector vetorVendasNaoAvaliadas;
 	private Vector vetorAvVendas;
+	private Vector vetorAtendimentosNaoAvaliados;
 }

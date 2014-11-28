@@ -10,13 +10,13 @@ public class ConexaoBD {
 
 	// Construtor
 	public ConexaoBD() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
-			Class.forName("org.postgresql.Driver").newInstance();
+		Class.forName("org.postgresql.Driver").newInstance();
 
-			myConnection = DriverManager.getConnection("jdbc:postgresql:"
-					+ "//localhost/ControleDeQualidade?user=postgres&password=postgres");
+		myConnection = DriverManager.getConnection("jdbc:postgresql:"
+				+ "//localhost/ControleDeQualidade?user=postgres&password=postgres");
 
-			//Cria um comando (statement) vinculado aa conexao
-			st = myConnection.createStatement();
+		//Cria um comando (statement) vinculado aa conexao
+		st = myConnection.createStatement();
 	}
 
 	public Cliente buscaCliente(String cpf) throws SQLException {
@@ -74,17 +74,34 @@ public class ConexaoBD {
 			st.execute("SELECT nome_vendedor FROM funcionario_vendedor WHERE cpf_vendedor = '" + rs.getString("cpf_vendedor") + "';");
 			rsnome = st.getResultSet();
 			rsnome.next();
-			//System.out.println(rsnome.getString(1));
 			v = new Venda(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rsnome.getString(1));
-
-			//Armazena o novo filme no vetor
 			res.addElement(v);
-			//rsnome = null;
 		}
 		return res;
 	}
 
-	public int gerarCodigoAvVenda() throws SQLException {
+	public Vector buscaTodosAtendimentosNaoAvaliados(String cpf) throws SQLException {
+		Vector res = new Vector();
+		StringBuilder strb = new StringBuilder();
+		strb.append("SELECT * FROM atendimento a WHERE ");
+		strb.append("cpf_cliente = '").append(cpf).append("'");
+		strb.append("AND NOT EXISTS (SELECT * FROM av_atendimento av WHERE a.data_ini = av.data_atend);");
+		st.execute(strb.toString());
+		ResultSet rs = st.getResultSet();
+		while (rs.next()) {
+			ResultSet rsnome;
+			st = myConnection.createStatement();
+			st.execute("SELECT nome_atendente FROM funcionario_atendente WHERE cpf_atendente = '" + rs.getString("cpf_atendente") + "';");
+			rsnome = st.getResultSet();
+			rsnome.next();
+			Atendimento a = new Atendimento(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rsnome.getString(1));
+			res.addElement(a);
+		}
+//		SELECT * FROM atendimento a WHERE cpf_cliente = '22222222222' AND NOT EXISTS (SELECT * FROM av_atendimento av WHERE a.data_ini = av.data_atend);
+		return res;
+	}
+
+	public int gerarCodigoAvaliacao() throws SQLException {
 		int count = 0;
 		st.execute("SELECT * FROM av_venda");
 		ResultSet rs = st.getResultSet();
@@ -124,16 +141,11 @@ public class ConexaoBD {
 		ins.append(");");
 		System.out.println(ins.toString());
 		st.execute(ins.toString());
-
-//		ins = new StringBuilder();
-		//UPDATE venda SET venda_avaliada = true WHERE cpf_vendedor = '00000000000' AND cpf_cliente = '22222222222' AND data_venda = '1961-06-16';
-//		ins.append("UPDATE venda SET status = true WHERE cpf_vendedor = ");
-//		ins.append("'").append(av.getCpf_vendedor()).append("'");
-//		ins.append(" AND cpf_cliente = '").append(av.getCpf_cliente()).append("'");
-//		ins.append(" AND data_venda = '").append(av.getData_venda()).append("';");
-//		st.execute(ins.toString());
 	}
-
+	
+	public void inserirAvAtendimento(AvAtendimento av){
+		
+	}
 	public Vector buscaTodasAvVendas(String cpf_cliente) throws SQLException {
 		Vector res = new Vector();
 		AvVenda Av;
@@ -146,7 +158,7 @@ public class ConexaoBD {
 		strb.append(" AND av.cpf_vendedor = v.cpf_vendedor");
 		strb.append(" AND av.data_venda = v.data_venda;");
 		st.execute(strb.toString());
-		
+
 		ResultSet rs = st.getResultSet();
 
 		//SELECT cod_av, nota_venda, sugestao_venda, data_av, av.cpf_cliente, av.cpf_vendedor, av.data_venda, tipo_venda, descr_venda 
