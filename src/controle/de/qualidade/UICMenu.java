@@ -350,18 +350,19 @@ public class UICMenu extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 		int opc = jTable1.getSelectedRow();
-		if (vetorVendasNaoAvaliadas.size() > 0) {
+		
+		if (vetorVendasNaoAvaliadas.size() > 0 && opc!=-1) {
 			Venda v = (Venda) vetorVendasNaoAvaliadas.get(opc);
 			new UIAvVenda(c, (Venda) vetorVendasNaoAvaliadas.get(jTable1.getSelectedRow())).setVisible(true);
 			this.dispose();
 		}else{
-			jLabel2.setText("Nenhum item  selecionado!");
+			jLabel2.setText("Nenhum item selecionado!");
 		}
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 		int opc = jTable2.getSelectedRow();
-		if(vetorAvVendas.size()>0){
+		if(vetorAvVendas.size()>0 && opc!=-1){
 			AvVenda av = (AvVenda) vetorAvVendas.get(opc);
 			new UIVisAvVenda(c, (AvVenda) vetorAvVendas.get(opc)).setVisible(true);
 		}else{
