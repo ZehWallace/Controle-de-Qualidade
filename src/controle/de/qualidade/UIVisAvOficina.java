@@ -61,7 +61,7 @@ public class UIVisAvOficina extends javax.swing.JFrame {
         jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 10));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setText("Avaliação Oficina");
+        jLabel1.setText("Avaliação da Oficina");
         jPanel1.add(jLabel1);
 
         getContentPane().add(jPanel1);

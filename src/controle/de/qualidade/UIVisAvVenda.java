@@ -89,7 +89,7 @@ public class UIVisAvVenda extends javax.swing.JFrame {
         jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 10));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setText("Avaliação Venda");
+        jLabel1.setText("Avaliação de Venda");
         jPanel1.add(jLabel1);
 
         getContentPane().add(jPanel1);
