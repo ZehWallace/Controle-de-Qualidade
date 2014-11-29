@@ -43,6 +43,20 @@ public class UIFMenu extends javax.swing.JFrame {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         buttonGroup2 = new javax.swing.ButtonGroup();
+        jDialog1 = new javax.swing.JDialog();
+        jPanel53 = new javax.swing.JPanel();
+        jPanel56 = new javax.swing.JPanel();
+        jLabel25 = new javax.swing.JLabel();
+        jPanel57 = new javax.swing.JPanel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jPanel54 = new javax.swing.JPanel();
+        jLabel24 = new javax.swing.JLabel();
+        jPanel55 = new javax.swing.JPanel();
+        jButton11 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
         GeralPanel = new javax.swing.JPanel();
         jPanel15 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
@@ -225,6 +239,57 @@ public class UIFMenu extends javax.swing.JFrame {
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         jMenuItem9 = new javax.swing.JMenuItem();
+
+        jDialog1.setTitle("Limpar Histórico");
+        jDialog1.setMinimumSize(new java.awt.Dimension(400, 230));
+        jDialog1.setPreferredSize(new java.awt.Dimension(400, 230));
+        jDialog1.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel53.setLayout(new java.awt.GridLayout(2, 0));
+
+        jPanel56.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 5, 20));
+
+        jLabel25.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel25.setText("Período:");
+        jPanel56.add(jLabel25);
+
+        jPanel53.add(jPanel56);
+
+        jPanel57.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+
+        jLabel26.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel26.setText("De:");
+        jPanel57.add(jLabel26);
+
+        jLabel27.setText("01/01/2014");
+        jPanel57.add(jLabel27);
+
+        jLabel28.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel28.setText("Até:");
+        jPanel57.add(jLabel28);
+
+        jLabel29.setText("31/12/2014");
+        jPanel57.add(jLabel29);
+
+        jPanel53.add(jPanel57);
+
+        jDialog1.getContentPane().add(jPanel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 80));
+
+        jPanel54.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 15));
+
+        jLabel24.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel24.setText("Você tem certeza que deseja limpar o histórico?");
+        jPanel54.add(jLabel24);
+
+        jDialog1.getContentPane().add(jPanel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 400, 40));
+
+        jButton11.setText("Voltar");
+        jPanel55.add(jButton11);
+
+        jButton10.setText("Limpar");
+        jPanel55.add(jButton10);
+
+        jDialog1.getContentPane().add(jPanel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 400, 40));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu Funcionário");
@@ -474,6 +539,11 @@ public class UIFMenu extends javax.swing.JFrame {
 
         jButton7.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jButton7.setText("Confirmar");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
         jPanel37.add(jButton7);
 
         jPanel1.add(jPanel37);
@@ -762,6 +832,13 @@ public class UIFMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField3ActionPerformed
 
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+        jDialog1.setLocationRelativeTo(null);
+        jDialog1.setSize(400, 230);
+        jDialog1.setVisible(true);
+    }//GEN-LAST:event_jButton7ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -780,6 +857,8 @@ public class UIFMenu extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -788,6 +867,7 @@ public class UIFMenu extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
+    private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -804,6 +884,12 @@ public class UIFMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -870,6 +956,11 @@ public class UIFMenu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel50;
     private javax.swing.JPanel jPanel51;
+    private javax.swing.JPanel jPanel53;
+    private javax.swing.JPanel jPanel54;
+    private javax.swing.JPanel jPanel55;
+    private javax.swing.JPanel jPanel56;
+    private javax.swing.JPanel jPanel57;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
