@@ -50,6 +50,7 @@ public class UIVisAvAtendimento extends javax.swing.JFrame {
 			jLabel7.setForeground(Color.red);
 		}
 		jTextArea2.setText(av.getSugestao());
+		jTextArea1.setText(av.getAtendimento().getDescr_atend());
     }
 
     /**
