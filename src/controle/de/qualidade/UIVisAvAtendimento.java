@@ -5,23 +5,52 @@
  */
 package controle.de.qualidade;
 
+import java.awt.Color;
+
 /**
  *
  * @author davys_000
  */
 public class UIVisAvAtendimento extends javax.swing.JFrame {
-	private Atendimento a;
+	private AvAtendimento av;
 	private Cliente c;
 	
     /**
      * Creates new form UIVisAvAtendimento
 	 * @param c
-	 * @param a
+	 * @param av
      */
-    public UIVisAvAtendimento(Cliente c, Atendimento a) {
-        this.a = a;
+    public UIVisAvAtendimento(Cliente c, AvAtendimento av) {
+        this.av = av;
 		this.c = c;
 		initComponents();
+		jTextArea1.setEditable(false);
+		jTextArea2.setEditable(false);
+		jLabel13.setText(av.getNome_atendente());
+		jLabel3.setText(av.getData_atendimento());
+		jLabel5.setText(av.getData());
+		int probl_res = av.getProbl_res();
+		if(probl_res == 1){
+			//jLabel9.setForeground(Color.green);
+			jLabel9.setText("Sim");
+		}else if(probl_res == 2){
+			jLabel9.setForeground(Color.orange);
+			jLabel9.setText("Parcialmente");
+		}else if(probl_res == 3){
+			jLabel9.setForeground(Color.red);
+			jLabel9.setText("Não");
+		}
+		float nota = av.getNota();
+		jLabel7.setText(""+nota);
+		if(nota > 6){
+			//jLabel7.setForeground(Color.green);
+		}else if (nota <= 6 && nota >= 4){
+			jLabel7.setForeground(Color.orange);
+		}else{
+			jLabel7.setForeground(Color.red);
+		}
+		jTextArea2.setText(av.getSugestao());
+		jTextArea1.setText(av.getAtendimento().getDescr_atend());
     }
 
     /**
@@ -64,7 +93,7 @@ public class UIVisAvAtendimento extends javax.swing.JFrame {
         jPanel8 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new java.awt.GridLayout(6, 0));
 
         jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 10));
@@ -187,12 +216,22 @@ public class UIVisAvAtendimento extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton1.setText("Voltar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel8.add(jButton1);
 
         getContentPane().add(jPanel8);
 
-        pack();
+        setSize(new java.awt.Dimension(416, 507));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

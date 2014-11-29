@@ -189,5 +189,32 @@ public class ConexaoBD {
 		}
 		return res;
 	}
-}
 
+	public Vector buscaTodasAvAtendimento(String cpf_cliente) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
+		Vector res = new Vector();
+		AvAtendimento Av;
+		Atendimento a;
+		StringBuilder ins = new StringBuilder();
+		ins.append("SELECT cod_av, nota_atend, sugestao, data_av, av.cpf_cliente, av.cpf_atendente, a.data_ini, a.data_fim, probl_res, dresc_prob");
+		ins.append(" FROM av_atendimento av, atendimento a");
+		ins.append(" WHERE av.cpf_cliente = '").append(cpf_cliente).append("'");
+		ins.append(" AND av.cpf_cliente = a.cpf_cliente");
+		ins.append(" AND av.cpf_atendente = a.cpf_atendente");
+		ins.append(" AND av.data_atend = a.data_ini;");
+		st.execute(ins.toString());
+
+		ResultSet rs = st.getResultSet();
+
+		while (rs.next()) {
+			ResultSet rsnome;
+			st = myConnection.createStatement();
+			st.execute("SELECT nome_atendente FROM funcionario_atendente WHERE cpf_atendente = '" + rs.getString("cpf_atendente") + "';");
+			rsnome = st.getResultSet();
+			rsnome.next();
+			a = new Atendimento(cpf_cliente, rs.getString("cpf_atendente"), rs.getString("data_ini"), rs.getString("data_fim"), rs.getString("dresc_prob"), rsnome.getString(1));
+			Av = new AvAtendimento(cpf_cliente, rs.getString("cpf_atendente"), rs.getString("data_av"), rs.getString("data_ini"), rs.getFloat("nota_atend"), rs.getString("sugestao"), a, rs.getInt("probl_res"), rsnome.getString(1));
+			res.addElement(Av);
+		}
+		return res;
+	}
+}
