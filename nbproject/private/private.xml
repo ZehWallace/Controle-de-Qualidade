@@ -3,12 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Bruno/Documents/GitHub/Trabalho-Integrado-Final/Controle%20de%20Qualidade/src/controle/de/qualidade/UIAvAtendimento.java</file>
-            <file>file:/C:/Users/Bruno/Documents/GitHub/Trabalho-Integrado-Final/Controle%20de%20Qualidade/src/controle/de/qualidade/Avaliacao.java</file>
-            <file>file:/C:/Users/Bruno/Documents/GitHub/Trabalho-Integrado-Final/Controle%20de%20Qualidade/src/controle/de/qualidade/Cliente.java</file>
-            <file>file:/C:/Users/Bruno/Documents/GitHub/Trabalho-Integrado-Final/Controle%20de%20Qualidade/src/controle/de/qualidade/AvVenda.java</file>
-            <file>file:/C:/Users/Bruno/Documents/GitHub/Trabalho-Integrado-Final/Controle%20de%20Qualidade/src/controle/de/qualidade/UIAvNaoSucesso.java</file>
-            <file>file:/C:/Users/Bruno/Documents/GitHub/Trabalho-Integrado-Final/Controle%20de%20Qualidade/src/controle/de/qualidade/UIVisAvAtendimento.java</file>
+            <file>file:/C:/Users/Bruno/Desktop/UFSCar/Controle-De-Qualidade/Controle-de-Qualidade/src/controle/de/qualidade/AvVenda.java</file>
+            <file>file:/C:/Users/Bruno/Desktop/UFSCar/Controle-De-Qualidade/Controle-de-Qualidade/src/controle/de/qualidade/UICMenu.java</file>
+            <file>file:/C:/Users/Bruno/Desktop/UFSCar/Controle-De-Qualidade/Controle-de-Qualidade/src/controle/de/qualidade/ConexaoBD.java</file>
+            <file>file:/C:/Users/Bruno/Desktop/UFSCar/Controle-De-Qualidade/Controle-de-Qualidade/src/controle/de/qualidade/AvAtendimento.java</file>
+            <file>file:/C:/Users/Bruno/Desktop/UFSCar/Controle-De-Qualidade/Controle-de-Qualidade/src/controle/de/qualidade/Cliente.java</file>
+            <file>file:/C:/Users/Bruno/Desktop/UFSCar/Controle-De-Qualidade/Controle-de-Qualidade/src/controle/de/qualidade/Venda.java</file>
+            <file>file:/C:/Users/Bruno/Desktop/UFSCar/Controle-De-Qualidade/Controle-de-Qualidade/src/controle/de/qualidade/Atendimento.java</file>
+            <file>file:/C:/Users/Bruno/Desktop/UFSCar/Controle-De-Qualidade/Controle-de-Qualidade/src/controle/de/qualidade/UIAvAtendimento.java</file>
         </group>
     </open-files>
 </project-private>
