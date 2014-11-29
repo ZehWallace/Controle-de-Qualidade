@@ -29,9 +29,16 @@ public class UIVisAvVenda extends javax.swing.JFrame {
 		initComponents();
 		this.c = c;
 		this.av = av;
+                
+                //Inverte datas
+                String d[] = av.getData().split("-");
+                String newData = d[2] + "/" + d[1] + "/" + d[0];
+                String dvenda[] = av.getData_venda().split("-");
+                String newDataVenda = dvenda[2] + "/" + dvenda[1] + "/" + dvenda[0];
+                
 		jLabel9.setText(av.getVenda().getNome_func());
-		jLabel3.setText(av.getData_venda());
-		jLabel5.setText(av.getData());
+		jLabel3.setText(newDataVenda);
+		jLabel5.setText(newData);
 		jLabel7.setText("" + av.getNota());
 		if (av.getNota() < 5) {
 			jLabel7.setForeground(Color.red);

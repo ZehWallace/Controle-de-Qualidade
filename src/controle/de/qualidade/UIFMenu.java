@@ -45,14 +45,16 @@ public class UIFMenu extends javax.swing.JFrame {
         buttonGroup2 = new javax.swing.ButtonGroup();
         GeralPanel = new javax.swing.JPanel();
         jPanel15 = new javax.swing.JPanel();
+        jLabel18 = new javax.swing.JLabel();
         jPanel13 = new javax.swing.JPanel();
+        jPanel47 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel14 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         try{
             javax.swing.text.MaskFormatter dataIni = new javax.swing.text.MaskFormatter("##/##/####");
-
+            dataIni.setPlaceholderCharacter('_');
             jTextField1 = new javax.swing.JFormattedTextField(dataIni);
         }catch(Exception e){
         }
@@ -60,43 +62,84 @@ public class UIFMenu extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         try{
             javax.swing.text.MaskFormatter dataFim = new javax.swing.text.MaskFormatter("##/##/####");
-
+            dataFim.setPlaceholderCharacter('_');
             jTextField2 = new javax.swing.JFormattedTextField(dataFim);
         }catch(Exception e){
         }
         jPanel16 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int vColIndex){
+                return false;
+            }
+        };
         jPanel21 = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
         SetorPanel = new javax.swing.JPanel();
-        jPanel26 = new javax.swing.JPanel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
+        jPanel46 = new javax.swing.JPanel();
+        jLabel19 = new javax.swing.JLabel();
         jPanel18 = new javax.swing.JPanel();
+        jPanel48 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jPanel19 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
+        try{
+            javax.swing.text.MaskFormatter dataIni = new javax.swing.text.MaskFormatter("##/##/####");
+            dataIni.setPlaceholderCharacter('_');
+            jTextField3 = new javax.swing.JFormattedTextField(dataIni);
+        }catch(Exception e){
+        }
         jLabel6 = new javax.swing.JLabel();
         jTextField4 = new javax.swing.JTextField();
+        try{
+            javax.swing.text.MaskFormatter dataFim = new javax.swing.text.MaskFormatter("##/##/####");
+            dataFim.setPlaceholderCharacter('_');
+            jTextField4 = new javax.swing.JFormattedTextField(dataFim);
+        }catch(Exception e){
+        }
+        jPanel26 = new javax.swing.JPanel();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        jRadioButton3 = new javax.swing.JRadioButton();
         jPanel31 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int vColIndex){
+                return false;
+            }
+        };
         jPanel32 = new javax.swing.JPanel();
         jButton6 = new javax.swing.JButton();
         ClientePanel = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel20 = new javax.swing.JLabel();
         jPanel17 = new javax.swing.JPanel();
         jPanel20 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jTextField6 = new javax.swing.JTextField();
-        jPanel5 = new javax.swing.JPanel();
+        try{
+            javax.swing.text.MaskFormatter CPF = new javax.swing.text.MaskFormatter("###.###.###-##");
+            CPF.setPlaceholderCharacter('_');
+            jTextField6 = new javax.swing.JFormattedTextField(CPF);
+        }catch(Exception e){
+        }
         jPanel4 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         FuncionarioPanel = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel21 = new javax.swing.JLabel();
         jPanel22 = new javax.swing.JPanel();
         jPanel23 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jTextField7 = new javax.swing.JTextField();
-        jPanel7 = new javax.swing.JPanel();
+        try{
+            javax.swing.text.MaskFormatter CPF = new javax.swing.text.MaskFormatter("###.###.###-##");
+            CPF.setPlaceholderCharacter('_');
+            jTextField7 = new javax.swing.JFormattedTextField(CPF);
+        }catch(Exception e){
+        }
         jPanel8 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jButton4 = new javax.swing.JButton();
@@ -111,19 +154,33 @@ public class UIFMenu extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         LimparPanel = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
+        jPanel35 = new javax.swing.JPanel();
+        jLabel22 = new javax.swing.JLabel();
         jPanel33 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jPanel34 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
+        try{
+            javax.swing.text.MaskFormatter dataIni = new javax.swing.text.MaskFormatter("##/##/####");
+            dataIni.setPlaceholderCharacter('_');
+            jTextField5 = new javax.swing.JFormattedTextField(dataIni);
+        }catch(Exception e){
+        }
         jLabel12 = new javax.swing.JLabel();
         jTextField9 = new javax.swing.JTextField();
-        jPanel35 = new javax.swing.JPanel();
+        try{
+            javax.swing.text.MaskFormatter dataFim = new javax.swing.text.MaskFormatter("##/##/####");
+            dataFim.setPlaceholderCharacter('_');
+            jTextField9 = new javax.swing.JFormattedTextField(dataFim);
+        }catch(Exception e){
+        }
         jPanel36 = new javax.swing.JPanel();
         jPanel37 = new javax.swing.JPanel();
         jButton7 = new javax.swing.JButton();
         DadosSetoresPanel = new javax.swing.JPanel();
         jPanel44 = new javax.swing.JPanel();
+        jLabel23 = new javax.swing.JLabel();
         jPanel49 = new javax.swing.JPanel();
         jRadioButton7 = new javax.swing.JRadioButton();
         jRadioButton4 = new javax.swing.JRadioButton();
@@ -173,14 +230,23 @@ public class UIFMenu extends javax.swing.JFrame {
         setTitle("Menu Funcionário");
         getContentPane().setLayout(new javax.swing.OverlayLayout(getContentPane()));
 
-        GeralPanel.setLayout(new java.awt.GridLayout(5, 0));
+        GeralPanel.setLayout(new java.awt.GridLayout(4, 0));
+
+        jPanel15.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 10));
+
+        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel18.setText("Histórico - Geral");
+        jPanel15.add(jLabel18);
+
         GeralPanel.add(jPanel15);
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel2.setText("Data:");
-        jPanel13.add(jLabel2);
+        jPanel13.setLayout(new java.awt.GridLayout(2, 0));
 
-        GeralPanel.add(jPanel13);
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel2.setText("Período:");
+        jPanel47.add(jLabel2);
+
+        jPanel13.add(jPanel47);
 
         jLabel1.setText("De: ");
         jPanel14.add(jLabel1);
@@ -194,8 +260,25 @@ public class UIFMenu extends javax.swing.JFrame {
         jTextField2.setColumns(8);
         jPanel14.add(jTextField2);
 
-        GeralPanel.add(jPanel14);
+        jPanel13.add(jPanel14);
+
+        GeralPanel.add(jPanel13);
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        jPanel16.add(jScrollPane1);
+
         GeralPanel.add(jPanel16);
+
+        jPanel21.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 9));
 
         jButton3.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jButton3.setText("Confirmar");
@@ -205,7 +288,42 @@ public class UIFMenu extends javax.swing.JFrame {
 
         getContentPane().add(GeralPanel);
 
-        SetorPanel.setLayout(new java.awt.GridLayout(5, 0));
+        SetorPanel.setLayout(new java.awt.GridLayout(4, 0));
+
+        jPanel46.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 10));
+
+        jLabel19.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel19.setText("Histórico - Setor");
+        jPanel46.add(jLabel19);
+
+        SetorPanel.add(jPanel46);
+
+        jPanel18.setLayout(new java.awt.GridLayout(3, 0, 0, -1));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel4.setText("Período:");
+        jPanel48.add(jLabel4);
+
+        jPanel18.add(jPanel48);
+
+        jLabel5.setText("De: ");
+        jPanel19.add(jLabel5);
+
+        jTextField3.setColumns(8);
+        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField3ActionPerformed(evt);
+            }
+        });
+        jPanel19.add(jTextField3);
+
+        jLabel6.setText("Até: ");
+        jPanel19.add(jLabel6);
+
+        jTextField4.setColumns(8);
+        jPanel19.add(jTextField4);
+
+        jPanel18.add(jPanel19);
 
         buttonGroup1.add(jRadioButton1);
         jRadioButton1.setText("Venda");
@@ -219,27 +337,22 @@ public class UIFMenu extends javax.swing.JFrame {
         jRadioButton3.setText("Oficina");
         jPanel26.add(jRadioButton3);
 
-        SetorPanel.add(jPanel26);
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel4.setText("Data:");
-        jPanel18.add(jLabel4);
+        jPanel18.add(jPanel26);
 
         SetorPanel.add(jPanel18);
 
-        jLabel5.setText("De: ");
-        jPanel19.add(jLabel5);
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
-        jTextField3.setColumns(8);
-        jPanel19.add(jTextField3);
+            },
+            new String [] {
 
-        jLabel6.setText("Até: ");
-        jPanel19.add(jLabel6);
+            }
+        ));
+        jScrollPane2.setViewportView(jTable2);
 
-        jTextField4.setColumns(8);
-        jPanel19.add(jTextField4);
+        jPanel31.add(jScrollPane2);
 
-        SetorPanel.add(jPanel19);
         SetorPanel.add(jPanel31);
 
         jButton6.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
@@ -251,16 +364,24 @@ public class UIFMenu extends javax.swing.JFrame {
         getContentPane().add(SetorPanel);
 
         ClientePanel.setLayout(new java.awt.GridLayout(5, 0));
+
+        jPanel5.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 20));
+
+        jLabel20.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel20.setText("Histórico - Cliente");
+        jPanel5.add(jLabel20);
+
+        ClientePanel.add(jPanel5);
         ClientePanel.add(jPanel17);
 
         jLabel9.setText("CPF do Cliente:");
         jPanel20.add(jLabel9);
 
-        jTextField6.setColumns(8);
+        jTextField6.setColumns(11);
+        jTextField6.setToolTipText("");
         jPanel20.add(jTextField6);
 
         ClientePanel.add(jPanel20);
-        ClientePanel.add(jPanel5);
         ClientePanel.add(jPanel4);
 
         jButton2.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
@@ -272,16 +393,23 @@ public class UIFMenu extends javax.swing.JFrame {
         getContentPane().add(ClientePanel);
 
         FuncionarioPanel.setLayout(new java.awt.GridLayout(5, 0));
+
+        jPanel7.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 30));
+
+        jLabel21.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel21.setText("Histórico - Funcionário");
+        jPanel7.add(jLabel21);
+
+        FuncionarioPanel.add(jPanel7);
         FuncionarioPanel.add(jPanel22);
 
         jLabel10.setText("CPF do Funcionário:");
         jPanel23.add(jLabel10);
 
-        jTextField7.setColumns(8);
+        jTextField7.setColumns(11);
         jPanel23.add(jTextField7);
 
         FuncionarioPanel.add(jPanel23);
-        FuncionarioPanel.add(jPanel7);
         FuncionarioPanel.add(jPanel8);
 
         jButton4.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
@@ -317,8 +445,14 @@ public class UIFMenu extends javax.swing.JFrame {
 
         jPanel1.setLayout(new java.awt.GridLayout(5, 0));
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel7.setText("Data:");
+        jLabel22.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel22.setText("Limpar Histórico");
+        jPanel35.add(jLabel22);
+
+        jPanel1.add(jPanel35);
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel7.setText("Período:");
         jPanel33.add(jLabel7);
 
         jPanel1.add(jPanel33);
@@ -336,7 +470,6 @@ public class UIFMenu extends javax.swing.JFrame {
         jPanel34.add(jTextField9);
 
         jPanel1.add(jPanel34);
-        jPanel1.add(jPanel35);
         jPanel1.add(jPanel36);
 
         jButton7.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
@@ -350,6 +483,13 @@ public class UIFMenu extends javax.swing.JFrame {
         getContentPane().add(LimparPanel);
 
         DadosSetoresPanel.setLayout(new java.awt.GridLayout(4, 0));
+
+        jPanel44.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 20));
+
+        jLabel23.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel23.setText("Sumarização");
+        jPanel44.add(jLabel23);
+
         DadosSetoresPanel.add(jPanel44);
 
         buttonGroup2.add(jRadioButton7);
@@ -618,6 +758,10 @@ public class UIFMenu extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton9ActionPerformed
 
+    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -653,7 +797,13 @@ public class UIFMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -713,6 +863,9 @@ public class UIFMenu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel43;
     private javax.swing.JPanel jPanel44;
     private javax.swing.JPanel jPanel45;
+    private javax.swing.JPanel jPanel46;
+    private javax.swing.JPanel jPanel47;
+    private javax.swing.JPanel jPanel48;
     private javax.swing.JPanel jPanel49;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel50;
@@ -728,6 +881,10 @@ public class UIFMenu extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton5;
     private javax.swing.JRadioButton jRadioButton6;
     private javax.swing.JRadioButton jRadioButton7;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField2;
