@@ -133,7 +133,7 @@ public class ConexaoBD {
 				TipoServRealizadoOficina sr = new TipoServRealizadoOficina(rsserv.getString(1), rsserv.getString(2));
 				serv_realizados.add(sr);
 			}
-			
+
 			ServicoOficina serv = new ServicoOficina(rs.getString(1), rs.getString(2), rs.getString(3), cpf, serv_realizados);
 			res.add(serv);
 		}
@@ -203,6 +203,23 @@ public class ConexaoBD {
 		st.execute(ins.toString());
 	}
 
+	void inserirAvOficina(AvOficina av) throws SQLException {
+		StringBuilder ins = new StringBuilder();
+		ins.append("INSERT INTO av_oficina VALUES (");
+		ins.append("'").append(av.getCod_av()).append("'");
+		ins.append(", '").append(av.getNota()).append("'");
+		ins.append(", '").append(av.getProb_res()).append("'");
+		if (av.getSugestao().length() > 0) {
+			ins.append(", '").append(av.getSugestao()).append("'");
+		} else {
+			ins.append(", NULL");
+		}
+		ins.append(", '").append(av.getData()).append("'");
+		ins.append(", '").append(av.getS().getData_ini()).append("'");
+		ins.append(", '").append(av.getS().getPlaca()).append("');");
+		st.execute(ins.toString());
+	}
+
 	public Vector buscaTodasAvVendas(String cpf_cliente) throws SQLException {
 		Vector res = new Vector();
 		AvVenda Av;
@@ -258,4 +275,5 @@ public class ConexaoBD {
 		}
 		return res;
 	}
+
 }

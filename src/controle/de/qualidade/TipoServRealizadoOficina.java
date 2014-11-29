@@ -10,12 +10,20 @@ package controle.de.qualidade;
  * @author Bruno
  */
 public class TipoServRealizadoOficina {
+
 	private String cod_serv;
 	private String nome_serv;
 
 	public TipoServRealizadoOficina(String cod_serv, String nome_serv) {
 		this.cod_serv = cod_serv;
 		this.nome_serv = nome_serv;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder res = new StringBuilder();
+		res.append(nome_serv);
+		return res.toString();
 	}
 
 	public String getCod_serv() {
@@ -25,6 +33,5 @@ public class TipoServRealizadoOficina {
 	public String getNome_serv() {
 		return nome_serv;
 	}
-	
-	
+
 }

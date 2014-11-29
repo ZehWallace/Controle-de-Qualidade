@@ -6,6 +6,10 @@
 package controle.de.qualidade;
 
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -22,10 +26,18 @@ public class UIAvOficina extends javax.swing.JFrame {
 	public UIAvOficina(Cliente c, ServicoOficina serv) {
 		this.c = c;
 		this.serv = serv;
-				initComponents();
-		//jTextArea2.setLineWrap(true);
+		initComponents();
 		jTextArea2.setEditable(false);
-		//jTextArea3.setLineWrap(true);
+		Vector tServVet = serv.getTipo_servicos();
+		StringBuilder ins = new StringBuilder();
+		int i;
+		int tam = tServVet.size();
+		for(i=0;i<tam;i++){
+			TipoServRealizadoOficina tServ = (TipoServRealizadoOficina)tServVet.get(i);
+			ins.append("- ").append(tServ.toString());
+			ins.append('\n');
+		}
+		jTextArea2.setText(ins.toString());
 	}
 
 	private UIAvOficina() {
@@ -200,8 +212,26 @@ public class UIAvOficina extends javax.swing.JFrame {
     }//GEN-LAST:event_jSlider1StateChanged
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-		new UIAvSucesso(c).setVisible(true);
-		this.dispose();
+		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+		String data = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime());
+		int probRes = -1;
+		if(jRadioButton1.isSelected()){
+			probRes = 1;
+		}else if(jRadioButton2.isSelected()){
+			probRes = 2;
+		}else if(jRadioButton3.isSelected()){
+			probRes = 3;
+		}else{
+			jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Problema Resolvido?*", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, new java.awt.Color(255, 0, 0)));
+			return;
+		}
+		try {
+			new AvOficina(serv, probRes, c.getCpf(), data, nota, jTextArea3.getText());
+			new UIAvSucesso(c).setVisible(true);
+			this.dispose();
+		} catch (ClassNotFoundException | InstantiationException | SQLException | IllegalAccessException ex) {
+			Logger.getLogger(UIAvOficina.class.getName()).log(Level.SEVERE, null, ex);
+		}
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -212,42 +242,6 @@ public class UIAvOficina extends javax.swing.JFrame {
 		}
 		this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
-
-	/**
-	 * @param args the command line arguments
-	 */
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(Avaliacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(Avaliacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(Avaliacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(Avaliacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            @Override
-//            public void run() {
-//                new Avaliacao().setVisible(true);
-//            }
-//        });
-//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup2;

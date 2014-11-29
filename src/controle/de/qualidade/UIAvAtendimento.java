@@ -222,7 +222,9 @@ public class UIAvAtendimento extends javax.swing.JFrame {
 			new UIAvSucesso(c).setVisible(true);
 			this.dispose();
 		} catch (ClassNotFoundException | SQLException | InstantiationException | IllegalAccessException ex) {
-			Logger.getLogger(UIAvAtendimento.class.getName()).log(Level.SEVERE, null, ex);
+			Logger.getLogger(UIAvVenda.class.getName()).log(Level.SEVERE, null, ex);
+			new UIAvNaoSucesso(c).setVisible(true);
+			this.dispose();
 		}
 
     }//GEN-LAST:event_jButton1ActionPerformed
