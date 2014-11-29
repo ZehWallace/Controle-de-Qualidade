@@ -39,6 +39,7 @@ public class UICMenu extends javax.swing.JFrame {
 		this.avaliacoes_vendas = c.obterAvVendas();
 		this.atendimentos_nao_avaliados = c.obterAtendimentos();
 		this.avaliacoes_atendimentos = c.obterAvAtendimentos();
+		this.servs_oficina_nao_avaliados = c.obterServicos();
 		iniciaTables();
 	}
 
@@ -49,6 +50,7 @@ public class UICMenu extends javax.swing.JFrame {
 		this.cria_model_visualizar_av_venda();
 		this.cria_model_criar_av_atendimento();
 		this.cria_model_visualizar_av_atendimento();
+		this.cria_model_criar_av_serv_oficina();
 	}
 
 	private void cria_model_criar_av_venda() {
@@ -120,8 +122,20 @@ public class UICMenu extends javax.swing.JFrame {
 		visualizar_av_atendimentos_model = new DefaultTableModel(dataVector, header);
 	}
 
-	private UICMenu() {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	private void cria_model_criar_av_serv_oficina() {
+		//magica
+		String rows[] = servs_oficina_nao_avaliados.toString().replace("[", "").replace("]", "").split(",");
+		Vector<Vector<String>> dataVector = new Vector<Vector<String>>();
+		for (String row : rows) {
+			row = row.trim();  //UPDATE
+			Vector<String> data = new Vector<String>();
+			data.addAll(Arrays.asList(row.split("@")));
+			dataVector.add(data);
+		}
+		Vector<String> header = new Vector<String>(2);
+		header.add("Placa");
+		header.add("Data");
+		criar_av_serv_oficina_model = new DefaultTableModel(dataVector, header);
 	}
 
 	/**
@@ -356,7 +370,7 @@ public class UICMenu extends javax.swing.JFrame {
 		} else if (opc == 1) {
 			jTable1.setModel(criar_av_venda_model);
 		} else if (opc == 2) {
-
+			jTable1.setModel(criar_av_serv_oficina_model);
 		} else if (opc == 3) {
 			jTable1.setModel(criar_av_atendimento_model);
 		}
@@ -391,7 +405,11 @@ public class UICMenu extends javax.swing.JFrame {
 		jLabel2.setText("");
 		if (vendas_nao_avaliadas.size() > 0 && opc == 1 && row != -1) {
 			Venda v = (Venda) vendas_nao_avaliadas.get(row);
-			new UIAvVenda(c, (Venda) vendas_nao_avaliadas.get(jTable1.getSelectedRow())).setVisible(true);
+			new UIAvVenda(c, v).setVisible(true);
+			this.dispose();
+		} else if (servs_oficina_nao_avaliados.size() > 0 && opc == 2 && row != -1) {
+			ServicoOficina s = (ServicoOficina) servs_oficina_nao_avaliados.get(row);
+			new UIAvOficina(c, s).setVisible(true);
 			this.dispose();
 		} else if (atendimentos_nao_avaliados.size() > 0 && opc == 3 && row != -1) {
 			Atendimento a = (Atendimento) atendimentos_nao_avaliados.get(row);
@@ -465,8 +483,10 @@ public class UICMenu extends javax.swing.JFrame {
 	private TableModel visualizar_av_venda_model;
 	private TableModel criar_av_atendimento_model;
 	private TableModel visualizar_av_atendimentos_model;
+	private TableModel criar_av_serv_oficina_model;
 	private Vector vendas_nao_avaliadas;
 	private Vector avaliacoes_vendas;
 	private Vector atendimentos_nao_avaliados;
 	private Vector avaliacoes_atendimentos;
+	private Vector servs_oficina_nao_avaliados;
 }

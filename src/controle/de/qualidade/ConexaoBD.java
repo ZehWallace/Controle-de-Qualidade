@@ -100,6 +100,47 @@ public class ConexaoBD {
 		return res;
 	}
 
+	public Vector buscaTodosServicosNaoAvaliados(String cpf) throws SQLException {
+		String placa, data_serv;
+		Vector res = new Vector();
+		Vector serv_realizados;
+		StringBuilder ins = new StringBuilder();
+		ins.append("SELECT * FROM (");
+		ins.append(" SELECT DISTINCT a.placa, data_ini, data_fim FROM servicos_realizados a, (");
+		ins.append(" SELECT * FROM servicos WHERE placa IN (");
+		ins.append(" SELECT placa FROM veiculo WHERE cpf_cliente = '").append(cpf).append("'))");
+		ins.append(" AS serv_cod WHERE a.placa = serv_cod.placa AND a.data_serv = serv_cod.data_ini ORDER BY a.placa)");
+		ins.append(" AS servicos WHERE (placa, data_ini) NOT IN (SELECT placa, data_serv FROM av_oficina);");
+		st.execute(ins.toString());
+		ResultSet rs = st.getResultSet();
+		//adiciona ao vetor resultado os servicos em oficina ainda nao avaliados pelo cliente
+		while (rs.next()) {
+			placa = rs.getString(1);
+			data_serv = rs.getString(2);
+
+			ins = new StringBuilder();
+			ins.append("SELECT l.cod_serv, nome_serv FROM lista_servicos l, (");
+			ins.append(" SELECT * FROM servicos_realizados WHERE placa = '").append(placa).append("'");
+			ins.append(" AND data_serv = '").append(data_serv).append("')");
+			ins.append(" AS foo WHERE l.cod_serv = foo.cod_serv;");
+
+			st = myConnection.createStatement();
+			st.execute(ins.toString());
+			ResultSet rsserv = st.getResultSet();
+			//cria um vetor com todos os tipos de servicos realizados em um servico na oficina
+			serv_realizados = new Vector();
+			while (rsserv.next()) {
+				TipoServRealizadoOficina sr = new TipoServRealizadoOficina(rsserv.getString(1), rsserv.getString(2));
+				serv_realizados.add(sr);
+			}
+			
+			ServicoOficina serv = new ServicoOficina(rs.getString(1), rs.getString(2), rs.getString(3), cpf, serv_realizados);
+			res.add(serv);
+		}
+
+		return res;
+	}
+
 	public int gerarCodigoAvaliacao() throws SQLException {
 		int count = 0;
 		st.execute("SELECT * FROM av_venda");
