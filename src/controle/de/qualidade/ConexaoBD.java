@@ -15,7 +15,7 @@ public class ConexaoBD {
 		myConnection = DriverManager.getConnection("jdbc:postgresql:"
 				+ "//localhost/ControleDeQualidade?user=postgres&password=postgres");
 
-		//Cria um comando (statement) vinculado aa conexao
+		//Cria um comando (statement) vinculado a conexao
 		st = myConnection.createStatement();
 	}
 
@@ -60,13 +60,13 @@ public class ConexaoBD {
 	public Vector buscaTodasVendasNaoAvaliadas(String cpf) throws SQLException {
 		Vector res = new Vector();
 		Venda v;
-		StringBuilder strb = new StringBuilder();
+		StringBuilder ins = new StringBuilder();
 		//st.execute("SELECT * FROM venda WHERE cpf_cliente = '" + cpf + "'");
-		strb.append("SELECT * FROM venda v WHERE cpf_cliente = '");
-		strb.append(cpf).append("'");
-		strb.append(" AND NOT EXISTS");
-		strb.append(" (SELECT * FROM av_venda a WHERE v.data_venda = a.data_venda);");
-		st.execute(strb.toString());
+		ins.append("SELECT * FROM venda v WHERE cpf_cliente = '");
+		ins.append(cpf).append("'");
+		ins.append(" AND NOT EXISTS");
+		ins.append(" (SELECT * FROM av_venda a WHERE v.data_venda = a.data_venda);");
+		st.execute(ins.toString());
 		ResultSet rs = st.getResultSet();
 		while (rs.next()) {
 			ResultSet rsnome;
@@ -82,11 +82,11 @@ public class ConexaoBD {
 
 	public Vector buscaTodosAtendimentosNaoAvaliados(String cpf) throws SQLException {
 		Vector res = new Vector();
-		StringBuilder strb = new StringBuilder();
-		strb.append("SELECT * FROM atendimento a WHERE ");
-		strb.append("cpf_cliente = '").append(cpf).append("'");
-		strb.append("AND NOT EXISTS (SELECT * FROM av_atendimento av WHERE a.data_ini = av.data_atend);");
-		st.execute(strb.toString());
+		StringBuilder ins = new StringBuilder();
+		ins.append("SELECT * FROM atendimento a WHERE ");
+		ins.append("cpf_cliente = '").append(cpf).append("'");
+		ins.append("AND NOT EXISTS (SELECT * FROM av_atendimento av WHERE a.data_ini = av.data_atend);");
+		st.execute(ins.toString());
 		ResultSet rs = st.getResultSet();
 		while (rs.next()) {
 			ResultSet rsnome;
@@ -97,7 +97,6 @@ public class ConexaoBD {
 			Atendimento a = new Atendimento(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rsnome.getString(1));
 			res.addElement(a);
 		}
-//		SELECT * FROM atendimento a WHERE cpf_cliente = '22222222222' AND NOT EXISTS (SELECT * FROM av_atendimento av WHERE a.data_ini = av.data_atend);
 		return res;
 	}
 
@@ -125,7 +124,7 @@ public class ConexaoBD {
 
 	public void inserirAvVenda(AvVenda av) throws SQLException {
 		StringBuilder ins = new StringBuilder();
-		StringBuilder append = ins.append("INSERT INTO av_venda VALUES (");
+		ins.append("INSERT INTO av_venda VALUES (");
 		ins.append("'").append(av.getCod_av()).append("',");
 		System.out.println(av.getCod_av());
 		ins.append("'").append(av.getNota()).append("',");
@@ -142,47 +141,53 @@ public class ConexaoBD {
 		System.out.println(ins.toString());
 		st.execute(ins.toString());
 	}
-	
-	public void inserirAvAtendimento(AvAtendimento av){
-		
+
+	public void inserirAvAtendimento(AvAtendimento av) throws SQLException {
+		StringBuilder ins = new StringBuilder();
+		ins.append("INSERT INTO atendimento VALUES (");
+		ins.append("'").append(av.getCod_av()).append("'");
+		ins.append(", '").append(av.getCpf_atendente()).append("'");
+		ins.append(", '").append(av.getCpf_cliente()).append("'");
+		ins.append(", '").append(av.getNota()).append("'");
+		ins.append(", '").append(av.getProbl_res()).append("'");
+		if (av.getSugestao().length() > 0) {
+			ins.append(", '").append(av.getSugestao()).append("'");
+		} else {
+			ins.append(", NULL");
+		}
+		ins.append(", '").append(av.getData_atendimento()).append("'");
+		ins.append(", '").append(av.getData()).append("'");
+		ins.append(";");
+
+		st.execute(ins.toString());
 	}
+
 	public Vector buscaTodasAvVendas(String cpf_cliente) throws SQLException {
 		Vector res = new Vector();
 		AvVenda Av;
 		Venda v;
-		StringBuilder strb = new StringBuilder();
-		strb.append("SELECT cod_av, nota_venda, sugestao_venda, data_av, av.cpf_cliente, av.cpf_vendedor, av.data_venda, tipo_venda, descr_venda ");
-		strb.append("FROM av_venda av, venda v ");
-		strb.append(" WHERE av.cpf_cliente = '").append(cpf_cliente).append("'");
-		strb.append(" AND av.cpf_cliente = v.cpf_cliente");
-		strb.append(" AND av.cpf_vendedor = v.cpf_vendedor");
-		strb.append(" AND av.data_venda = v.data_venda;");
-		st.execute(strb.toString());
+		StringBuilder ins = new StringBuilder();
+		ins.append("SELECT cod_av, nota_venda, sugestao_venda, data_av, av.cpf_cliente, av.cpf_vendedor, av.data_venda, tipo_venda, descr_venda ");
+		ins.append("FROM av_venda av, venda v ");
+		ins.append(" WHERE av.cpf_cliente = '").append(cpf_cliente).append("'");
+		ins.append(" AND av.cpf_cliente = v.cpf_cliente");
+		ins.append(" AND av.cpf_vendedor = v.cpf_vendedor");
+		ins.append(" AND av.data_venda = v.data_venda;");
+		st.execute(ins.toString());
 
 		ResultSet rs = st.getResultSet();
 
-		//SELECT cod_av, nota_venda, sugestao_venda, data_av, av.cpf_cliente, av.cpf_vendedor, av.data_venda, tipo_venda, descr_venda 
-		//FROM av_venda av, venda v 
-		//WHERE av.cpf_cliente = '22222222222' AND  av.cpf_cliente = v.cpf_cliente AND av.cpf_vendedor = v.cpf_vendedor AND av.data_venda = v.data_venda;
 		while (rs.next()) {
 			ResultSet rsnome;
 			st = myConnection.createStatement();
 			st.execute("SELECT nome_vendedor FROM funcionario_vendedor WHERE cpf_vendedor = '" + rs.getString("cpf_vendedor") + "';");
 			rsnome = st.getResultSet();
 			rsnome.next();
-			//System.out.println(rsnome.getString(1));
 			v = new Venda(rs.getString("cpf_vendedor"), rs.getString("cpf_cliente"), rs.getString("data_venda"), rs.getString("tipo_venda"), rs.getString("descr_venda"), rsnome.getString(1));
 			Av = new AvVenda(rs.getString("cod_av"), rs.getFloat("nota_venda"), rs.getString("sugestao_venda"), rs.getString("data_av"), rs.getString("cpf_cliente"), rs.getString("cpf_vendedor"), rs.getString("data_venda"), rsnome.getString(1), v);
-//			st = myConnection.createStatement();
-//			st.execute("");
-//			//SELECT * FROM venda WHERE 
-			//Armazena o novo filme no vetor
 			res.addElement(Av);
-			//rsnome = null;
 		}
 		return res;
 	}
 }
 
-
-//INSERT INTO av_venda ('cod', 'nota', 'sugestao', 'dataAv', 'cpfC', 'cpfV', 'dataV');

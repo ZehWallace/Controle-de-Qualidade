@@ -5,16 +5,66 @@
  */
 package controle.de.qualidade;
 
+import java.sql.SQLException;
+
 /**
  *
  * @author Bruno
  */
-class AvAtendimento {
-	private String cpf_cliente;
-	private String cpf_atendente;
-	private String data_atendimento;
-	private Atendimento atendimento;
-	AvAtendimento(){
-		
+class AvAtendimento extends Avaliacao {
+
+	private final String cpf_atendente;
+	private final String data_atendimento;
+	private final Atendimento atendimento;
+	private final String nome_atendente;
+	private final int probl_res;
+
+	//cria nova avaliacao para inserir no banco
+	public AvAtendimento(String cpf_cliente, String cpf_atendente, String data_avaliacao, String data_atendimento, float nota, String sugestao, Atendimento atendimento, int probl_res) throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
+		this.setCpf_cliente(cpf_cliente);
+		this.setData(data_avaliacao);
+		this.setNota(nota);
+		this.setSugestao(sugestao);
+		this.cpf_atendente = cpf_atendente;
+		this.data_atendimento = data_atendimento;
+		this.atendimento = atendimento;
+		this.nome_atendente = null;
+		this.probl_res = probl_res;
+		this.adicionarAvAtendimento();
+	}
+
+//	//carrega avaliacao do banco de dados
+//	public AvAtendimento(String cpf_atendente, String data_atendimento, Atendimento atendimento, String nome_atendente) {
+//		this.setCpf_cliente(cpf_atendente);
+//		this.cpf_atendente = cpf_atendente;
+//		this.data_atendimento = data_atendimento;
+//		this.atendimento = atendimento;
+//		this.nome_atendente = nome_atendente;
+//	}
+	public void adicionarAvAtendimento() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
+		ConexaoBD con;
+		con = new ConexaoBD();
+		this.setCod_av(String.format("%05d", con.gerarCodigoAvaliacao()));
+		con.inserirAvAtendimento(this);
+	}
+
+	public String getCpf_atendente() {
+		return cpf_atendente;
+	}
+
+	public String getData_atendimento() {
+		return data_atendimento;
+	}
+
+	public Atendimento getAtendimento() {
+		return atendimento;
+	}
+
+	public String getNome_atendente() {
+		return nome_atendente;
+	}
+
+	public int getProbl_res() {
+		return probl_res;
 	}
 }

@@ -2,7 +2,7 @@
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
-    COMENTARIO
+ COMENTARIO
 
  */
 package controle.de.qualidade;
@@ -20,35 +20,24 @@ public class AvVenda extends Avaliacao {
 	private String data_venda;
 	private String cpf_vendedor;
 	private Venda venda;
-        private int o;
 
-	public Venda getVenda() {
-		return venda;
-	}
-
-	public void setVenda(Venda venda) {
-		this.venda = venda;
-	}
-	public String getCpf_vendedor() {
-		return cpf_vendedor;
-	}
-
-	public void setCpf_vendedor(String cpf_vendedor) {
-		this.cpf_vendedor = cpf_vendedor;
-	}
-
+	/**
+	 * cria nova avaliacao para inserir no banco
+	 */
 	public AvVenda(String cpfC, String cpfF, String data, String dataVenda, float nota, String sugestao) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
 		this.setCpf_cliente(cpfC);
-		this.cpf_vendedor = cpfF;
 		this.setData(data);
-		this.data_venda = dataVenda;
 		this.setNota(nota);
 		this.setSugestao(sugestao);
 		this.adicionarAvVenda();
+		this.cpf_vendedor = cpfF;
+		this.data_venda = dataVenda;
 		this.nome_vendedor = null;
 	}
 
-	//Carrega avaliação
+	/**
+	 * carrega avaliacao do banco de dados
+	 */
 	public AvVenda(String codigo, float nota, String sugestao, String data, String cpfC, String cpfF, String dataVenda, String nome_vendedor, Venda v) throws SQLException {
 		this.setCod_av(codigo);
 		this.setCpf_cliente(cpfC);
@@ -61,6 +50,9 @@ public class AvVenda extends Avaliacao {
 		this.venda = v;
 	}
 
+	/**
+	 * adiciona avaliacao ao banco de dados
+	 */
 	public void adicionarAvVenda() throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
 		ConexaoBD con;
 		con = new ConexaoBD();
@@ -77,6 +69,22 @@ public class AvVenda extends Avaliacao {
 		res.append(this.getNota()).append("@");
 		res.append("");
 		return res.toString();
+	}
+
+	public Venda getVenda() {
+		return venda;
+	}
+
+	public void setVenda(Venda venda) {
+		this.venda = venda;
+	}
+
+	public String getCpf_vendedor() {
+		return cpf_vendedor;
+	}
+
+	public void setCpf_vendedor(String cpf_vendedor) {
+		this.cpf_vendedor = cpf_vendedor;
 	}
 
 	/**
