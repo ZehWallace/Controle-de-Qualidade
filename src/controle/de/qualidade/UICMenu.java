@@ -79,7 +79,7 @@ public class UICMenu extends javax.swing.JFrame {
 		}
 		Vector<String> header = new Vector<String>(2);
 		header.add("Tipo da Compra");
-		header.add("Data Av");
+		header.add("Data Avaliação");
 		header.add("Vendedor");
 		header.add("Nota");
 		visualizar_av_venda_model = new DefaultTableModel(dataVector, header);
