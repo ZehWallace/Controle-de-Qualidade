@@ -87,16 +87,10 @@ public class AvVenda extends Avaliacao {
 		this.cpf_vendedor = cpf_vendedor;
 	}
 
-	/**
-	 * @return the data_venda
-	 */
 	public String getData_venda() {
 		return data_venda;
 	}
 
-	/**
-	 * @param data_venda the data_venda to set
-	 */
 	public void setData_venda(String data_venda) {
 		this.data_venda = data_venda;
 	}

@@ -20,7 +20,7 @@ class AvAtendimento extends Avaliacao {
 	private final int probl_res;
 
 	//cria nova avaliacao para inserir no banco
-	public AvAtendimento(String cpf_cliente, String cpf_atendente, String data_avaliacao, String data_atendimento, float nota, String sugestao, Atendimento atendimento, int probl_res) throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
+	AvAtendimento(String cpf_cliente, String cpf_atendente, String data_avaliacao, String data_atendimento, float nota, String sugestao, Atendimento atendimento, int probl_res) throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
 		this.setCpf_cliente(cpf_cliente);
 		this.setData(data_avaliacao);
 		this.setNota(nota);
@@ -33,19 +33,33 @@ class AvAtendimento extends Avaliacao {
 		this.adicionarAvAtendimento();
 	}
 
-//	//carrega avaliacao do banco de dados
-//	public AvAtendimento(String cpf_atendente, String data_atendimento, Atendimento atendimento, String nome_atendente) {
-//		this.setCpf_cliente(cpf_atendente);
-//		this.cpf_atendente = cpf_atendente;
-//		this.data_atendimento = data_atendimento;
-//		this.atendimento = atendimento;
-//		this.nome_atendente = nome_atendente;
-//	}
+	AvAtendimento(String cpf_cliente, String cpf_atendente, String data_avaliacao, String data_atendimento, float nota, String sugestao, Atendimento atendimento, int probl_res, String nome_atendente) {
+		this.setCpf_cliente(cpf_cliente);
+		this.setData(data_avaliacao);
+		this.setNota(nota);
+		this.setSugestao(sugestao);
+		this.cpf_atendente = cpf_atendente;
+		this.data_atendimento = data_atendimento;
+		this.atendimento = atendimento;
+		this.nome_atendente = nome_atendente;
+		this.probl_res = probl_res;
+	}
+
 	public void adicionarAvAtendimento() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
 		ConexaoBD con;
 		con = new ConexaoBD();
 		this.setCod_av(String.format("%05d", con.gerarCodigoAvaliacao()));
 		con.inserirAvAtendimento(this);
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder res = new StringBuilder();
+		res.append(nome_atendente).append("@");
+		res.append(this.getData()).append("@");
+		res.append(this.getNota()).append("@");
+		res.append("");
+		return res.toString();
 	}
 
 	public String getCpf_atendente() {

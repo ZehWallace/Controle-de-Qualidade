@@ -25,8 +25,8 @@ public class UICMenu extends javax.swing.JFrame {
 	 * @throws java.sql.SQLException
 	 */
 	public UICMenu(Cliente tempc) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
-		this.vetorVendasNaoAvaliadas = new Vector();
-		this.vetorAvVendas = new Vector();
+		this.vendas_nao_avaliadas = new Vector();
+		this.avaliacoes_vendas = new Vector();
 		String temp;
 		this.c = tempc;
 		initComponents();
@@ -35,9 +35,10 @@ public class UICMenu extends javax.swing.JFrame {
 		this.numCPF1.setText(temp.substring(0, 3) + "." + temp.substring(3, 6) + "." + temp.substring(6, 9) + "-" + temp.substring(9, 11));
 		this.jLabel8.setText(c.getNome());
 		this.jLabel10.setText(c.getNome());
-		this.vetorVendasNaoAvaliadas = c.obterVendas();
-		this.vetorAvVendas = c.obterAvVendas();
-		this.vetorAtendimentosNaoAvaliados = c.obterAtendimentos();
+		this.vendas_nao_avaliadas = c.obterVendas();
+		this.avaliacoes_vendas = c.obterAvVendas();
+		this.atendimentos_nao_avaliados = c.obterAtendimentos();
+		this.avaliacoes_atendimentos = c.obterAvAtendimentos();
 		iniciaTables();
 	}
 
@@ -47,12 +48,13 @@ public class UICMenu extends javax.swing.JFrame {
 		this.cria_model_criar_av_venda();
 		this.cria_model_visualizar_av_venda();
 		this.cria_model_criar_av_atendimento();
+		this.cria_model_visualizar_av_atendimento();
 	}
 
 	private void cria_model_criar_av_venda() {
 		int i;
 		//magica
-		String rows[] = vetorVendasNaoAvaliadas.toString().replace("[", "").replace("]", "").split(",");
+		String rows[] = vendas_nao_avaliadas.toString().replace("[", "").replace("]", "").split(",");
 		Vector<Vector<String>> dataVector = new Vector<Vector<String>>();
 		for (String row : rows) {
 			row = row.trim();  //UPDATE
@@ -69,7 +71,7 @@ public class UICMenu extends javax.swing.JFrame {
 
 	private void cria_model_visualizar_av_venda() {
 		//magica
-		String rows[] = vetorAvVendas.toString().replace("[", "").replace("]", "").split(",");
+		String rows[] = avaliacoes_vendas.toString().replace("[", "").replace("]", "").split(",");
 		Vector<Vector<String>> dataVector = new Vector<Vector<String>>();
 		for (String row : rows) {
 			row = row.trim();  //UPDATE
@@ -87,8 +89,7 @@ public class UICMenu extends javax.swing.JFrame {
 
 	private void cria_model_criar_av_atendimento() {
 		//magica
-		System.out.println(vetorAtendimentosNaoAvaliados.toString());
-		String rows[] = vetorAtendimentosNaoAvaliados.toString().replace("[", "").replace("]", "").split(",");
+		String rows[] = atendimentos_nao_avaliados.toString().replace("[", "").replace("]", "").split(",");
 		Vector<Vector<String>> dataVector = new Vector<Vector<String>>();
 		for (String row : rows) {
 			row = row.trim();  //UPDATE
@@ -100,6 +101,23 @@ public class UICMenu extends javax.swing.JFrame {
 		header.add("Nome Atendente");
 		header.add("Data Atendimento");
 		criar_av_atendimento_model = new DefaultTableModel(dataVector, header);
+	}
+
+	private void cria_model_visualizar_av_atendimento() {
+		//magica
+		String rows[] = avaliacoes_atendimentos.toString().replace("[", "").replace("]", "").split(",");
+		Vector<Vector<String>> dataVector = new Vector<Vector<String>>();
+		for (String row : rows) {
+			row = row.trim();  //UPDATE
+			Vector<String> data = new Vector<String>();
+			data.addAll(Arrays.asList(row.split("@")));
+			dataVector.add(data);
+		}
+		Vector<String> header = new Vector<String>(2);
+		header.add("Atendente");
+		header.add("Data Avaliacao");
+		header.add("Nota");
+		visualizar_av_atendimentos_model = new DefaultTableModel(dataVector, header);
 	}
 
 	private UICMenu() {
@@ -348,16 +366,17 @@ public class UICMenu extends javax.swing.JFrame {
 		// TODO add your handling code here:
 		int opc;
 
-		opc = select.getSelectedIndex();
+		opc = select1.getSelectedIndex();
 
 		if (opc == 0) {
 
 		} else if (opc == 1) {
+			System.out.println("asjdasd");
 			jTable2.setModel(visualizar_av_venda_model);
 		} else if (opc == 2) {
 
 		} else if (opc == 3) {
-
+			jTable2.setModel(visualizar_av_atendimentos_model);
 		}
     }//GEN-LAST:event_select1ActionPerformed
 
@@ -369,13 +388,13 @@ public class UICMenu extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 		int row = jTable1.getSelectedRow();
 		int opc = select.getSelectedIndex();
-
-		if (vetorVendasNaoAvaliadas.size() > 0 && opc == 1 && row != -1) {
-			Venda v = (Venda) vetorVendasNaoAvaliadas.get(row);
-			new UIAvVenda(c, (Venda) vetorVendasNaoAvaliadas.get(jTable1.getSelectedRow())).setVisible(true);
+		jLabel2.setText("");
+		if (vendas_nao_avaliadas.size() > 0 && opc == 1 && row != -1) {
+			Venda v = (Venda) vendas_nao_avaliadas.get(row);
+			new UIAvVenda(c, (Venda) vendas_nao_avaliadas.get(jTable1.getSelectedRow())).setVisible(true);
 			this.dispose();
-		} else if (vetorAtendimentosNaoAvaliados.size()>0 && opc == 3 && row != -1) {
-			Atendimento a = (Atendimento) vetorAtendimentosNaoAvaliados.get(row);
+		} else if (atendimentos_nao_avaliados.size() > 0 && opc == 3 && row != -1) {
+			Atendimento a = (Atendimento) atendimentos_nao_avaliados.get(row);
 			new UIAvAtendimento(c, a).setVisible(true);
 			this.dispose();
 		} else {
@@ -385,9 +404,14 @@ public class UICMenu extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 		int row = jTable2.getSelectedRow();
-		if (vetorAvVendas.size() > 0 && row != -1) {
-			AvVenda av = (AvVenda) vetorAvVendas.get(row);
-			new UIVisAvVenda(c, (AvVenda) vetorAvVendas.get(row)).setVisible(true);
+		int opc = select1.getSelectedIndex();
+		jLabel3.setText("");
+		if (avaliacoes_vendas.size() > 0 && opc == 1 && row != -1) {
+			AvVenda av = (AvVenda) avaliacoes_vendas.get(row);
+			new UIVisAvVenda(c, av).setVisible(true);
+		} else if (avaliacoes_atendimentos.size() > 0 && opc == 3 && row != -1) {
+			AvAtendimento av = (AvAtendimento) avaliacoes_atendimentos.get(row);
+			new UIVisAvAtendimento(c, av).setVisible(true);
 		} else {
 			jLabel3.setText("Nenhum item selecionado!");
 		}
@@ -440,7 +464,9 @@ public class UICMenu extends javax.swing.JFrame {
 	private TableModel criar_av_venda_model;
 	private TableModel visualizar_av_venda_model;
 	private TableModel criar_av_atendimento_model;
-	private Vector vetorVendasNaoAvaliadas;
-	private Vector vetorAvVendas;
-	private Vector vetorAtendimentosNaoAvaliados;
+	private TableModel visualizar_av_atendimentos_model;
+	private Vector vendas_nao_avaliadas;
+	private Vector avaliacoes_vendas;
+	private Vector atendimentos_nao_avaliados;
+	private Vector avaliacoes_atendimentos;
 }
