@@ -144,7 +144,7 @@ public class ConexaoBD {
 
 	public void inserirAvAtendimento(AvAtendimento av) throws SQLException {
 		StringBuilder ins = new StringBuilder();
-		ins.append("INSERT INTO atendimento VALUES (");
+		ins.append("INSERT INTO av_atendimento VALUES (");
 		ins.append("'").append(av.getCod_av()).append("'");
 		ins.append(", '").append(av.getCpf_atendente()).append("'");
 		ins.append(", '").append(av.getCpf_cliente()).append("'");
@@ -157,7 +157,7 @@ public class ConexaoBD {
 		}
 		ins.append(", '").append(av.getData_atendimento()).append("'");
 		ins.append(", '").append(av.getData()).append("'");
-		ins.append(";");
+		ins.append(");");
 
 		st.execute(ins.toString());
 	}

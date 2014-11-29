@@ -7,6 +7,9 @@ package controle.de.qualidade;
 
 import java.awt.Color;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -201,18 +204,26 @@ public class UIAvAtendimento extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-		int probl_res;
+		int probl_res = -1;
+		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+		String data = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime());
 		if (jRadioButton1.isSelected()) {
-			new UIAvSucesso(c).setVisible(true);
-			this.dispose();
+			probl_res = 1;
 		} else if (jRadioButton2.isSelected()) {
-
+			probl_res = 2;
 		} else if (jRadioButton3.isSelected()) {
-
+			probl_res = 3;
 		} else {
 			jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Problema Resolvido?*", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, new java.awt.Color(255, 0, 0)));
+			return;
 		}
-		
+		try {
+			new AvAtendimento(c.getCpf(), a.getCpf_atendente(), data, a.getData_ini(), jSlider1.getValue() / 10, jTextArea3.getText(), a, probl_res);
+			new UIAvSucesso(c).setVisible(true);
+			this.dispose();
+		} catch (ClassNotFoundException | SQLException | InstantiationException | IllegalAccessException ex) {
+			Logger.getLogger(UIAvAtendimento.class.getName()).log(Level.SEVERE, null, ex);
+		}
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
