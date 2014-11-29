@@ -203,7 +203,7 @@ public class ConexaoBD {
 		st.execute(ins.toString());
 	}
 
-	void inserirAvOficina(AvOficina av) throws SQLException {
+	public void inserirAvOficina(AvOficina av) throws SQLException {
 		StringBuilder ins = new StringBuilder();
 		ins.append("INSERT INTO av_oficina VALUES (");
 		ins.append("'").append(av.getCod_av()).append("'");
@@ -275,5 +275,5 @@ public class ConexaoBD {
 		}
 		return res;
 	}
-
+	
 }
