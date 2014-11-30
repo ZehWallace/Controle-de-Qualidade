@@ -1591,20 +1591,21 @@ public class UIFMenu extends javax.swing.JFrame {
 		int opc = -1;
 		int row = -1;
 
-		if (opc == -1) {
+		if (row == -1) {
 			row = jTable16.getSelectedRow();
 			opc = 1;
 		}
-		if (opc == -1) {
+		if (row == -1) {
 			row = jTable17.getSelectedRow();
 			opc = 2;
 		}
-		
+
+		System.out.println("" + row);
 		if (opc == 1) {
 			try {
 				AvVenda av = (AvVenda) avaliacoes_vendas.get(row);
 				String cpf = av.getCpf_cliente();
-				System.out.println(cpf);
+				c = new Cliente();
 				c.buscarCliente(cpf);
 				new UIVisAvVenda(c, av).setVisible(true);
 			} catch (SQLException | ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
@@ -1613,6 +1614,9 @@ public class UIFMenu extends javax.swing.JFrame {
 		} else if (opc == 2) {
 			try {
 				AvAtendimento av = (AvAtendimento) avaliacoes_atendimentos.get(row);
+				String cpf = av.getCpf_cliente();
+				c = new Cliente();
+				c.buscarCliente(cpf);
 				c.buscarCliente(av.getCpf_cliente());
 				new UIVisAvAtendimento(c, av).setVisible(true);
 			} catch (SQLException | ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
@@ -1649,11 +1653,13 @@ public class UIFMenu extends javax.swing.JFrame {
 		} else {
 			warningLabelFuncionario.setText("Funcionário não encontrado!");
 		}
+		jTextField11.setText("");
 	}
 
 	private void buscarClientePanel() throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
 		c = new Cliente();
 		String cpf = jTextField6.getText().replaceAll("[^0-9]", "");
+		warningLabel.setText("");
 		if (cpf.length() != 11) {
 			jPanel4.setVisible(false);
 			warningLabel.setText("CPF Inválido!");
@@ -1678,7 +1684,10 @@ public class UIFMenu extends javax.swing.JFrame {
 			jTable13.setSelectionMode(SINGLE_SELECTION);
 			jTable14.setSelectionMode(SINGLE_SELECTION);
 			jTable15.setSelectionMode(SINGLE_SELECTION);
+		}else{
+			warningLabel.setText("Cliente não encontrado!");
 		}
+		jTextField6.setText("");
 	}
 
 	private void cria_model_visualizar_av_venda() {
