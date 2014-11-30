@@ -31,7 +31,7 @@ public class Atendimento {
 	public String toString() {
 		StringBuilder res = new StringBuilder();
 		res.append(nome_atendente).append("@");
-		res.append(data_ini);
+		res.append(getData_ini_splitted());
 		return res.toString();
 	}
 
@@ -82,4 +82,16 @@ public class Atendimento {
 	public void setNome_atendente(String nome_atendente) {
 		this.nome_atendente = nome_atendente;
 	}
+        
+        public String getData_ini_splitted(){
+            String d[] = this.data_ini.substring(0, 10).split("-");
+            String aux = d[2] + "/" + d[1] + "/" + d[0];
+            return aux;
+        }
+        
+        public String getData_fim_splitted(){
+            String d[] = this.data_fim.substring(0, 10).split("-");
+            String aux = d[2] + "/" + d[1] + "/" + d[0];
+            return aux;
+        }
 }

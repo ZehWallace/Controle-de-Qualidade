@@ -6,6 +6,8 @@
 package controle.de.qualidade;
 
 import java.awt.Color;
+import java.util.Date;
+import java.sql.Timestamp;
 
 /**
  *
@@ -25,10 +27,36 @@ public class UIVisAvAtendimento extends javax.swing.JFrame {
 		this.c = c;
 		Color orange = new Color(204,102,0);
 		initComponents();
+                
+                String dIni = av.getAtendimento().getData_ini();
+                String dFim = av.getAtendimento().getData_fim();
+                
+                Date data = new Date();
+                Timestamp dataIni = Timestamp.valueOf(dIni);
+                Timestamp dataFim = Timestamp.valueOf(dFim);
+                
+                System.out.println(dataIni);
+                System.out.println(dataFim);
+                
+               long x = dataIni.getTime();
+               long y = dataFim.getTime();
+               
+               Long tempo = (long) ((y-x) * 1.66666667 * 0.00001);
+                
 		jTextArea1.setEditable(false);
 		jTextArea2.setEditable(false);
 		jLabel13.setText(av.getNome_atendente());
 		jLabel3.setText(av.getData_atendimento());
+                if(tempo < 60)
+                    jLabel11.setText(tempo.toString() + " minuto(s)");
+                else if(tempo >= 60){
+                    Integer horas = 0;
+                    while(tempo >= 60){
+                        horas++;
+                        tempo -= 60;
+                    }
+                    jLabel11.setText(horas.toString() + "hora(s) e" + tempo.toString() + " minuto(s)");
+                }
 		jLabel5.setText(av.getData());
 		int probl_res = av.getProbl_res();
 		if(probl_res == 1){

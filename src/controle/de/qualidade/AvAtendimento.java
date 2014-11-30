@@ -56,7 +56,7 @@ class AvAtendimento extends Avaliacao {
 	public String toString() {
 		StringBuilder res = new StringBuilder();
 		res.append(nome_atendente).append("@");
-		res.append(this.getData()).append("@");
+		res.append(this.getData_splitted()).append("@");
 		res.append(this.getNota()).append("@");
 		res.append("");
 		return res.toString();
@@ -69,6 +69,12 @@ class AvAtendimento extends Avaliacao {
 	public String getData_atendimento() {
 		return data_atendimento;
 	}
+        
+        public String getData_ini_splitted(){
+            String d[] = this.data_atendimento.substring(0, 10).split("-");
+            String aux = d[2] + "/" + d[1] + "/" + d[0];
+            return aux;
+        }
 
 	public Atendimento getAtendimento() {
 		return atendimento;

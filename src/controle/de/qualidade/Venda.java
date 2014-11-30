@@ -75,11 +75,17 @@ public class Venda {
 	public String toString() {
 		StringBuilder res = new StringBuilder();
 		res.append(tipo_venda).append("@");
-		res.append(data_venda).append("@");
+		res.append(getData_venda_splitted()).append("@");
 
 		res.append(nome_func);
 		return res.toString();
 	}
+        
+         public String getData_venda_splitted(){
+            String d[] = this.data_venda.split("-");
+            String aux = d[2] + "/" + d[1] + "/" + d[0];
+            return aux;
+        }
 
 	private String cpf_cliente;
 	private String cpf_funcionario;

@@ -65,7 +65,7 @@ public class AvVenda extends Avaliacao {
 	public String toString() {
 		StringBuilder res = new StringBuilder();
 		res.append(this.venda.getTipo_venda()).append("@");
-		res.append(this.getData()).append("@");
+		res.append(this.getData_splitted()).append("@");
 		res.append(nome_vendedor).append("@");
 		res.append(this.getNota()).append("@");
 		res.append("");
@@ -95,5 +95,11 @@ public class AvVenda extends Avaliacao {
 	public void setData_venda(String data_venda) {
 		this.data_venda = data_venda;
 	}
+        
+        public String getData_venda_splitted(){
+            String d[] = this.data_venda.split("-");
+            String aux = d[2] + "/" + d[1] + "/" + d[0];
+            return aux;
+        }
 
 }

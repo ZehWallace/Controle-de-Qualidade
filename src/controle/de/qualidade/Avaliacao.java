@@ -87,6 +87,13 @@ public abstract class Avaliacao {
 		this.cpf_cliente = cpf_cliente;
 	}
 
+        public String getData_splitted(){
+            String d[] = this.data.split("-");
+            String aux = d[2] + "/" + d[1] + "/" + d[0];
+            
+            return aux;
+        }
+        
 //	/**
 //	 * @return the data_venda
 //	 */
