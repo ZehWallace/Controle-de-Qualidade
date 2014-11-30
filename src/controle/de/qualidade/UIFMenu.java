@@ -5,13 +5,15 @@
  */
 package controle.de.qualidade;
 
+import javax.swing.JPanel;
+
 /**
  *
  * @author Bruno
  */
 public class UIFMenu extends javax.swing.JFrame {
     private final Funcionario f;
-
+	private JPanel novo;
     /**
      * Creates new form FMenu
      * @param f
@@ -242,7 +244,6 @@ public class UIFMenu extends javax.swing.JFrame {
 
         jDialog1.setTitle("Limpar Histórico");
         jDialog1.setMinimumSize(new java.awt.Dimension(400, 230));
-        jDialog1.setPreferredSize(new java.awt.Dimension(400, 230));
         jDialog1.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel53.setLayout(new java.awt.GridLayout(2, 0));
@@ -451,6 +452,11 @@ public class UIFMenu extends javax.swing.JFrame {
 
         jButton2.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jButton2.setText("Confirmar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel6.add(jButton2);
 
         ClientePanel.add(jPanel6);
@@ -838,6 +844,13 @@ public class UIFMenu extends javax.swing.JFrame {
         jDialog1.setSize(400, 230);
         jDialog1.setVisible(true);
     }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        ClientePanel.setVisible(false);
+		novo = new NewJPanel();
+		getContentPane().add(novo);
+		novo.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
