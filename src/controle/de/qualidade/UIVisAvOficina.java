@@ -10,12 +10,18 @@ package controle.de.qualidade;
  * @author davys_000
  */
 public class UIVisAvOficina extends javax.swing.JFrame {
-
+	private Cliente c;
+	private AvOficina av;
+	
     /**
      * Creates new form UIVisAvOficina
      */
-    public UIVisAvOficina() {
-        initComponents();
+    public UIVisAvOficina(Cliente c, AvOficina av) {
+        this.c = c;
+		this.av = av;
+		initComponents();
+		
+		
     }
 
     /**
@@ -55,7 +61,7 @@ public class UIVisAvOficina extends javax.swing.JFrame {
         jPanel8 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new java.awt.GridLayout(6, 0));
 
         jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 10));
@@ -168,12 +174,22 @@ public class UIVisAvOficina extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton1.setText("Voltar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel8.add(jButton1);
 
         getContentPane().add(jPanel8);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;

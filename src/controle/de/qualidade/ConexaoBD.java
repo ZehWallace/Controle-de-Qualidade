@@ -275,5 +275,45 @@ public class ConexaoBD {
 		}
 		return res;
 	}
-	
+
+	public Vector buscaTodasAvOficina(String cpf) throws SQLException {
+		String placa, data_serv;
+		Vector res = new Vector();
+		Vector serv_realizados;
+		StringBuilder ins = new StringBuilder();
+		ins.append("SELECT serv.placa, serv.data_ini, serv.data_fim, foo.cod_av, foo.nota_serv, foo.prob_res, foo.sugestao, foo.data_av FROM servicos serv, (");
+		ins.append(" SELECT * FROM av_oficina av WHERE placa IN (");
+		ins.append(" SELECT v.placa FROM veiculo v WHERE cpf_cliente = '").append(cpf).append("')");
+		ins.append(" ) AS foo WHERE serv.placa = foo.placa AND serv.data_ini = foo.data_serv;");
+		
+		st.execute(ins.toString());
+		ResultSet rs = st.getResultSet();
+		//adiciona ao vetor resultado os servicos em oficina ainda nao avaliados pelo cliente
+		while (rs.next()) {
+			placa = rs.getString(1);
+			data_serv = rs.getString(2);
+
+			ins = new StringBuilder();
+			ins.append("SELECT l.cod_serv, nome_serv FROM lista_servicos l, (");
+			ins.append(" SELECT * FROM servicos_realizados WHERE placa = '").append(placa).append("'");
+			ins.append(" AND data_serv = '").append(data_serv).append("')");
+			ins.append(" AS foo WHERE l.cod_serv = foo.cod_serv;");
+
+			st = myConnection.createStatement();
+			st.execute(ins.toString());
+			ResultSet rsserv = st.getResultSet();
+			//cria um vetor com todos os tipos de servicos realizados em um servico na oficina
+			serv_realizados = new Vector();
+			while (rsserv.next()) {
+				TipoServRealizadoOficina sr = new TipoServRealizadoOficina(rsserv.getString(1), rsserv.getString(2));
+				serv_realizados.add(sr);
+			}
+			ServicoOficina serv = new ServicoOficina(rs.getString(1), rs.getString(2), rs.getString(3), cpf, serv_realizados);
+			AvOficina av = new AvOficina(serv, rs.getInt("prob_res"), cpf, rs.getString("data_av"), rs.getFloat("nota_serv"), rs.getString("sugestao"), rs.getString("cod_av"));
+			res.add(av);
+		}
+
+		return res;
+	}
+
 }

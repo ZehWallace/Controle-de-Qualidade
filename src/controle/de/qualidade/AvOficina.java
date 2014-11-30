@@ -16,6 +16,7 @@ public class AvOficina extends Avaliacao {
 	private ServicoOficina s;
 	private int prob_res;
 
+	//cria avaliacao para adicionar no BD
 	public AvOficina(ServicoOficina s, int prob_res, String cpf_cliente, String data, float nota, String sugestao) throws ClassNotFoundException, InstantiationException, SQLException, IllegalAccessException {
 		this.s = s;
 		this.prob_res = prob_res;
@@ -26,6 +27,16 @@ public class AvOficina extends Avaliacao {
 		this.criarAvOficina();
 	}
 
+	public AvOficina(ServicoOficina s, int prob_res, String cpf_cliente, String data, float nota, String sugestao, String cod_av) {
+		this.s = s;
+		this.prob_res = prob_res;
+		this.setCpf_cliente(cpf_cliente);
+		this.setData(data);
+		this.setNota(nota);
+		this.setSugestao(sugestao);
+		this.setCod_av(cod_av);
+	}
+
 	public void criarAvOficina() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
 		ConexaoBD con;
 		con = new ConexaoBD();
@@ -33,6 +44,15 @@ public class AvOficina extends Avaliacao {
 		con.inserirAvOficina(this);
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder res = new StringBuilder();
+		res.append(this.getS().getPlaca()).append("@");
+		res.append(this.getData()).append("@");
+		res.append(this.getNota()).append("@");
+		res.append("");
+		return res.toString();
+	}
 
 	public ServicoOficina getS() {
 		return s;

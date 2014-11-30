@@ -65,6 +65,13 @@ public class Cliente {
 		vetorServ = con.buscaTodosServicosNaoAvaliados(this.cpf);
 		return vetorServ;
 	}
+	
+	Vector obterAvOficina() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
+		Vector vetorServ;
+		ConexaoBD con = new ConexaoBD();
+		vetorServ = con.buscaTodasAvOficina(this.cpf);
+		return vetorServ;
+	}
 
 	public String getCpf() {
 		return cpf;

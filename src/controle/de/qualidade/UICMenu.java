@@ -40,6 +40,7 @@ public class UICMenu extends javax.swing.JFrame {
 		this.atendimentos_nao_avaliados = c.obterAtendimentos();
 		this.avaliacoes_atendimentos = c.obterAvAtendimentos();
 		this.servs_oficina_nao_avaliados = c.obterServicos();
+		this.avaliacoes_oficina = c.obterAvOficina();
 		iniciaTables();
 	}
 
@@ -51,6 +52,7 @@ public class UICMenu extends javax.swing.JFrame {
 		this.cria_model_criar_av_atendimento();
 		this.cria_model_visualizar_av_atendimento();
 		this.cria_model_criar_av_serv_oficina();
+		this.cria_model_visalizar_av_serv_oficina();
 	}
 
 	private void cria_model_criar_av_venda() {
@@ -136,6 +138,23 @@ public class UICMenu extends javax.swing.JFrame {
 		header.add("Placa");
 		header.add("Data");
 		criar_av_serv_oficina_model = new DefaultTableModel(dataVector, header);
+	}
+
+	private void cria_model_visalizar_av_serv_oficina() {
+		//magica
+		String rows[] = avaliacoes_oficina.toString().replace("[", "").replace("]", "").split(",");
+		Vector<Vector<String>> dataVector = new Vector<Vector<String>>();
+		for (String row : rows) {
+			row = row.trim();  //UPDATE
+			Vector<String> data = new Vector<String>();
+			data.addAll(Arrays.asList(row.split("@")));
+			dataVector.add(data);
+		}
+		Vector<String> header = new Vector<String>(2);
+		header.add("Placa");
+		header.add("Data Avaliacao");
+		header.add("Nota");
+		visualizar_av_serv_oficina_model = new DefaultTableModel(dataVector, header);
 	}
 
 	/**
@@ -388,7 +407,7 @@ public class UICMenu extends javax.swing.JFrame {
 			System.out.println("asjdasd");
 			jTable2.setModel(visualizar_av_venda_model);
 		} else if (opc == 2) {
-
+			jTable2.setModel(visualizar_av_serv_oficina_model);
 		} else if (opc == 3) {
 			jTable2.setModel(visualizar_av_atendimentos_model);
 		}
@@ -427,6 +446,9 @@ public class UICMenu extends javax.swing.JFrame {
 		if (avaliacoes_vendas.size() > 0 && opc == 1 && row != -1) {
 			AvVenda av = (AvVenda) avaliacoes_vendas.get(row);
 			new UIVisAvVenda(c, av).setVisible(true);
+		} else if (avaliacoes_oficina.size() > 0 && opc == 2 && row != -1) {
+			AvOficina av = (AvOficina) avaliacoes_oficina.get(row);
+			new UIVisAvOficina(c, av).setVisible(true);
 		} else if (avaliacoes_atendimentos.size() > 0 && opc == 3 && row != -1) {
 			AvAtendimento av = (AvAtendimento) avaliacoes_atendimentos.get(row);
 			new UIVisAvAtendimento(c, av).setVisible(true);
@@ -484,9 +506,11 @@ public class UICMenu extends javax.swing.JFrame {
 	private TableModel criar_av_atendimento_model;
 	private TableModel visualizar_av_atendimentos_model;
 	private TableModel criar_av_serv_oficina_model;
+	private TableModel visualizar_av_serv_oficina_model;
 	private Vector vendas_nao_avaliadas;
 	private Vector avaliacoes_vendas;
 	private Vector atendimentos_nao_avaliados;
 	private Vector avaliacoes_atendimentos;
 	private Vector servs_oficina_nao_avaliados;
+	private Vector avaliacoes_oficina;
 }
