@@ -6,6 +6,7 @@
 package controle.de.qualidade;
 
 import java.sql.SQLException;
+import java.util.Vector;
 
 /**
  *
@@ -26,6 +27,36 @@ public class Funcionario {
 		}
 		return false;
 	}
+        //tem q arrumar pra buscar venda do funcionario, só copiei da parte do cliente este metodo!
+    	public Vector obterVendas() throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
+		Vector vetorVendas;
+		ConexaoBD con = new ConexaoBD();
+		vetorVendas = con.buscaTodasVendasNaoAvaliadas(this.cpf);
+		return vetorVendas;
+	}
+        
+        	public Vector obterAvVendas() throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
+		Vector vetorAvVendas;
+		ConexaoBD con = new ConexaoBD();
+		vetorAvVendas = con.buscaTodasAvVendasFunc(this.cpf);
+		return vetorAvVendas;
+	}
+
+        //tem q arrumar pra buscar venda do funcionario, só copiei da parte do cliente este metodo!
+	public Vector obterAtendimentos() throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
+		Vector vetorAtend;
+		ConexaoBD con = new ConexaoBD();
+		vetorAtend = con.buscaTodosAtendimentosNaoAvaliados(this.cpf);
+		return vetorAtend;
+	}
+
+	public Vector obterAvAtendimentos() throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
+		Vector vetorAvAtend;
+		ConexaoBD con = new ConexaoBD();
+		vetorAvAtend = con.buscaTodasAvAtendimentoFunc(this.cpf);
+		return vetorAvAtend;
+	}
+        
 	
     public String getCpf() {
         return cpf;
