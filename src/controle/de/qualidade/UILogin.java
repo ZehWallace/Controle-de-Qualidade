@@ -86,6 +86,11 @@ public class UILogin extends javax.swing.JFrame {
 
         jTextField1.setColumns(11);
         jTextField1.setToolTipText("Digite seu CPF com apenas números");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
         jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextField1KeyPressed(evt);
@@ -144,6 +149,10 @@ public class UILogin extends javax.swing.JFrame {
 			}
         }
     }//GEN-LAST:event_jTextField1KeyPressed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
 
 	private void login() throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {

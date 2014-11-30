@@ -33,6 +33,11 @@ public class UIFMenu extends javax.swing.JFrame {
 		ProdutoPanel.setVisible(false);
 		SairPanel.setVisible(false);
 		SetorPanel.setVisible(false);
+                TableClientesPanel.setVisible(false);
+                TableFuncionariosPanel.setVisible(false);
+                TableGeralPanel.setVisible(false);
+                TableSetorPanel.setVisible(false);
+                
 		this.f = f;
 		jLabel16.setText(f.getNome());
 	}
@@ -232,6 +237,90 @@ public class UIFMenu extends javax.swing.JFrame {
         jPanel27 = new javax.swing.JPanel();
         jPanel38 = new javax.swing.JPanel();
         jPanel45 = new javax.swing.JPanel();
+        TableClientesPanel = new javax.swing.JPanel();
+        jPanel52 = new javax.swing.JPanel();
+        jLabel31 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int vColIndex){
+                return false;
+            }
+        };
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTable4 = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int vColIndex){
+                return false;
+            }
+        };
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTable5 = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int vColIndex){
+                return false;
+            }
+        };
+        jPanel58 = new javax.swing.JPanel();
+        jButton15 = new javax.swing.JButton();
+        jButton12 = new javax.swing.JButton();
+        TableFuncionariosPanel = new javax.swing.JPanel();
+        jPanel59 = new javax.swing.JPanel();
+        jLabel32 = new javax.swing.JLabel();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        jTable6 = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int vColIndex){
+                return false;
+            }
+        };
+        jScrollPane10 = new javax.swing.JScrollPane();
+        jTable7 = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int vColIndex){
+                return false;
+            }
+        };
+        jScrollPane11 = new javax.swing.JScrollPane();
+        jTable8 = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int vColIndex){
+                return false;
+            }
+        };
+        jPanel60 = new javax.swing.JPanel();
+        jButton14 = new javax.swing.JButton();
+        jButton13 = new javax.swing.JButton();
+        TableGeralPanel = new javax.swing.JPanel();
+        jPanel61 = new javax.swing.JPanel();
+        jLabel33 = new javax.swing.JLabel();
+        jScrollPane12 = new javax.swing.JScrollPane();
+        jTable9 = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int vColIndex){
+                return false;
+            }
+        };
+        jScrollPane13 = new javax.swing.JScrollPane();
+        jTable10 = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int vColIndex){
+                return false;
+            }
+        };
+        jScrollPane14 = new javax.swing.JScrollPane();
+        jTable11 = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int vColIndex){
+                return false;
+            }
+        };
+        jPanel62 = new javax.swing.JPanel();
+        jButton16 = new javax.swing.JButton();
+        jButton17 = new javax.swing.JButton();
+        TableSetorPanel = new javax.swing.JPanel();
+        jPanel63 = new javax.swing.JPanel();
+        jLabel34 = new javax.swing.JLabel();
+        jScrollPane15 = new javax.swing.JScrollPane();
+        jTable12 = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int vColIndex){
+                return false;
+            }
+        };
+        jPanel64 = new javax.swing.JPanel();
+        jButton18 = new javax.swing.JButton();
+        jButton19 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu6 = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
@@ -663,6 +752,198 @@ public class UIFMenu extends javax.swing.JFrame {
 
         getContentPane().add(BemVindoPanel);
 
+        TableClientesPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel31.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel31.setText("Cliente");
+        jPanel52.add(jLabel31);
+
+        TableClientesPanel.add(jPanel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 40));
+
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane3.setViewportView(jTable3);
+
+        TableClientesPanel.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 220, 230));
+
+        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane4.setViewportView(jTable4);
+
+        TableClientesPanel.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, 220, 230));
+
+        jTable5.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane5.setViewportView(jTable5);
+
+        TableClientesPanel.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 40, 200, 230));
+
+        jButton15.setText("Fechar");
+        jPanel58.add(jButton15);
+
+        jButton12.setText("Confirmar");
+        jPanel58.add(jButton12);
+
+        TableClientesPanel.add(jPanel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 640, 60));
+
+        getContentPane().add(TableClientesPanel);
+
+        TableFuncionariosPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel32.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel32.setText("Funcionario");
+        jPanel59.add(jLabel32);
+
+        TableFuncionariosPanel.add(jPanel59, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 40));
+
+        jTable6.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane9.setViewportView(jTable6);
+
+        TableFuncionariosPanel.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 220, 230));
+
+        jTable7.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane10.setViewportView(jTable7);
+
+        TableFuncionariosPanel.add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, 220, 230));
+
+        jTable8.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane11.setViewportView(jTable8);
+
+        TableFuncionariosPanel.add(jScrollPane11, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 40, 200, 230));
+
+        jButton14.setText("Fechar");
+        jPanel60.add(jButton14);
+
+        jButton13.setText("Confirmar");
+        jPanel60.add(jButton13);
+
+        TableFuncionariosPanel.add(jPanel60, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 640, 60));
+
+        getContentPane().add(TableFuncionariosPanel);
+
+        TableGeralPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel33.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel33.setText("Geral");
+        jPanel61.add(jLabel33);
+
+        TableGeralPanel.add(jPanel61, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 40));
+
+        jTable9.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane12.setViewportView(jTable9);
+
+        TableGeralPanel.add(jScrollPane12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 220, 230));
+
+        jTable10.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane13.setViewportView(jTable10);
+
+        TableGeralPanel.add(jScrollPane13, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, 220, 230));
+
+        jTable11.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane14.setViewportView(jTable11);
+
+        TableGeralPanel.add(jScrollPane14, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 40, 200, 230));
+
+        jButton16.setText("Fechar");
+        jPanel62.add(jButton16);
+
+        jButton17.setText("Confirmar");
+        jPanel62.add(jButton17);
+
+        TableGeralPanel.add(jPanel62, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 640, 60));
+
+        getContentPane().add(TableGeralPanel);
+
+        TableSetorPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel34.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel34.setText("Setor");
+        jPanel63.add(jLabel34);
+
+        TableSetorPanel.add(jPanel63, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 40));
+
+        jTable12.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane15.setViewportView(jTable12);
+
+        TableSetorPanel.add(jScrollPane15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 400, 230));
+
+        jButton18.setText("Fechar");
+        jPanel64.add(jButton18);
+
+        jButton19.setText("Confirmar");
+        jPanel64.add(jButton19);
+
+        TableSetorPanel.add(jPanel64, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 400, 30));
+
+        getContentPane().add(TableSetorPanel);
+
         jMenu6.setText("Histórico");
 
         jMenu1.setText("Visualizar");
@@ -752,6 +1033,10 @@ public class UIFMenu extends javax.swing.JFrame {
 		ProdutoPanel.setVisible(false);
 		SairPanel.setVisible(false);
 		SetorPanel.setVisible(false);
+                TableClientesPanel.setVisible(false);
+                TableFuncionariosPanel.setVisible(false);
+                TableGeralPanel.setVisible(false);
+                TableSetorPanel.setVisible(false);
 	}
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
 		setVisibleAllFalse();
@@ -826,11 +1111,23 @@ public class UIFMenu extends javax.swing.JFrame {
     private javax.swing.JPanel ProdutoPanel;
     private javax.swing.JPanel SairPanel;
     private javax.swing.JPanel SetorPanel;
+    private javax.swing.JPanel TableClientesPanel;
+    private javax.swing.JPanel TableFuncionariosPanel;
+    private javax.swing.JPanel TableGeralPanel;
+    private javax.swing.JPanel TableSetorPanel;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
+    private javax.swing.JButton jButton15;
+    private javax.swing.JButton jButton16;
+    private javax.swing.JButton jButton17;
+    private javax.swing.JButton jButton18;
+    private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -863,6 +1160,10 @@ public class UIFMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -928,12 +1229,20 @@ public class UIFMenu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel50;
     private javax.swing.JPanel jPanel51;
+    private javax.swing.JPanel jPanel52;
     private javax.swing.JPanel jPanel53;
     private javax.swing.JPanel jPanel54;
     private javax.swing.JPanel jPanel55;
     private javax.swing.JPanel jPanel56;
     private javax.swing.JPanel jPanel57;
+    private javax.swing.JPanel jPanel58;
+    private javax.swing.JPanel jPanel59;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel60;
+    private javax.swing.JPanel jPanel61;
+    private javax.swing.JPanel jPanel62;
+    private javax.swing.JPanel jPanel63;
+    private javax.swing.JPanel jPanel64;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
@@ -945,9 +1254,32 @@ public class UIFMenu extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton6;
     private javax.swing.JRadioButton jRadioButton7;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane11;
+    private javax.swing.JScrollPane jScrollPane12;
+    private javax.swing.JScrollPane jScrollPane13;
+    private javax.swing.JScrollPane jScrollPane14;
+    private javax.swing.JScrollPane jScrollPane15;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable10;
+    private javax.swing.JTable jTable11;
+    private javax.swing.JTable jTable12;
     private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTable3;
+    private javax.swing.JTable jTable4;
+    private javax.swing.JTable jTable5;
+    private javax.swing.JTable jTable6;
+    private javax.swing.JTable jTable7;
+    private javax.swing.JTable jTable8;
+    private javax.swing.JTable jTable9;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField2;
