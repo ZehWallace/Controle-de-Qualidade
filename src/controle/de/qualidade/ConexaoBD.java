@@ -220,6 +220,104 @@ public class ConexaoBD {
 		st.execute(ins.toString());
 	}
 
+        //SELECT cod_av, nota_venda, sugestao_venda, data_av, av.cpf_cliente, av.cpf_vendedor, av.data_venda, tipo_venda, descr_venda FROM av_venda av, venda v
+	//WHERE av.data_venda BETWEEN '2014-11-03' AND '2015-10-30' AND av.cpf_cliente = v.cpf_cliente AND av.cpf_vendedor = v.cpf_vendedor AND av.data_venda = v.data_venda;
+
+               	public Vector buscaTodasAvVendasIntervalo(String datainit,String datafim ) throws SQLException {
+		Vector res = new Vector();
+		AvVenda Av;
+		Venda v;
+		StringBuilder ins = new StringBuilder();
+		ins.append("SELECT cod_av, nota_venda, sugestao_venda, data_av, av.cpf_cliente, av.cpf_vendedor, av.data_venda, tipo_venda, descr_venda ");
+		ins.append("FROM av_venda av, venda v ");
+		ins.append(" WHERE av.data_venda BETWEEN '").append(datainit).append("' AND '").append(datafim).append("'");
+        	ins.append(" AND av.cpf_vendedor = v.cpf_vendedor");
+		ins.append(" AND av.data_venda = v.data_venda;");
+		st.execute(ins.toString());
+                
+                ResultSet rs = st.getResultSet();
+                
+                		while (rs.next()) {
+			ResultSet rsnome;
+			st = myConnection.createStatement();
+			st.execute("SELECT nome_cliente FROM cliente WHERE cpf_cliente = '" + rs.getString("cpf_cliente") + "';");
+			rsnome = st.getResultSet();
+			rsnome.next();
+			v = new Venda(rs.getString("cpf_vendedor"), rs.getString("cpf_cliente"), rs.getString("data_venda"), rs.getString("tipo_venda"), rs.getString("descr_venda"), rsnome.getString(1));
+			Av = new AvVenda(rs.getString("cod_av"), rs.getFloat("nota_venda"), rs.getString("sugestao_venda"), rs.getString("data_av"), rs.getString("cpf_cliente"), rs.getString("cpf_vendedor"), rs.getString("data_venda"), rsnome.getString(1), v);
+			res.addElement(Av);
+		}
+		return res;
+                }
+                
+                public Vector buscaTodasAvAtendimentoIntervalo(String datainit,String datafim ) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
+		Vector res = new Vector();
+		AvAtendimento Av;
+		Atendimento a;
+		StringBuilder ins = new StringBuilder();
+		ins.append("SELECT cod_av, nota_atend, sugestao, data_av, av.cpf_cliente, av.cpf_atendente, a.data_ini, a.data_fim, probl_res, dresc_prob");
+		ins.append(" FROM av_atendimento av, atendimento a");
+		ins.append(" WHERE av.data_atend BETWEEN '").append(datainit).append("' AND '").append(datafim).append("'");
+		ins.append(" AND av.cpf_cliente = a.cpf_cliente");
+		ins.append(" AND av.cpf_atendente = a.cpf_atendente");
+		ins.append(" AND av.data_atend = a.data_ini;");
+		st.execute(ins.toString());
+
+		ResultSet rs = st.getResultSet();
+
+		while (rs.next()) {
+			ResultSet rsnome;
+			st = myConnection.createStatement();
+			st.execute("SELECT nome_cliente FROM cliente WHERE cpf_cliente = '" + rs.getString("cpf_cliente") + "';");
+			rsnome = st.getResultSet();
+			rsnome.next();
+			a = new Atendimento( rs.getString("cpf_cliente"), rs.getString("cpf_atendente"), rs.getString("data_ini"), rs.getString("data_fim"), rs.getString("dresc_prob"), rsnome.getString(1));
+			Av = new AvAtendimento(rs.getString("cpf_cliente"), rs.getString("cpf_atendente"), rs.getString("data_av"), rs.getString("data_ini"), rs.getFloat("nota_atend"), rs.getString("sugestao"), a, rs.getInt("probl_res"), rsnome.getString(1));
+			res.addElement(Av);
+		}
+		return res;
+	}
+                
+               /* public Vector buscaTodasAvOficinaIntervalo(String datainit,String datafim ) throws SQLException {
+		String placa, data_serv;
+		Vector res = new Vector();
+		Vector serv_realizados;
+		StringBuilder ins = new StringBuilder();
+		ins.append("SELECT serv.placa, serv.data_ini, serv.data_fim, foo.cod_av, foo.nota_serv, foo.prob_res, foo.sugestao, foo.data_av FROM servicos serv, (");
+		ins.append(" SELECT * FROM av_oficina av WHERE placa IN (");
+		ins.append(" SELECT v.placa FROM veiculo v WHERE cpf_cliente = '").append(cpf).append("')");
+		ins.append(" ) AS foo WHERE serv.placa = foo.placa AND serv.data_ini = foo.data_serv;");
+		
+		st.execute(ins.toString());
+		ResultSet rs = st.getResultSet();
+		//adiciona ao vetor resultado os servicos em oficina ainda nao avaliados pelo cliente
+		while (rs.next()) {
+			placa = rs.getString(1);
+			data_serv = rs.getString(2);
+
+			ins = new StringBuilder();
+			ins.append("SELECT l.cod_serv, nome_serv FROM lista_servicos l, (");
+			ins.append(" SELECT * FROM servicos_realizados WHERE placa = '").append(placa).append("'");
+			ins.append(" AND data_serv = '").append(data_serv).append("')");
+			ins.append(" AS foo WHERE l.cod_serv = foo.cod_serv;");
+
+			st = myConnection.createStatement();
+			st.execute(ins.toString());
+			ResultSet rsserv = st.getResultSet();
+			//cria um vetor com todos os tipos de servicos realizados em um servico na oficina
+			serv_realizados = new Vector();
+			while (rsserv.next()) {
+				TipoServRealizadoOficina sr = new TipoServRealizadoOficina(rsserv.getString(1), rsserv.getString(2));
+				serv_realizados.add(sr);
+			}
+			ServicoOficina serv = new ServicoOficina(rs.getString(1), rs.getString(2), rs.getString(3), cpf, serv_realizados);
+			AvOficina av = new AvOficina(serv, rs.getInt("prob_res"), cpf, rs.getString("data_av"), rs.getFloat("nota_serv"), rs.getString("sugestao"), rs.getString("cod_av"));
+			res.add(av);
+		}
+
+		return res;
+	}*/
+                
         	public Vector buscaTodasAvVendasFunc(String cpf_vendedor) throws SQLException {
 		Vector res = new Vector();
 		AvVenda Av;
