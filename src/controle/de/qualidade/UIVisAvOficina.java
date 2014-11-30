@@ -6,6 +6,8 @@
 package controle.de.qualidade;
 
 import java.awt.Color;
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.Vector;
 
 /**
@@ -25,6 +27,24 @@ public class UIVisAvOficina extends javax.swing.JFrame {
 		this.av = av;
 		Color orange = new Color(204,102,0);
 		initComponents();
+                
+                String dIni = av.getServ().getData_ini();
+                String dFim = av.getServ().getData_fim();
+              
+                System.out.println(dIni);
+                System.out.println(dFim);
+                
+                Date data = new Date();
+                Timestamp dataIni = Timestamp.valueOf(dIni);
+                Timestamp dataFim = Timestamp.valueOf(dFim);
+                
+              
+                
+               long x = dataIni.getTime();
+               long y = dataFim.getTime();
+               
+               Long tempo = (long) ((y-x) * 1.66666667 * 0.00001);
+                
 		jTextArea1.setEditable(false);
 		Vector tipoServVet = av.getServ().getTipo_servicos();
 		StringBuilder ins = new StringBuilder();
@@ -46,9 +66,19 @@ public class UIVisAvOficina extends javax.swing.JFrame {
 			jLabel9.setForeground(Color.red);
 			jLabel9.setText("Não");
 		}
+                if(tempo < 60)
+                    jLabel11.setText(tempo.toString() + " minuto(s)");
+                else if(tempo >= 60){
+                    Integer horas = 0;
+                    while(tempo >= 60){
+                        horas++;
+                        tempo -= 60;
+                    }
+                    jLabel11.setText(horas.toString() + "hora(s) e " + tempo.toString() + " minuto(s)");
+                }
 		jTextArea1.setText(ins.toString());
-		jLabel3.setText(av.getServ().getData_ini());
-		jLabel5.setText(av.getData());
+		jLabel3.setText(av.getServ().getData_ini_splitted());
+		jLabel5.setText(av.getData_splitted());
 		float nota = av.getNota();
 		jLabel7.setText("" + nota);
 		if (nota > 6) {

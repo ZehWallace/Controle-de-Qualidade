@@ -48,7 +48,7 @@ public class AvOficina extends Avaliacao {
 	public String toString() {
 		StringBuilder res = new StringBuilder();
 		res.append(this.getServ().getPlaca()).append("@");
-		res.append(this.getData()).append("@");
+		res.append(this.getData_splitted()).append("@");
 		res.append(this.getNota()).append("@");
 		res.append("");
 		return res.toString();

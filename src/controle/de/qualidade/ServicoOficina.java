@@ -31,7 +31,7 @@ public class ServicoOficina {
 	public String toString() {
 		StringBuilder res = new StringBuilder();
 		res.append(placa).append("@");
-		res.append(data_ini).append("@");
+		res.append(getData_ini_splitted()).append("@");
 		return res.toString();
 	}
 
@@ -54,5 +54,17 @@ public class ServicoOficina {
 	public Vector getTipo_servicos() {
 		return tipo_servicos;
 	}
+        
+        public String getData_ini_splitted(){
+            String d[] = this.data_ini.substring(0, 10).split("-");
+            String aux = d[2] + "/" + d[1] + "/" + d[0];
+            return aux;
+        }
+        
+        public String getData_fim_splitted(){
+            String d[] = this.data_fim.substring(0, 10).split("-");
+            String aux = d[2] + "/" + d[1] + "/" + d[0];
+            return aux;
+        }
 
 }

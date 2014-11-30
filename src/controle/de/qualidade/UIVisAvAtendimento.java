@@ -30,7 +30,6 @@ public class UIVisAvAtendimento extends javax.swing.JFrame {
                 
                 String dIni = av.getAtendimento().getData_ini();
                 String dFim = av.getAtendimento().getData_fim();
-                
                 Date data = new Date();
                 Timestamp dataIni = Timestamp.valueOf(dIni);
                 Timestamp dataFim = Timestamp.valueOf(dFim);
@@ -55,7 +54,7 @@ public class UIVisAvAtendimento extends javax.swing.JFrame {
                         horas++;
                         tempo -= 60;
                     }
-                    jLabel11.setText(horas.toString() + "hora(s) e" + tempo.toString() + " minuto(s)");
+                    jLabel11.setText(horas.toString() + "hora(s) e " + tempo.toString() + " minuto(s)");
                 }
 		jLabel5.setText(av.getData());
 		int probl_res = av.getProbl_res();
