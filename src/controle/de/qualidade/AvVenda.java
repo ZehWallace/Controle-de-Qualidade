@@ -29,10 +29,11 @@ public class AvVenda extends Avaliacao {
 		this.setData(data);
 		this.setNota(nota);
 		this.setSugestao(sugestao);
-		this.adicionarAvVenda();
 		this.cpf_vendedor = cpfF;
 		this.data_venda = dataVenda;
 		this.nome_vendedor = null;
+		this.adicionarAvVenda();
+		
 	}
 
 	/**
