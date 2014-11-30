@@ -13,12 +13,12 @@ import java.sql.SQLException;
  */
 public class AvOficina extends Avaliacao {
 
-	private ServicoOficina s;
+	private ServicoOficina serv;
 	private int prob_res;
 
 	//cria avaliacao para adicionar no BD
 	public AvOficina(ServicoOficina s, int prob_res, String cpf_cliente, String data, float nota, String sugestao) throws ClassNotFoundException, InstantiationException, SQLException, IllegalAccessException {
-		this.s = s;
+		this.serv = s;
 		this.prob_res = prob_res;
 		this.setCpf_cliente(cpf_cliente);
 		this.setData(data);
@@ -28,7 +28,7 @@ public class AvOficina extends Avaliacao {
 	}
 
 	public AvOficina(ServicoOficina s, int prob_res, String cpf_cliente, String data, float nota, String sugestao, String cod_av) {
-		this.s = s;
+		this.serv = s;
 		this.prob_res = prob_res;
 		this.setCpf_cliente(cpf_cliente);
 		this.setData(data);
@@ -47,15 +47,15 @@ public class AvOficina extends Avaliacao {
 	@Override
 	public String toString() {
 		StringBuilder res = new StringBuilder();
-		res.append(this.getS().getPlaca()).append("@");
+		res.append(this.getServ().getPlaca()).append("@");
 		res.append(this.getData()).append("@");
 		res.append(this.getNota()).append("@");
 		res.append("");
 		return res.toString();
 	}
 
-	public ServicoOficina getS() {
-		return s;
+	public ServicoOficina getServ() {
+		return serv;
 	}
 
 	public int getProb_res() {

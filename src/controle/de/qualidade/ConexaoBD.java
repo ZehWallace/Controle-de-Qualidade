@@ -215,8 +215,8 @@ public class ConexaoBD {
 			ins.append(", NULL");
 		}
 		ins.append(", '").append(av.getData()).append("'");
-		ins.append(", '").append(av.getS().getData_ini()).append("'");
-		ins.append(", '").append(av.getS().getPlaca()).append("');");
+		ins.append(", '").append(av.getServ().getData_ini()).append("'");
+		ins.append(", '").append(av.getServ().getPlaca()).append("');");
 		st.execute(ins.toString());
 	}
 

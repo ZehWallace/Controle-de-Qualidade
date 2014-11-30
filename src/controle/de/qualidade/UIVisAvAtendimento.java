@@ -23,6 +23,7 @@ public class UIVisAvAtendimento extends javax.swing.JFrame {
     public UIVisAvAtendimento(Cliente c, AvAtendimento av) {
         this.av = av;
 		this.c = c;
+		Color orange = new Color(204,102,0);
 		initComponents();
 		jTextArea1.setEditable(false);
 		jTextArea2.setEditable(false);
@@ -34,7 +35,7 @@ public class UIVisAvAtendimento extends javax.swing.JFrame {
 			//jLabel9.setForeground(Color.green);
 			jLabel9.setText("Sim");
 		}else if(probl_res == 2){
-			jLabel9.setForeground(Color.orange);
+			jLabel9.setForeground(orange);
 			jLabel9.setText("Parcialmente");
 		}else if(probl_res == 3){
 			jLabel9.setForeground(Color.red);
@@ -45,7 +46,7 @@ public class UIVisAvAtendimento extends javax.swing.JFrame {
 		if(nota > 6){
 			//jLabel7.setForeground(Color.green);
 		}else if (nota <= 6 && nota >= 4){
-			jLabel7.setForeground(Color.orange);
+			jLabel7.setForeground(orange);
 		}else{
 			jLabel7.setForeground(Color.red);
 		}

@@ -28,12 +28,12 @@ public class UIAvOficina extends javax.swing.JFrame {
 		this.serv = serv;
 		initComponents();
 		jTextArea2.setEditable(false);
-		Vector tServVet = serv.getTipo_servicos();
+		Vector tipoServVet = serv.getTipo_servicos();
 		StringBuilder ins = new StringBuilder();
 		int i;
-		int tam = tServVet.size();
+		int tam = tipoServVet.size();
 		for(i=0;i<tam;i++){
-			TipoServRealizadoOficina tServ = (TipoServRealizadoOficina)tServVet.get(i);
+			TipoServRealizadoOficina tServ = (TipoServRealizadoOficina)tipoServVet.get(i);
 			ins.append("- ").append(tServ.toString());
 			ins.append('\n');
 		}
