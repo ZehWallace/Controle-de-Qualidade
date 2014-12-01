@@ -20,23 +20,11 @@ public class BackupPgSQL {
         try {
             ProcessBuilder pb;        
             final Process p;        
-            pb = new ProcessBuilder("C:/Program Files/PostgreSQL/9.3/bin/pg_dump.exe ", "-h", "localhost", "-p", "5432","-U", "postgres", "-F", "p", "-f", "C:\\Users\\davys_000\\Desktop\\ControleDeQualidade_bkp.backup", "ControleDeQualidade");        
+            pb = new ProcessBuilder("C:\\Program Files\\PostgreSQL\\9.3\\bin\\pg_dump.exe ","-h", "localhost", "-p", "5432","-U", "postgres",  "-F", "p", "-f", "C:\\Users\\davys_000\\Desktop\\CQ_bkp3.backup", "ControleDeQualidade");        
             pb.environment().put("PGPASSWORD", "postgres");        
             pb.redirectErrorStream(true);        
             p = pb.start();
             
-            final BufferedReader r = new BufferedReader(new InputStreamReader(p.getErrorStream()));    
-            String line = r.readLine();    
-  
-            while (line != null){  
-                System.err.println(line);    
-                line = r.readLine();  
-            }  
-              
-            r.close();    
-    
-            final int dcertExitCode = p.waitFor();
-
         } catch (IOException e) {
             System.out.println("ERROR " + e.getMessage());
         }
@@ -46,7 +34,7 @@ public class BackupPgSQL {
         try{        
             ProcessBuilder pb;        
             final Process p;        
-            pb = new ProcessBuilder("C:/Program Files/PostgreSQL/9.3/bin/pg_restore.exe ", "-h", "localhost", "-p", "5432","-U", "postgres", "-d" ,"Teste", "-v", "C:\\Users\\davys_000\\Desktop\\ControleDeQualidade_bkp.backup");        
+            pb = new ProcessBuilder("C:\\Program Files\\PostgreSQL\\9.3\\bin\\pg_dump.exe ", "-d", "postgres", "-h", "localhost", "-p", "5432","-U", "postgres", "-f", "C:\\Users\\davys_000\\Desktop\\CQ_bkp.backup", "Teste");        
             pb.environment().put("PGPASSWORD", "postgres");        
             pb.redirectErrorStream(true);        
             p = pb.start();         
