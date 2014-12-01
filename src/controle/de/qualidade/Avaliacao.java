@@ -10,11 +10,12 @@ package controle.de.qualidade;
  * @author Bruno
  */
 public abstract class Avaliacao {
+
 	private float nota;
 	private String cod_av;
 	private String sugestao;
 	private String data;
-	
+
 	private String cpf_cliente;
 
 	/**
@@ -87,24 +88,10 @@ public abstract class Avaliacao {
 		this.cpf_cliente = cpf_cliente;
 	}
 
-        public String getData_splitted(){
-            String d[] = this.data.split("-");
-            String aux = d[2] + "/" + d[1] + "/" + d[0];
-            
-            return aux;
-        }
-        
-//	/**
-//	 * @return the data_venda
-//	 */
-//	public String getData_venda() {
-//		return data_venda;
-//	}
-//
-//	/**
-//	 * @param data_venda the data_venda to set
-//	 */
-//	public void setData_venda(String data_venda) {
-//		this.data_venda = data_venda;
-//	}
+	public String getData_splitted() {
+		String d[] = this.data.split("-");
+		String aux = d[2] + "/" + d[1] + "/" + d[0];
+
+		return aux;
+	}
 }

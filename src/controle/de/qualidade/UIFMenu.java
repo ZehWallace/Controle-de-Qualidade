@@ -2049,8 +2049,9 @@ public class UIFMenu extends javax.swing.JFrame {
 		Vector<String> header = new Vector<String>(2);
 		header.add("Tipo da Compra");
 		header.add("Data Avaliação");
-		header.add("Vendedor");
 		header.add("Nota");
+		header.add("Vendedor");
+		
 		visualizar_av_venda_model = new DefaultTableModel(dataVector, header);
 	}
 
@@ -2067,8 +2068,10 @@ public class UIFMenu extends javax.swing.JFrame {
 		Vector<String> header = new Vector<String>(2);
 		header.add("Tipo da Compra");
 		header.add("Data Avaliação");
-		header.add("Cliente");
 		header.add("Nota");
+		header.add("Vendedor");
+		header.add("Cliente");
+		
 		visualizar_av_venda_model = new DefaultTableModel(dataVector, header);
 	}
 
@@ -2083,9 +2086,9 @@ public class UIFMenu extends javax.swing.JFrame {
 			dataVector.add(data);
 		}
 		Vector<String> header = new Vector<String>(2);
-		header.add("Atendente");
 		header.add("Data Avaliacao");
 		header.add("Nota");
+		header.add("Atendente");
 		visualizar_av_atendimentos_model = new DefaultTableModel(dataVector, header);
 	}
 
@@ -2100,9 +2103,10 @@ public class UIFMenu extends javax.swing.JFrame {
 			dataVector.add(data);
 		}
 		Vector<String> header = new Vector<String>(2);
-		header.add("Cliente");
 		header.add("Data Avaliacao");
 		header.add("Nota");
+		header.add("Atendente");
+		header.add("Cliente");
 		visualizar_av_atendimentos_model = new DefaultTableModel(dataVector, header);
 	}
 
