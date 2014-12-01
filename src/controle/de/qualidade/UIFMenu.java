@@ -1839,14 +1839,19 @@ public class UIFMenu extends javax.swing.JFrame {
 		//tem também que ver se só tem número e se ta do tamanho certo.
 		//data_ini e data_fim tb fazem a busca no formato AAAA/MM/DD, mas o usuário digita DD/MM/AAAA, então
 		//tem que mudar isso. (já fiz o baratin que não pode clicar no meio do field)
-		avaliacoes_vendas = f.obterAvVendasGeral(data_ini, data_fim);
-		avaliacoes_atendimentos = f.obterAvAtendimentosGeral(data_ini, data_fim);
-		avaliacoes_oficina = f.obterAvOficinaGeral(data_ini, data_fim);
+		
+		//avaliacoes_vendas = f.obterAvVendasGeral(data_ini, data_fim);
+		//avaliacoes_atendimentos = f.obterAvAtendimentosGeral(data_ini, data_fim);
+		//avaliacoes_oficina = f.obterAvOficinaGeral(data_ini, data_fim);
 
 		this.cria_model_visualizar_av_venda();
 		this.cria_model_visualizar_av_atendimento();
 		this.cria_model_visalizar_av_serv_oficina();
-
+		
+		jTable1.setModel(visualizar_av_venda_model);
+		jTable18.setModel(visualizar_av_atendimentos_model);
+		jTable19.setModel(visualizar_av_serv_oficina_model);
+		
 		jPanel7.setVisible(true);
 		jPanel16.setVisible(true);
 		jPanel21.setVisible(true);
