@@ -1012,7 +1012,6 @@ public class UIFMenu extends javax.swing.JFrame {
         jPanel1.add(jPanel36);
 
         warningLimparHist.setForeground(new java.awt.Color(204, 0, 0));
-        warningLimparHist.setText("warningLimparHist");
         jPanel37.add(warningLimparHist);
 
         jPanel1.add(jPanel37);
@@ -1385,7 +1384,6 @@ public class UIFMenu extends javax.swing.JFrame {
 			float qtdAvPendentes = qtdVendas + qtdAtendimentos + qtdServicos - qtdAvFeitas;
 			float mediaGeral = (mediaAvVenda * qtdAvVenda + mediaAvAtendimento * qtdAvAtendimento + mediaAvOficina * qtdAvOficina) / qtdAvFeitas;
 
-			//IMPLEMENTANDO AQUI
 			System.out.println("" + mediaAvVenda);
 
 			if (qtdAvVenda == 0) {
@@ -1437,6 +1435,7 @@ public class UIFMenu extends javax.swing.JFrame {
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
 		setVisibleAllFalse();
 		LimparPanel.setVisible(true);
+		warningLimparHist.setText("");
     }//GEN-LAST:event_jMenuItem8ActionPerformed
 
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
