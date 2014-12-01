@@ -76,7 +76,7 @@ public class Funcionario {
 	public Vector obterAvOficinaGeral(String data_ini, String data_fim) throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
 		Vector vetorAvOficina;
 		ConexaoBD con = new ConexaoBD();
-		vetorAvOficina = con.buscaTodasAvAtendimentoIntervalo(data_ini, data_fim); //MUDAR
+		vetorAvOficina = con.buscaTodasAvOficinaIntervalo(data_ini, data_fim); //MUDAR
 		return vetorAvOficina;
 	}
 
