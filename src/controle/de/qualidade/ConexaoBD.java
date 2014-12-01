@@ -359,13 +359,19 @@ public class ConexaoBD {
         ResultSet rs = st.getResultSet();
 
         while (rs.next()) {
-            ResultSet rsnome;
+            ResultSet rsnomevendedor,rsnomecliente;
             st = myConnection.createStatement();
             st.execute("SELECT nome_vendedor FROM funcionario_vendedor WHERE cpf_vendedor = '" + rs.getString("cpf_vendedor") + "';");
-            rsnome = st.getResultSet();
-            rsnome.next();
-            v = new Venda(rs.getString("cpf_vendedor"), rs.getString("cpf_cliente"), rs.getString("data_venda"), rs.getString("tipo_venda"), rs.getString("descr_venda"), rsnome.getString(1));
-            Av = new AvVenda(rs.getString("cod_av"), rs.getFloat("nota_venda"), rs.getString("sugestao_venda"), rs.getString("data_av"), rs.getString("cpf_cliente"), rs.getString("cpf_vendedor"), rs.getString("data_venda"), rsnome.getString(1), v);
+            rsnomevendedor = st.getResultSet();
+            rsnomevendedor.next();
+            st = myConnection.createStatement();
+            st.execute("SELECT nome_cliente FROM cliente WHERE cpf_cliente = '" + rs.getString("cpf_cliente") + "';");
+            rsnomecliente = st.getResultSet();
+            rsnomecliente.next();
+            
+            
+            v = new Venda(rs.getString("cpf_vendedor"), rs.getString("cpf_cliente"), rs.getString("data_venda"), rs.getString("tipo_venda"), rs.getString("descr_venda"), rsnomevendedor.getString(1));
+            Av = new AvVenda(rs.getString("cod_av"), rs.getFloat("nota_venda"), rs.getString("sugestao_venda"), rs.getString("data_av"), rs.getString("cpf_cliente"), rs.getString("cpf_vendedor"), rs.getString("data_venda"), rsnomevendedor.getString(1),rsnomecliente.getString(1), v);
             res.addElement(Av);
         }
         return res;
@@ -387,13 +393,19 @@ public class ConexaoBD {
         ResultSet rs = st.getResultSet();
 
         while (rs.next()) {
-            ResultSet rsnome;
+            ResultSet rsnomevendedor,rsnomecliente;
             st = myConnection.createStatement();
             st.execute("SELECT nome_vendedor FROM funcionario_vendedor WHERE cpf_vendedor = '" + rs.getString("cpf_vendedor") + "';");
-            rsnome = st.getResultSet();
-            rsnome.next();
-            v = new Venda(rs.getString("cpf_vendedor"), rs.getString("cpf_cliente"), rs.getString("data_venda"), rs.getString("tipo_venda"), rs.getString("descr_venda"), rsnome.getString(1));
-            Av = new AvVenda(rs.getString("cod_av"), rs.getFloat("nota_venda"), rs.getString("sugestao_venda"), rs.getString("data_av"), rs.getString("cpf_cliente"), rs.getString("cpf_vendedor"), rs.getString("data_venda"), rsnome.getString(1), v);
+            rsnomevendedor = st.getResultSet();
+            rsnomevendedor.next();
+            st = myConnection.createStatement();
+            st.execute("SELECT nome_cliente FROM cliente WHERE cpf_cliente = '" + rs.getString("cpf_cliente") + "';");
+            rsnomecliente = st.getResultSet();
+            rsnomecliente.next();
+            
+            
+            v = new Venda(rs.getString("cpf_vendedor"), rs.getString("cpf_cliente"), rs.getString("data_venda"), rs.getString("tipo_venda"), rs.getString("descr_venda"), rsnomevendedor.getString(1));
+            Av = new AvVenda(rs.getString("cod_av"), rs.getFloat("nota_venda"), rs.getString("sugestao_venda"), rs.getString("data_av"), rs.getString("cpf_cliente"), rs.getString("cpf_vendedor"), rs.getString("data_venda"), rsnomevendedor.getString(1),rsnomecliente.getString(1), v);
             res.addElement(Av);
         }
         return res;
@@ -415,13 +427,18 @@ public class ConexaoBD {
         ResultSet rs = st.getResultSet();
 
         while (rs.next()) {
-            ResultSet rsnome;
+            ResultSet rsnomeatendente,rsnomecliente;
             st = myConnection.createStatement();
             st.execute("SELECT nome_atendente FROM funcionario_atendente WHERE cpf_atendente = '" + rs.getString("cpf_atendente") + "';");
-            rsnome = st.getResultSet();
-            rsnome.next();
-            a = new Atendimento(rs.getString("cpf_cliente"), rs.getString("cpf_atendente"), rs.getString("data_ini"), rs.getString("data_fim"), rs.getString("dresc_prob"), rsnome.getString(1));
-            Av = new AvAtendimento(rs.getString("cpf_cliente"), rs.getString("cpf_atendente"), rs.getString("data_av"), rs.getString("data_ini"), rs.getFloat("nota_atend"), rs.getString("sugestao"), a, rs.getInt("probl_res"), rsnome.getString(1));
+            rsnomeatendente = st.getResultSet();
+            rsnomeatendente.next();
+            st = myConnection.createStatement();
+            st.execute("SELECT nome_cliente FROM cliente WHERE cpf_cliente = '" + rs.getString("cpf_cliente") + "';");
+            rsnomecliente = st.getResultSet();
+            rsnomecliente.next();
+            
+            a = new Atendimento(rs.getString("cpf_cliente"), rs.getString("cpf_atendente"), rs.getString("data_ini"), rs.getString("data_fim"), rs.getString("dresc_prob"), rsnomeatendente.getString(1));
+            Av = new AvAtendimento(rs.getString("cpf_cliente"), rs.getString("cpf_atendente"), rs.getString("data_av"), rs.getString("data_ini"), rs.getFloat("nota_atend"), rs.getString("sugestao"), a, rs.getInt("probl_res"), rsnomeatendente.getString(1),rsnomecliente.getString(1));
             res.addElement(Av);
         }
         return res;
@@ -443,13 +460,19 @@ public class ConexaoBD {
         ResultSet rs = st.getResultSet();
 
         while (rs.next()) {
-            ResultSet rsnome;
+            ResultSet rsnomeatendente,rsnomecliente;
+            
             st = myConnection.createStatement();
             st.execute("SELECT nome_atendente FROM funcionario_atendente WHERE cpf_atendente = '" + rs.getString("cpf_atendente") + "';");
-            rsnome = st.getResultSet();
-            rsnome.next();
-            a = new Atendimento(cpf_cliente, rs.getString("cpf_atendente"), rs.getString("data_ini"), rs.getString("data_fim"), rs.getString("dresc_prob"), rsnome.getString(1));
-            Av = new AvAtendimento(cpf_cliente, rs.getString("cpf_atendente"), rs.getString("data_av"), rs.getString("data_ini"), rs.getFloat("nota_atend"), rs.getString("sugestao"), a, rs.getInt("probl_res"), rsnome.getString(1));
+            rsnomeatendente = st.getResultSet();
+            rsnomeatendente.next();
+            st = myConnection.createStatement();
+            st.execute("SELECT nome_cliente FROM cliente WHERE cpf_cliente = '" + rs.getString("cpf_cliente") + "';");
+            rsnomecliente = st.getResultSet();
+            rsnomecliente.next();
+            
+            a = new Atendimento(cpf_cliente, rs.getString("cpf_atendente"), rs.getString("data_ini"), rs.getString("data_fim"), rs.getString("dresc_prob"), rsnomeatendente.getString(1));
+            Av = new AvAtendimento(cpf_cliente, rs.getString("cpf_atendente"), rs.getString("data_av"), rs.getString("data_ini"), rs.getFloat("nota_atend"), rs.getString("sugestao"), a, rs.getInt("probl_res"), rsnomeatendente.getString(1),rsnomecliente.getString(1));
             res.addElement(Av);
         }
         return res;
@@ -481,6 +504,15 @@ public class ConexaoBD {
             st = myConnection.createStatement();
             st.execute(ins.toString());
             ResultSet rsserv = st.getResultSet();
+            
+            ResultSet rsnomecliente;
+            
+            st = myConnection.createStatement();
+            st.execute("SELECT nome_cliente FROM cliente WHERE cpf_cliente = '" + rs.getString("cpf_cliente") + "';");
+            rsnomecliente = st.getResultSet();
+            rsnomecliente.next();
+            
+            
             //cria um vetor com todos os tipos de servicos realizados em um servico na oficina
             serv_realizados = new Vector();
             while (rsserv.next()) {
@@ -488,7 +520,7 @@ public class ConexaoBD {
                 serv_realizados.add(sr);
             }
             ServicoOficina serv = new ServicoOficina(rs.getString(1), rs.getString(2), rs.getString(3), cpf, serv_realizados);
-            AvOficina av = new AvOficina(serv, rs.getInt("prob_res"), cpf, rs.getString("data_av"), rs.getFloat("nota_serv"), rs.getString("sugestao"), rs.getString("cod_av"));
+            AvOficina av = new AvOficina(serv, rs.getInt("prob_res"), cpf, rs.getString("data_av"), rs.getFloat("nota_serv"), rs.getString("sugestao"), rs.getString("cod_av"),rsnomecliente.getString(1));
             res.add(av);
         }
 
