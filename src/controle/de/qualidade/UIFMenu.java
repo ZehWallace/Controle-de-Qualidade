@@ -43,18 +43,18 @@ public class UIFMenu extends javax.swing.JFrame {
 		this.setResizable(false);
 		BemVindoPanel.setVisible(true);
 		ClientePanel.setVisible(false);
-		DadosProdutosPanel.setVisible(false);
-		DadosSetoresPanel.setVisible(false);
+//		DadosProdutosPanel.setVisible(false);
+		Sumarizacao.setVisible(false);
 		FuncionarioPanel.setVisible(false);
 		GeralPanel.setVisible(false);
 		LimparPanel.setVisible(false);
-		ProdutoPanel.setVisible(false);
+//		ProdutoPanel.setVisible(false);
 		SairPanel.setVisible(false);
-		SetorPanel.setVisible(false);
-		TableClientesPanel.setVisible(false);
-		TableFuncionariosPanel.setVisible(false);
-		TableGeralPanel.setVisible(false);
-		TableSetorPanel.setVisible(false);
+//		SetorPanel.setVisible(false);
+//		TableClientesPanel.setVisible(false);
+//		TableFuncionariosPanel.setVisible(false);
+//		TableGeralPanel.setVisible(false);
+//		TableSetorPanel.setVisible(false);
 		BackupPanel.setVisible(false);
 		RestorePanel.setVisible(false);
 
@@ -141,42 +141,6 @@ public class UIFMenu extends javax.swing.JFrame {
         jLabel54 = new javax.swing.JLabel();
         jPanel23 = new javax.swing.JPanel();
         jButton24 = new javax.swing.JButton();
-        SetorPanel = new javax.swing.JPanel();
-        jPanel46 = new javax.swing.JPanel();
-        jLabel19 = new javax.swing.JLabel();
-        jPanel18 = new javax.swing.JPanel();
-        jPanel48 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jPanel19 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        try{
-            javax.swing.text.MaskFormatter dataIni = new javax.swing.text.MaskFormatter("##/##/####");
-            dataIni.setPlaceholderCharacter('_');
-            jTextField3 = new javax.swing.JFormattedTextField(dataIni);
-        }catch(Exception e){
-        }
-        jLabel6 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        try{
-            javax.swing.text.MaskFormatter dataFim = new javax.swing.text.MaskFormatter("##/##/####");
-            dataFim.setPlaceholderCharacter('_');
-            jTextField4 = new javax.swing.JFormattedTextField(dataFim);
-        }catch(Exception e){
-        }
-        jPanel26 = new javax.swing.JPanel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jPanel31 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable(){
-            public boolean isCellEditable(int rowIndex, int vColIndex){
-                return false;
-            }
-        };
-        jPanel32 = new javax.swing.JPanel();
-        jButton6 = new javax.swing.JButton();
         ClientePanel = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
@@ -262,15 +226,6 @@ public class UIFMenu extends javax.swing.JFrame {
         jButton21 = new javax.swing.JButton();
         jPanel71 = new javax.swing.JPanel();
         warningLabelFuncionario = new javax.swing.JLabel();
-        ProdutoPanel = new javax.swing.JPanel();
-        jPanel24 = new javax.swing.JPanel();
-        jPanel25 = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
-        jPanel10 = new javax.swing.JPanel();
-        jPanel11 = new javax.swing.JPanel();
-        jPanel12 = new javax.swing.JPanel();
-        jButton5 = new javax.swing.JButton();
         LimparPanel = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jPanel35 = new javax.swing.JPanel();
@@ -298,7 +253,7 @@ public class UIFMenu extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jPanel37 = new javax.swing.JPanel();
         warningLimparHist = new javax.swing.JLabel();
-        DadosSetoresPanel = new javax.swing.JPanel();
+        Sumarizacao = new javax.swing.JPanel();
         jPanel44 = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
         jPanel49 = new javax.swing.JPanel();
@@ -309,15 +264,6 @@ public class UIFMenu extends javax.swing.JFrame {
         jPanel50 = new javax.swing.JPanel();
         jPanel51 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
-        DadosProdutosPanel = new javax.swing.JPanel();
-        jPanel39 = new javax.swing.JPanel();
-        jPanel40 = new javax.swing.JPanel();
-        jLabel13 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
-        jPanel41 = new javax.swing.JPanel();
-        jPanel42 = new javax.swing.JPanel();
-        jPanel43 = new javax.swing.JPanel();
-        jButton8 = new javax.swing.JButton();
         SairPanel = new javax.swing.JPanel();
         jPanel28 = new javax.swing.JPanel();
         jPanel29 = new javax.swing.JPanel();
@@ -333,90 +279,6 @@ public class UIFMenu extends javax.swing.JFrame {
         jPanel27 = new javax.swing.JPanel();
         jPanel38 = new javax.swing.JPanel();
         jPanel45 = new javax.swing.JPanel();
-        TableClientesPanel = new javax.swing.JPanel();
-        jPanel52 = new javax.swing.JPanel();
-        jLabel31 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable(){
-            public boolean isCellEditable(int rowIndex, int vColIndex){
-                return false;
-            }
-        };
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable(){
-            public boolean isCellEditable(int rowIndex, int vColIndex){
-                return false;
-            }
-        };
-        jScrollPane5 = new javax.swing.JScrollPane();
-        jTable5 = new javax.swing.JTable(){
-            public boolean isCellEditable(int rowIndex, int vColIndex){
-                return false;
-            }
-        };
-        jPanel58 = new javax.swing.JPanel();
-        jButton15 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
-        TableFuncionariosPanel = new javax.swing.JPanel();
-        jPanel59 = new javax.swing.JPanel();
-        jLabel32 = new javax.swing.JLabel();
-        jScrollPane9 = new javax.swing.JScrollPane();
-        jTable6 = new javax.swing.JTable(){
-            public boolean isCellEditable(int rowIndex, int vColIndex){
-                return false;
-            }
-        };
-        jScrollPane10 = new javax.swing.JScrollPane();
-        jTable7 = new javax.swing.JTable(){
-            public boolean isCellEditable(int rowIndex, int vColIndex){
-                return false;
-            }
-        };
-        jScrollPane11 = new javax.swing.JScrollPane();
-        jTable8 = new javax.swing.JTable(){
-            public boolean isCellEditable(int rowIndex, int vColIndex){
-                return false;
-            }
-        };
-        jPanel60 = new javax.swing.JPanel();
-        jButton14 = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
-        TableGeralPanel = new javax.swing.JPanel();
-        jPanel61 = new javax.swing.JPanel();
-        jLabel33 = new javax.swing.JLabel();
-        jScrollPane12 = new javax.swing.JScrollPane();
-        jTable9 = new javax.swing.JTable(){
-            public boolean isCellEditable(int rowIndex, int vColIndex){
-                return false;
-            }
-        };
-        jScrollPane13 = new javax.swing.JScrollPane();
-        jTable10 = new javax.swing.JTable(){
-            public boolean isCellEditable(int rowIndex, int vColIndex){
-                return false;
-            }
-        };
-        jScrollPane14 = new javax.swing.JScrollPane();
-        jTable11 = new javax.swing.JTable(){
-            public boolean isCellEditable(int rowIndex, int vColIndex){
-                return false;
-            }
-        };
-        jPanel62 = new javax.swing.JPanel();
-        jButton16 = new javax.swing.JButton();
-        jButton17 = new javax.swing.JButton();
-        TableSetorPanel = new javax.swing.JPanel();
-        jPanel63 = new javax.swing.JPanel();
-        jLabel34 = new javax.swing.JLabel();
-        jScrollPane15 = new javax.swing.JScrollPane();
-        jTable12 = new javax.swing.JTable(){
-            public boolean isCellEditable(int rowIndex, int vColIndex){
-                return false;
-            }
-        };
-        jPanel64 = new javax.swing.JPanel();
-        jButton18 = new javax.swing.JButton();
-        jButton19 = new javax.swing.JButton();
         RestorePanel = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
         jPanel72 = new javax.swing.JPanel();
@@ -427,7 +289,6 @@ public class UIFMenu extends javax.swing.JFrame {
         jMenu6 = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
@@ -506,7 +367,7 @@ public class UIFMenu extends javax.swing.JFrame {
         jPanel15.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 10));
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel18.setText("Histórico - Geral");
+        jLabel18.setText("Histórico - Setor");
         jPanel15.add(jLabel18);
 
         warningLabelGeral.setForeground(new java.awt.Color(204, 0, 0));
@@ -690,81 +551,6 @@ public class UIFMenu extends javax.swing.JFrame {
         BackupPanel.add(jPanel23);
 
         getContentPane().add(BackupPanel);
-
-        SetorPanel.setLayout(new java.awt.GridLayout(4, 0));
-
-        jPanel46.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 10));
-
-        jLabel19.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel19.setText("Histórico - Setor");
-        jPanel46.add(jLabel19);
-
-        SetorPanel.add(jPanel46);
-
-        jPanel18.setLayout(new java.awt.GridLayout(3, 0, 0, -1));
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel4.setText("Período:");
-        jPanel48.add(jLabel4);
-
-        jPanel18.add(jPanel48);
-
-        jLabel5.setText("De: ");
-        jPanel19.add(jLabel5);
-
-        jTextField3.setColumns(8);
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
-            }
-        });
-        jPanel19.add(jTextField3);
-
-        jLabel6.setText("Até: ");
-        jPanel19.add(jLabel6);
-
-        jTextField4.setColumns(8);
-        jPanel19.add(jTextField4);
-
-        jPanel18.add(jPanel19);
-
-        buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setText("Venda");
-        jPanel26.add(jRadioButton1);
-
-        buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setText("Atendimento");
-        jPanel26.add(jRadioButton2);
-
-        buttonGroup1.add(jRadioButton3);
-        jRadioButton3.setText("Oficina");
-        jPanel26.add(jRadioButton3);
-
-        jPanel18.add(jPanel26);
-
-        SetorPanel.add(jPanel18);
-
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane2.setViewportView(jTable2);
-
-        jPanel31.add(jScrollPane2);
-
-        SetorPanel.add(jPanel31);
-
-        jButton6.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jButton6.setText("Confirmar");
-        jPanel32.add(jButton6);
-
-        SetorPanel.add(jPanel32);
-
-        getContentPane().add(SetorPanel);
 
         jPanel5.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 20));
 
@@ -1149,27 +935,6 @@ public class UIFMenu extends javax.swing.JFrame {
 
         getContentPane().add(FuncionarioPanel);
 
-        ProdutoPanel.setLayout(new java.awt.GridLayout(5, 0));
-        ProdutoPanel.add(jPanel24);
-
-        jLabel11.setText("Cod. Produto");
-        jPanel25.add(jLabel11);
-
-        jTextField8.setColumns(20);
-        jPanel25.add(jTextField8);
-
-        ProdutoPanel.add(jPanel25);
-        ProdutoPanel.add(jPanel10);
-        ProdutoPanel.add(jPanel11);
-
-        jButton5.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jButton5.setText("Confirmar");
-        jPanel12.add(jButton5);
-
-        ProdutoPanel.add(jPanel12);
-
-        getContentPane().add(ProdutoPanel);
-
         jPanel1.setLayout(new java.awt.GridLayout(5, 0));
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -1249,7 +1014,7 @@ public class UIFMenu extends javax.swing.JFrame {
 
         getContentPane().add(LimparPanel);
 
-        DadosSetoresPanel.setLayout(new java.awt.GridLayout(4, 0));
+        Sumarizacao.setLayout(new java.awt.GridLayout(4, 0));
 
         jPanel44.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 20));
 
@@ -1257,7 +1022,7 @@ public class UIFMenu extends javax.swing.JFrame {
         jLabel23.setText("Sumarização");
         jPanel44.add(jLabel23);
 
-        DadosSetoresPanel.add(jPanel44);
+        Sumarizacao.add(jPanel44);
 
         buttonGroup2.add(jRadioButton7);
         jRadioButton7.setText("Geral");
@@ -1275,37 +1040,16 @@ public class UIFMenu extends javax.swing.JFrame {
         jRadioButton6.setText("Oficina");
         jPanel49.add(jRadioButton6);
 
-        DadosSetoresPanel.add(jPanel49);
-        DadosSetoresPanel.add(jPanel50);
+        Sumarizacao.add(jPanel49);
+        Sumarizacao.add(jPanel50);
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton1.setText("Confirmar");
         jPanel51.add(jButton1);
 
-        DadosSetoresPanel.add(jPanel51);
+        Sumarizacao.add(jPanel51);
 
-        getContentPane().add(DadosSetoresPanel);
-
-        DadosProdutosPanel.setLayout(new java.awt.GridLayout(5, 0));
-        DadosProdutosPanel.add(jPanel39);
-
-        jLabel13.setText("Cod. Produto");
-        jPanel40.add(jLabel13);
-
-        jTextField10.setColumns(20);
-        jPanel40.add(jTextField10);
-
-        DadosProdutosPanel.add(jPanel40);
-        DadosProdutosPanel.add(jPanel41);
-        DadosProdutosPanel.add(jPanel42);
-
-        jButton8.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jButton8.setText("Confirmar");
-        jPanel43.add(jButton8);
-
-        DadosProdutosPanel.add(jPanel43);
-
-        getContentPane().add(DadosProdutosPanel);
+        getContentPane().add(Sumarizacao);
 
         SairPanel.setLayout(new java.awt.GridLayout(5, 0));
         SairPanel.add(jPanel28);
@@ -1351,198 +1095,6 @@ public class UIFMenu extends javax.swing.JFrame {
 
         getContentPane().add(BemVindoPanel);
 
-        TableClientesPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel31.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel31.setText("Cliente");
-        jPanel52.add(jLabel31);
-
-        TableClientesPanel.add(jPanel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 40));
-
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane3.setViewportView(jTable3);
-
-        TableClientesPanel.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 220, 230));
-
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane4.setViewportView(jTable4);
-
-        TableClientesPanel.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, 220, 230));
-
-        jTable5.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane5.setViewportView(jTable5);
-
-        TableClientesPanel.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 40, 200, 230));
-
-        jButton15.setText("Fechar");
-        jPanel58.add(jButton15);
-
-        jButton12.setText("Confirmar");
-        jPanel58.add(jButton12);
-
-        TableClientesPanel.add(jPanel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 640, 60));
-
-        getContentPane().add(TableClientesPanel);
-
-        TableFuncionariosPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel32.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel32.setText("Funcionario");
-        jPanel59.add(jLabel32);
-
-        TableFuncionariosPanel.add(jPanel59, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 40));
-
-        jTable6.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane9.setViewportView(jTable6);
-
-        TableFuncionariosPanel.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 220, 230));
-
-        jTable7.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane10.setViewportView(jTable7);
-
-        TableFuncionariosPanel.add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, 220, 230));
-
-        jTable8.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane11.setViewportView(jTable8);
-
-        TableFuncionariosPanel.add(jScrollPane11, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 40, 200, 230));
-
-        jButton14.setText("Fechar");
-        jPanel60.add(jButton14);
-
-        jButton13.setText("Confirmar");
-        jPanel60.add(jButton13);
-
-        TableFuncionariosPanel.add(jPanel60, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 640, 60));
-
-        getContentPane().add(TableFuncionariosPanel);
-
-        TableGeralPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel33.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel33.setText("Geral");
-        jPanel61.add(jLabel33);
-
-        TableGeralPanel.add(jPanel61, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 40));
-
-        jTable9.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane12.setViewportView(jTable9);
-
-        TableGeralPanel.add(jScrollPane12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 220, 230));
-
-        jTable10.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane13.setViewportView(jTable10);
-
-        TableGeralPanel.add(jScrollPane13, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, 220, 230));
-
-        jTable11.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane14.setViewportView(jTable11);
-
-        TableGeralPanel.add(jScrollPane14, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 40, 200, 230));
-
-        jButton16.setText("Fechar");
-        jPanel62.add(jButton16);
-
-        jButton17.setText("Confirmar");
-        jPanel62.add(jButton17);
-
-        TableGeralPanel.add(jPanel62, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 640, 60));
-
-        getContentPane().add(TableGeralPanel);
-
-        TableSetorPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel34.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel34.setText("Setor");
-        jPanel63.add(jLabel34);
-
-        TableSetorPanel.add(jPanel63, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 40));
-
-        jTable12.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane15.setViewportView(jTable12);
-
-        TableSetorPanel.add(jScrollPane15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 400, 230));
-
-        jButton18.setText("Fechar");
-        jPanel64.add(jButton18);
-
-        jButton19.setText("Confirmar");
-        jPanel64.add(jButton19);
-
-        TableSetorPanel.add(jPanel64, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 400, 30));
-
-        getContentPane().add(TableSetorPanel);
-
         RestorePanel.setLayout(new java.awt.GridLayout(4, 0));
 
         jPanel16.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 15));
@@ -1572,21 +1124,13 @@ public class UIFMenu extends javax.swing.JFrame {
 
         jMenu1.setText("Visualizar");
 
-        jMenuItem1.setText("Geral");
+        jMenuItem1.setText("Setor");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
             }
         });
         jMenu1.add(jMenuItem1);
-
-        jMenuItem2.setText("Setor");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem2);
 
         jMenuItem3.setText("Cliente");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
@@ -1669,18 +1213,18 @@ public class UIFMenu extends javax.swing.JFrame {
 	private void setVisibleAllFalse() {
 		BemVindoPanel.setVisible(false);
 		ClientePanel.setVisible(false);
-		DadosProdutosPanel.setVisible(false);
-		DadosSetoresPanel.setVisible(false);
+//		DadosProdutosPanel.setVisible(false);
+		Sumarizacao.setVisible(false);
 		FuncionarioPanel.setVisible(false);
 		GeralPanel.setVisible(false);
 		LimparPanel.setVisible(false);
-		ProdutoPanel.setVisible(false);
+//		ProdutoPanel.setVisible(false);
 		SairPanel.setVisible(false);
-		SetorPanel.setVisible(false);
-		TableClientesPanel.setVisible(false);
-		TableFuncionariosPanel.setVisible(false);
-		TableGeralPanel.setVisible(false);
-		TableSetorPanel.setVisible(false);
+//		SetorPanel.setVisible(false);
+//		TableClientesPanel.setVisible(false);
+//		TableFuncionariosPanel.setVisible(false);
+//		TableGeralPanel.setVisible(false);
+//		TableSetorPanel.setVisible(false);
 		BackupPanel.setVisible(false);
 		RestorePanel.setVisible(false);
 	}
@@ -1693,11 +1237,6 @@ public class UIFMenu extends javax.swing.JFrame {
 		jTextField1.requestFocus();
 		warningLabelGeral.setText("");
     }//GEN-LAST:event_jMenuItem1ActionPerformed
-
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-		setVisibleAllFalse();
-		SetorPanel.setVisible(true);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
 		setVisibleAllFalse();
@@ -1715,7 +1254,7 @@ public class UIFMenu extends javax.swing.JFrame {
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
 		setVisibleAllFalse();
-		DadosSetoresPanel.setVisible(true);
+		Sumarizacao.setVisible(true);
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
@@ -1732,10 +1271,6 @@ public class UIFMenu extends javax.swing.JFrame {
 		new UILogin().setVisible(true);
 		this.dispose();
     }//GEN-LAST:event_jButton9ActionPerformed
-
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
-		// TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
 		jDialog1.setLocationRelativeTo(null);
@@ -2314,32 +1849,17 @@ public class UIFMenu extends javax.swing.JFrame {
     private javax.swing.JPanel BackupPanel;
     private javax.swing.JPanel BemVindoPanel;
     private javax.swing.JPanel ClientePanel;
-    private javax.swing.JPanel DadosProdutosPanel;
-    private javax.swing.JPanel DadosSetoresPanel;
     private javax.swing.JPanel FuncionarioPanel;
     private javax.swing.JPanel GeralPanel;
     private javax.swing.JPanel LimparPanel;
-    private javax.swing.JPanel ProdutoPanel;
     private javax.swing.JPanel RestorePanel;
     private javax.swing.JPanel SairPanel;
-    private javax.swing.JPanel SetorPanel;
-    private javax.swing.JPanel TableClientesPanel;
-    private javax.swing.JPanel TableFuncionariosPanel;
-    private javax.swing.JPanel TableGeralPanel;
-    private javax.swing.JPanel TableSetorPanel;
+    private javax.swing.JPanel Sumarizacao;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton15;
-    private javax.swing.JButton jButton16;
-    private javax.swing.JButton jButton17;
-    private javax.swing.JButton jButton18;
-    private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton20;
     private javax.swing.JButton jButton21;
@@ -2348,23 +1868,17 @@ public class UIFMenu extends javax.swing.JFrame {
     private javax.swing.JButton jButton26;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox jComboBox2;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel22;
@@ -2377,16 +1891,11 @@ public class UIFMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
@@ -2397,13 +1906,11 @@ public class UIFMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel49;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel55;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -2416,73 +1923,47 @@ public class UIFMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
-    private javax.swing.JPanel jPanel18;
-    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel22;
     private javax.swing.JPanel jPanel23;
-    private javax.swing.JPanel jPanel24;
-    private javax.swing.JPanel jPanel25;
-    private javax.swing.JPanel jPanel26;
     private javax.swing.JPanel jPanel27;
     private javax.swing.JPanel jPanel28;
     private javax.swing.JPanel jPanel29;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel30;
-    private javax.swing.JPanel jPanel31;
-    private javax.swing.JPanel jPanel32;
     private javax.swing.JPanel jPanel33;
     private javax.swing.JPanel jPanel34;
     private javax.swing.JPanel jPanel35;
     private javax.swing.JPanel jPanel36;
     private javax.swing.JPanel jPanel37;
     private javax.swing.JPanel jPanel38;
-    private javax.swing.JPanel jPanel39;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel40;
-    private javax.swing.JPanel jPanel41;
-    private javax.swing.JPanel jPanel42;
-    private javax.swing.JPanel jPanel43;
     private javax.swing.JPanel jPanel44;
     private javax.swing.JPanel jPanel45;
-    private javax.swing.JPanel jPanel46;
     private javax.swing.JPanel jPanel47;
-    private javax.swing.JPanel jPanel48;
     private javax.swing.JPanel jPanel49;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel50;
     private javax.swing.JPanel jPanel51;
-    private javax.swing.JPanel jPanel52;
     private javax.swing.JPanel jPanel53;
     private javax.swing.JPanel jPanel54;
     private javax.swing.JPanel jPanel55;
     private javax.swing.JPanel jPanel56;
     private javax.swing.JPanel jPanel57;
-    private javax.swing.JPanel jPanel58;
-    private javax.swing.JPanel jPanel59;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel60;
-    private javax.swing.JPanel jPanel61;
-    private javax.swing.JPanel jPanel62;
-    private javax.swing.JPanel jPanel63;
-    private javax.swing.JPanel jPanel64;
     private javax.swing.JPanel jPanel65;
     private javax.swing.JPanel jPanel66;
     private javax.swing.JPanel jPanel67;
@@ -2495,36 +1976,19 @@ public class UIFMenu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel73;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JRadioButton jRadioButton5;
     private javax.swing.JRadioButton jRadioButton6;
     private javax.swing.JRadioButton jRadioButton7;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane10;
-    private javax.swing.JScrollPane jScrollPane11;
-    private javax.swing.JScrollPane jScrollPane12;
-    private javax.swing.JScrollPane jScrollPane13;
-    private javax.swing.JScrollPane jScrollPane14;
-    private javax.swing.JScrollPane jScrollPane15;
     private javax.swing.JScrollPane jScrollPane16;
     private javax.swing.JScrollPane jScrollPane17;
     private javax.swing.JScrollPane jScrollPane18;
     private javax.swing.JScrollPane jScrollPane19;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
-    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable10;
-    private javax.swing.JTable jTable11;
-    private javax.swing.JTable jTable12;
     private javax.swing.JTable jTable13;
     private javax.swing.JTable jTable14;
     private javax.swing.JTable jTable15;
@@ -2532,23 +1996,11 @@ public class UIFMenu extends javax.swing.JFrame {
     private javax.swing.JTable jTable17;
     private javax.swing.JTable jTable18;
     private javax.swing.JTable jTable19;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
-    private javax.swing.JTable jTable4;
-    private javax.swing.JTable jTable5;
-    private javax.swing.JTable jTable6;
-    private javax.swing.JTable jTable7;
-    private javax.swing.JTable jTable8;
-    private javax.swing.JTable jTable9;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
     private javax.swing.JLabel warningLabel;
     private javax.swing.JLabel warningLabelFuncionario;
