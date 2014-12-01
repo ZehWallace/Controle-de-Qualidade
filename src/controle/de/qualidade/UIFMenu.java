@@ -56,6 +56,7 @@ public class UIFMenu extends javax.swing.JFrame {
 		TableGeralPanel.setVisible(false);
 		TableSetorPanel.setVisible(false);
 		BackupPanel.setVisible(false);
+                RestorePanel.setVisible(false);
 
 		this.f = f;
 		jLabel16.setText(f.getNome());
@@ -140,7 +141,6 @@ public class UIFMenu extends javax.swing.JFrame {
         jLabel54 = new javax.swing.JLabel();
         jPanel23 = new javax.swing.JPanel();
         jButton24 = new javax.swing.JButton();
-        jButton23 = new javax.swing.JButton();
         SetorPanel = new javax.swing.JPanel();
         jPanel46 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
@@ -417,6 +417,12 @@ public class UIFMenu extends javax.swing.JFrame {
         jPanel64 = new javax.swing.JPanel();
         jButton18 = new javax.swing.JButton();
         jButton19 = new javax.swing.JButton();
+        RestorePanel = new javax.swing.JPanel();
+        jPanel16 = new javax.swing.JPanel();
+        jPanel72 = new javax.swing.JPanel();
+        jLabel55 = new javax.swing.JLabel();
+        jPanel73 = new javax.swing.JPanel();
+        jButton26 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu6 = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
@@ -429,6 +435,7 @@ public class UIFMenu extends javax.swing.JFrame {
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenu8 = new javax.swing.JMenu();
         jMenuItem10 = new javax.swing.JMenuItem();
+        jMenuItem11 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         jMenuItem9 = new javax.swing.JMenuItem();
 
@@ -660,31 +667,25 @@ public class UIFMenu extends javax.swing.JFrame {
         getContentPane().add(GeralPanel);
 
         BackupPanel.setLayout(new java.awt.GridLayout(4, 0));
+
+        jPanel8.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 15));
         BackupPanel.add(jPanel8);
 
         jPanel22.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 15));
 
         jLabel54.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel54.setText("Deseja Fazer o Backup do Banco de Dados?");
+        jLabel54.setText("Deseja criar Backup dos Dados?");
         jPanel22.add(jLabel54);
 
         BackupPanel.add(jPanel22);
 
-        jButton24.setText("Confirmar");
+        jButton24.setText("Criar");
         jButton24.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton24ActionPerformed(evt);
             }
         });
         jPanel23.add(jButton24);
-
-        jButton23.setText("Restaurar");
-        jButton23.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton23ActionPerformed(evt);
-            }
-        });
-        jPanel23.add(jButton23);
 
         BackupPanel.add(jPanel23);
 
@@ -1542,6 +1543,31 @@ public class UIFMenu extends javax.swing.JFrame {
 
         getContentPane().add(TableSetorPanel);
 
+        RestorePanel.setLayout(new java.awt.GridLayout(4, 0));
+
+        jPanel16.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 15));
+        RestorePanel.add(jPanel16);
+
+        jPanel72.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 15));
+
+        jLabel55.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel55.setText("Deseja restaurar dados?");
+        jPanel72.add(jLabel55);
+
+        RestorePanel.add(jPanel72);
+
+        jButton26.setText("Restaurar");
+        jButton26.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton26ActionPerformed(evt);
+            }
+        });
+        jPanel73.add(jButton26);
+
+        RestorePanel.add(jPanel73);
+
+        getContentPane().add(RestorePanel);
+
         jMenu6.setText("Histórico");
 
         jMenu1.setText("Visualizar");
@@ -1604,13 +1630,21 @@ public class UIFMenu extends javax.swing.JFrame {
 
         jMenu8.setText("Backup");
 
-        jMenuItem10.setText("Salvar Database");
+        jMenuItem10.setText("Criar Backup");
         jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem10ActionPerformed(evt);
             }
         });
         jMenu8.add(jMenuItem10);
+
+        jMenuItem11.setText("Restaurar Backup");
+        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem11ActionPerformed(evt);
+            }
+        });
+        jMenu8.add(jMenuItem11);
 
         jMenuBar1.add(jMenu8);
 
@@ -1648,6 +1682,7 @@ public class UIFMenu extends javax.swing.JFrame {
 		TableGeralPanel.setVisible(false);
 		TableSetorPanel.setVisible(false);
 		BackupPanel.setVisible(false);
+                RestorePanel.setVisible(false);
 	}
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
 		setVisibleAllFalse();
@@ -1982,13 +2017,6 @@ public class UIFMenu extends javax.swing.JFrame {
 		System.out.println("acabou...");
     }//GEN-LAST:event_jButton24ActionPerformed
 
-    private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
-		// TODO add your handling code here:
-		BackupPgSQL bk = new BackupPgSQL();
-		bk.doRestore();
-		System.out.println("acabou...");
-    }//GEN-LAST:event_jButton23ActionPerformed
-
     private void jTextField1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusGained
 		jTextField1.setText("");
     }//GEN-LAST:event_jTextField1FocusGained
@@ -2016,6 +2044,19 @@ public class UIFMenu extends javax.swing.JFrame {
 			jScrollPane19.setVisible(true);
 		}
     }//GEN-LAST:event_jComboBox2ActionPerformed
+
+    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
+        // TODO add your handling code here:
+        setVisibleAllFalse();
+        RestorePanel.setVisible(true);
+    }//GEN-LAST:event_jMenuItem11ActionPerformed
+
+    private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
+        // TODO add your handling code here:
+        BackupPgSQL bk = new BackupPgSQL();
+        bk.doRestore();
+	System.out.println("acabou...");
+    }//GEN-LAST:event_jButton26ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
 		String data_ini = jLabel27.getText();
@@ -2279,6 +2320,7 @@ public class UIFMenu extends javax.swing.JFrame {
     private javax.swing.JPanel GeralPanel;
     private javax.swing.JPanel LimparPanel;
     private javax.swing.JPanel ProdutoPanel;
+    private javax.swing.JPanel RestorePanel;
     private javax.swing.JPanel SairPanel;
     private javax.swing.JPanel SetorPanel;
     private javax.swing.JPanel TableClientesPanel;
@@ -2302,8 +2344,8 @@ public class UIFMenu extends javax.swing.JFrame {
     private javax.swing.JButton jButton20;
     private javax.swing.JButton jButton21;
     private javax.swing.JButton jButton22;
-    private javax.swing.JButton jButton23;
     private javax.swing.JButton jButton24;
+    private javax.swing.JButton jButton26;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -2360,6 +2402,7 @@ public class UIFMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel54;
+    private javax.swing.JLabel jLabel55;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -2372,6 +2415,7 @@ public class UIFMenu extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
+    private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
@@ -2385,6 +2429,7 @@ public class UIFMenu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel19;
@@ -2446,6 +2491,8 @@ public class UIFMenu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel70;
     private javax.swing.JPanel jPanel71;
+    private javax.swing.JPanel jPanel72;
+    private javax.swing.JPanel jPanel73;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JRadioButton jRadioButton1;
