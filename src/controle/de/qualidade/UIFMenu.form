@@ -422,6 +422,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Visualizar Avalia&#xe7;&#xe3;o"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -490,6 +493,9 @@
               <Properties>
                 <Property name="columns" type="int" value="8"/>
               </Properties>
+              <Events>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField1KeyPressed"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="try{&#xd;&#xa; javax.swing.text.MaskFormatter dataIni = new javax.swing.text.MaskFormatter(&quot;##/##/####&quot;);&#xd;&#xa; dataIni.setPlaceholderCharacter(&apos;_&apos;);&#xd;&#xa; jTextField1 = new javax.swing.JFormattedTextField(dataIni);&#xd;&#xa; }catch(Exception e){&#xd;&#xa;}"/>
               </AuxValues>
@@ -503,6 +509,9 @@
               <Properties>
                 <Property name="columns" type="int" value="8"/>
               </Properties>
+              <Events>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField2KeyPressed"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="try{&#xd;&#xa; javax.swing.text.MaskFormatter dataFim = new javax.swing.text.MaskFormatter(&quot;##/##/####&quot;);&#xd;&#xa; dataFim.setPlaceholderCharacter(&apos;_&apos;);&#xd;&#xa; jTextField2 = new javax.swing.JFormattedTextField(dataFim);&#xd;&#xa; }catch(Exception e){&#xd;&#xa;}"/>
               </AuxValues>

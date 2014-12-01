@@ -554,6 +554,11 @@ public class UIFMenu extends javax.swing.JFrame {
 
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jButton3.setText("Visualizar Avaliação");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         jPanel21.add(jButton3);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -575,12 +580,22 @@ public class UIFMenu extends javax.swing.JFrame {
         jPanel14.add(jLabel1);
 
         jTextField1.setColumns(8);
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField1KeyPressed(evt);
+            }
+        });
         jPanel14.add(jTextField1);
 
         jLabel3.setText("Até: ");
         jPanel14.add(jLabel3);
 
         jTextField2.setColumns(8);
+        jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField2KeyPressed(evt);
+            }
+        });
         jPanel14.add(jTextField2);
 
         jButton22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -1542,6 +1557,9 @@ public class UIFMenu extends javax.swing.JFrame {
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
 		setVisibleAllFalse();
 		GeralPanel.setVisible(true);
+		jPanel7.setVisible(false);
+		jPanel16.setVisible(false);
+		jPanel21.setVisible(false);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -1737,12 +1755,12 @@ public class UIFMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton21ActionPerformed
 
     private void jTable1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTable1FocusGained
-        jTable18.clearSelection();
+		jTable18.clearSelection();
 		jTable19.clearSelection();
     }//GEN-LAST:event_jTable1FocusGained
 
     private void jTable18FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTable18FocusGained
-        jTable1.clearSelection();
+		jTable1.clearSelection();
 		jTable19.clearSelection();
     }//GEN-LAST:event_jTable18FocusGained
 
@@ -1752,11 +1770,90 @@ public class UIFMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jTable19FocusGained
 
     private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
-        // TODO add your handling code here:
+		try {
+			buscarGeral();
+		} catch (ClassNotFoundException | SQLException | InstantiationException | IllegalAccessException ex) {
+			Logger.getLogger(UIFMenu.class.getName()).log(Level.SEVERE, null, ex);
+		}
     }//GEN-LAST:event_jButton22ActionPerformed
 
+    private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
+		String data = jTextField1.getText().replaceAll("[^0-9]", "");
+		jTextField1.setText(data);
+    }//GEN-LAST:event_jTextField1KeyPressed
+
+    private void jTextField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyPressed
+		String data = jTextField2.getText().replaceAll("[^0-9]", "");
+		jTextField2.setText(data);
+    }//GEN-LAST:event_jTextField2KeyPressed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+		int row = -1;
+		int opc = -1;
+
+		if (row == -1) {
+			row = jTable1.getSelectedRow();
+			opc = 1;
+		}
+		if (row == -1) {
+			row = jTable18.getSelectedRow();
+			opc = 2;
+		}
+		if (row == -1) {
+			row = jTable19.getSelectedRow();
+			opc = 3;
+		}
+
+		if (opc == 1) {
+			try {
+				AvVenda av = (AvVenda) avaliacoes_vendas.get(row);
+				c.buscarCliente(av.getCpf_cliente());
+				new UIVisAvVenda(c, av).setVisible(true);
+			} catch (SQLException | ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
+				Logger.getLogger(UIFMenu.class.getName()).log(Level.SEVERE, null, ex);
+			}
+		} else if (opc == 2) {
+			try {
+				AvAtendimento av = (AvAtendimento) avaliacoes_atendimentos.get(row);
+				c.buscarCliente(av.getCpf_cliente());
+				new UIVisAvAtendimento(c, av).setVisible(true);
+			} catch (SQLException | ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
+				Logger.getLogger(UIFMenu.class.getName()).log(Level.SEVERE, null, ex);
+			}
+		} else if (opc == 3) {
+			try {
+				AvOficina av = (AvOficina) avaliacoes_oficina.get(row);
+				c.buscarCliente(av.getCpf_cliente());
+				new UIVisAvOficina(c, av).setVisible(true);
+			} catch (SQLException | ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
+				Logger.getLogger(UIFMenu.class.getName()).log(Level.SEVERE, null, ex);
+			}
+		}
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+	private void buscarGeral() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
+		String data_ini = jTextField1.getText();
+		String data_fim = jTextField2.getText();
+
+		//IMPLEMENTA AQUI DAVY!! faz as verificações de data e tal. tem q ver se mês > 12 ou se ta certo.
+		//tem também que ver se só tem número e se ta do tamanho certo.
+		//data_ini e data_fim tb fazem a busca no formato AAAA/MM/DD, mas o usuário digita DD/MM/AAAA, então
+		//tem que mudar isso. (já fiz o baratin que não pode clicar no meio do field)
+		avaliacoes_vendas = f.obterAvVendasGeral(data_ini, data_fim);
+		avaliacoes_atendimentos = f.obterAvAtendimentosGeral(data_ini, data_fim);
+		avaliacoes_oficina = f.obterAvOficinaGeral(data_ini, data_fim);
+
+		this.cria_model_visualizar_av_venda();
+		this.cria_model_visualizar_av_atendimento();
+		this.cria_model_visalizar_av_serv_oficina();
+
+		jPanel7.setVisible(true);
+		jPanel16.setVisible(true);
+		jPanel21.setVisible(true);
+	}
+
 	private void buscarFuncionarioPanel() throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
-		f = new Funcionario();
+		Funcionario ftemp = new Funcionario();
 		String cpf = jTextField11.getText().replaceAll("[^0-9]", "");
 		warningLabelFuncionario.setText("");
 		jPanel70.setVisible(false);
@@ -1766,11 +1863,11 @@ public class UIFMenu extends javax.swing.JFrame {
 			return;
 		}
 		jLabel49.setText(jTextField11.getText());
-		if (f.buscarFuncionario(cpf)) {
+		if (ftemp.buscarFuncionario(cpf)) {
 			jPanel70.setVisible(true);
-			jLabel51.setText(f.getNome());
-			this.avaliacoes_vendas = f.obterAvVendasFunc();
-			this.avaliacoes_atendimentos = f.obterAvAtendimentosFunc();
+			jLabel51.setText(ftemp.getNome());
+			this.avaliacoes_vendas = ftemp.obterAvVendasFunc();
+			this.avaliacoes_atendimentos = ftemp.obterAvAtendimentosFunc();
 
 			cria_model_visualizar_av_venda_func();
 			cria_model_visualizar_av_atendimento_func();
@@ -1814,7 +1911,7 @@ public class UIFMenu extends javax.swing.JFrame {
 			jTable13.setSelectionMode(SINGLE_SELECTION);
 			jTable14.setSelectionMode(SINGLE_SELECTION);
 			jTable15.setSelectionMode(SINGLE_SELECTION);
-		}else{
+		} else {
 			warningLabel.setText("Cliente não encontrado!");
 		}
 		jTextField6.setText("");
