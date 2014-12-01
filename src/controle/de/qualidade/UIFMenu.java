@@ -460,6 +460,11 @@ public class UIFMenu extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton1.setText("Buscar Tudo");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel14.add(jButton1);
 
         jPanel9.setLayout(new javax.swing.OverlayLayout(jPanel9));
@@ -1844,6 +1849,36 @@ public class UIFMenu extends javax.swing.JFrame {
     private void jTextField9FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField9FocusGained
 		jTextField9.setText("");
     }//GEN-LAST:event_jTextField9FocusGained
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+		String data_ini = jTextField1.getText();
+		String data_fim = jTextField2.getText();
+		warningLabelGeral.setText("");
+
+		jScrollPane1.setVisible(false);
+		jScrollPane18.setVisible(false);
+		jScrollPane19.setVisible(false);
+
+		try {
+			avaliacoes_vendas = f.obterAvVendasGeral("01/01/0001", "01/01/2200");
+			avaliacoes_atendimentos = f.obterAvAtendimentosGeral("01/01/0001", "01/01/2200");
+			avaliacoes_oficina = f.obterAvOficinaGeral("01/01/0001", "01/01/2200");
+		} catch (ClassNotFoundException | SQLException | InstantiationException | IllegalAccessException ex) {
+			Logger.getLogger(UIFMenu.class.getName()).log(Level.SEVERE, null, ex);
+		}
+
+		this.cria_model_visualizar_av_venda_geral();
+		this.cria_model_visualizar_av_atendimento_geral();
+		this.cria_model_visalizar_av_serv_oficina_geral();
+
+		jTable1.setModel(visualizar_av_venda_model);
+		jTable18.setModel(visualizar_av_atendimentos_model);
+		jTable19.setModel(visualizar_av_serv_oficina_model);
+
+		jPanel7.setVisible(true);
+		jPanel9.setVisible(true);
+		jPanel21.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 	private void buscarGeral() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
 		String data_ini = jTextField1.getText();
