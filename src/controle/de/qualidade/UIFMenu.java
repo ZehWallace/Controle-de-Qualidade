@@ -5,6 +5,7 @@
  */
 package controle.de.qualidade;
 
+import backuppgsql.BackupPgSQL;
 import java.awt.event.KeyEvent;
 import java.sql.SQLException;
 import java.util.Arrays;
@@ -53,6 +54,7 @@ public class UIFMenu extends javax.swing.JFrame {
 		TableFuncionariosPanel.setVisible(false);
 		TableGeralPanel.setVisible(false);
 		TableSetorPanel.setVisible(false);
+                BackupPanel.setVisible(false);
 
 		this.f = f;
 		jLabel16.setText(f.getNome());
@@ -83,6 +85,14 @@ public class UIFMenu extends javax.swing.JFrame {
         jPanel55 = new javax.swing.JPanel();
         jButton11 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
+        BackupPanel = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
+        jPanel22 = new javax.swing.JPanel();
+        jLabel54 = new javax.swing.JLabel();
+        jPanel23 = new javax.swing.JPanel();
+        jButton24 = new javax.swing.JButton();
+        jButton23 = new javax.swing.JButton();
+        jPanel72 = new javax.swing.JPanel();
         GeralPanel = new javax.swing.JPanel();
         jPanel15 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
@@ -418,6 +428,8 @@ public class UIFMenu extends javax.swing.JFrame {
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
         jMenuItem6 = new javax.swing.JMenuItem();
+        jMenu8 = new javax.swing.JMenu();
+        jMenuItem10 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         jMenuItem9 = new javax.swing.JMenuItem();
 
@@ -474,6 +486,38 @@ public class UIFMenu extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu Funcionário");
         getContentPane().setLayout(new javax.swing.OverlayLayout(getContentPane()));
+
+        BackupPanel.setLayout(new java.awt.GridLayout(4, 0));
+        BackupPanel.add(jPanel8);
+
+        jPanel22.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 15));
+
+        jLabel54.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel54.setText("Deseja Fazer o Backup do Banco de Dados?");
+        jPanel22.add(jLabel54);
+
+        BackupPanel.add(jPanel22);
+
+        jButton24.setText("Confirmar");
+        jButton24.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton24ActionPerformed(evt);
+            }
+        });
+        jPanel23.add(jButton24);
+
+        jButton23.setText("Restaurar");
+        jButton23.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton23ActionPerformed(evt);
+            }
+        });
+        jPanel23.add(jButton23);
+
+        BackupPanel.add(jPanel23);
+        BackupPanel.add(jPanel72);
+
+        getContentPane().add(BackupPanel);
 
         jPanel15.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 10));
 
@@ -1520,6 +1564,18 @@ public class UIFMenu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu7);
 
+        jMenu8.setText("Backup");
+
+        jMenuItem10.setText("Salvar Database");
+        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem10ActionPerformed(evt);
+            }
+        });
+        jMenu8.add(jMenuItem10);
+
+        jMenuBar1.add(jMenu8);
+
         jMenu5.setText("Sair");
 
         jMenuItem9.setText("Logout");
@@ -1553,6 +1609,7 @@ public class UIFMenu extends javax.swing.JFrame {
 		TableFuncionariosPanel.setVisible(false);
 		TableGeralPanel.setVisible(false);
 		TableSetorPanel.setVisible(false);
+                BackupPanel.setVisible(false);
 	}
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
 		setVisibleAllFalse();
@@ -1831,6 +1888,28 @@ public class UIFMenu extends javax.swing.JFrame {
 		}
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+        setVisibleAllFalse();
+	BackupPanel.setVisible(true);
+    }//GEN-LAST:event_jMenuItem10ActionPerformed
+
+    private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
+        BackupPgSQL bk = new BackupPgSQL();
+            try {
+                bk.run();
+            } catch (InterruptedException ex) {
+                Logger.getLogger(UIFMenu.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        System.out.println("acabou...");
+    }//GEN-LAST:event_jButton24ActionPerformed
+
+    private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
+        // TODO add your handling code here:
+         BackupPgSQL bk = new BackupPgSQL();
+         bk.doRestore();
+         System.out.println("acabou...");
+    }//GEN-LAST:event_jButton23ActionPerformed
+
 	private void buscarGeral() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
 		String data_ini = jTextField1.getText();
 		String data_fim = jTextField2.getText();
@@ -2013,6 +2092,7 @@ public class UIFMenu extends javax.swing.JFrame {
 	 */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel BackupPanel;
     private javax.swing.JPanel BemVindoPanel;
     private javax.swing.JPanel ClientePanel;
     private javax.swing.JPanel DadosProdutosPanel;
@@ -2044,6 +2124,8 @@ public class UIFMenu extends javax.swing.JFrame {
     private javax.swing.JButton jButton20;
     private javax.swing.JButton jButton21;
     private javax.swing.JButton jButton22;
+    private javax.swing.JButton jButton23;
+    private javax.swing.JButton jButton24;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -2101,6 +2183,7 @@ public class UIFMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel53;
+    private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -2109,8 +2192,10 @@ public class UIFMenu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
@@ -2131,6 +2216,8 @@ public class UIFMenu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel21;
+    private javax.swing.JPanel jPanel22;
+    private javax.swing.JPanel jPanel23;
     private javax.swing.JPanel jPanel24;
     private javax.swing.JPanel jPanel25;
     private javax.swing.JPanel jPanel26;
@@ -2184,6 +2271,8 @@ public class UIFMenu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel70;
     private javax.swing.JPanel jPanel71;
+    private javax.swing.JPanel jPanel72;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;
