@@ -219,6 +219,34 @@ public class ConexaoBD {
         ins.append(", '").append(av.getServ().getPlaca()).append("');");
         st.execute(ins.toString());
     }
+    
+        //DELETE FROM av_venda WHERE data_av BETWEEN '<>' AND '<>';
+        //DELETE FROM av_atendimento WHERE data_av BETWEEN '<>' AND '<>';
+        //DELETE FROM av_oficina WHERE data_av BETWEEN '<>' AND '<>';
+    
+        //deletar em um intervalo
+        public void deletaavintervalo(String data_ini, String data_fim) throws SQLException {
+        StringBuilder delvenda = new StringBuilder();
+        StringBuilder delatendimento = new StringBuilder();
+        StringBuilder deloficina = new StringBuilder();
+        delvenda.append("DELETE FROM av_venda ");
+        delvenda.append("WHERE data_av BETWEEN '").append(data_ini).append("' AND '").append(data_fim).append("';");
+        
+        st.execute(delvenda.toString());
+        
+        delatendimento.append("DELETE FROM av_atendimento ");
+        delatendimento.append("WHERE data_av BETWEEN '").append(data_ini).append("' AND '").append(data_fim).append("';");
+        
+        st.execute(delatendimento.toString());
+        
+        deloficina.append("DELETE FROM av_oficina ");
+        deloficina.append("WHERE data_av BETWEEN '").append(data_ini).append("' AND '").append(data_fim).append("';");
+        
+        st.execute(deloficina.toString());
+        
+        
+        
+    }
 
         //SELECT cod_av, nota_venda, sugestao_venda, data_av, av.cpf_cliente, av.cpf_vendedor, av.data_venda, tipo_venda, descr_venda FROM av_venda av, venda v
     //WHERE av.data_venda BETWEEN '2014-11-03' AND '2015-10-30' AND av.cpf_cliente = v.cpf_cliente AND av.cpf_vendedor = v.cpf_vendedor AND av.data_venda = v.data_venda;
