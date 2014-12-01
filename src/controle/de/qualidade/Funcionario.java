@@ -79,10 +79,55 @@ public class Funcionario {
 		vetorAvOficina = con.buscaTodasAvOficinaIntervalo(data_ini, data_fim); //MUDAR
 		return vetorAvOficina;
 	}
-	
-	public void deletarHistorico(String data_ini, String data_fim) throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException{
+
+	public void deletarHistorico(String data_ini, String data_fim) throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
 		ConexaoBD con = new ConexaoBD();
 		con.deletaavintervalo(data_ini, data_fim);
+	}
+
+	public float mediaAvVenda() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
+		ConexaoBD con = new ConexaoBD();
+		return con.mediaAvVenda();
+	}
+
+	public float mediaAvAtendimento() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
+		ConexaoBD con = new ConexaoBD();
+		return con.mediaAvAtendimento();
+	}
+
+	public float mediaAvOficina() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
+		ConexaoBD con = new ConexaoBD();
+		return con.mediaAvOficina();
+	}
+
+	public float qtdAvVenda() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
+		ConexaoBD con = new ConexaoBD();
+		return con.qtdAvVenda();
+	}
+
+	public float qtdAvAtendimento() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
+		ConexaoBD con = new ConexaoBD();
+		return con.qtdAvAtendimento();
+	}
+
+	public float qtdAvOficina() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
+		ConexaoBD con = new ConexaoBD();
+		return con.qtdAvOficina();
+	}
+
+	public float qtdVenda() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
+		ConexaoBD con = new ConexaoBD();
+		return con.qtdvenda();
+	}
+
+	public float qtdAtendimento() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
+		ConexaoBD con = new ConexaoBD();
+		return con.qtdAtendimento();
+	}
+	
+	public float qtdServicos() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
+		ConexaoBD con = new ConexaoBD();
+		return con.qtdServico();
 	}
 
 	public String getCpf() {

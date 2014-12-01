@@ -6,6 +6,7 @@
 package controle.de.qualidade;
 
 import backuppgsql.BackupPgSQL;
+import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.sql.SQLException;
 import java.text.DateFormat;
@@ -43,7 +44,7 @@ public class UIFMenu extends javax.swing.JFrame {
 	 */
 	public UIFMenu(Funcionario f) {
 		initComponents();
-		
+
 		this.setResizable(false);
 		BemVindoPanel.setVisible(true);
 		ClientePanel.setVisible(false);
@@ -268,6 +269,8 @@ public class UIFMenu extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        jLabel61 = new javax.swing.JLabel();
+        jLabel62 = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
@@ -275,6 +278,10 @@ public class UIFMenu extends javax.swing.JFrame {
         jLabel32 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
+        jLabel53 = new javax.swing.JLabel();
+        jLabel58 = new javax.swing.JLabel();
+        jLabel57 = new javax.swing.JLabel();
+        jLabel56 = new javax.swing.JLabel();
         SairPanel = new javax.swing.JPanel();
         jPanel28 = new javax.swing.JPanel();
         jPanel29 = new javax.swing.JPanel();
@@ -1045,34 +1052,46 @@ public class UIFMenu extends javax.swing.JFrame {
         jLabel6.setText("Oficina:");
         jPanel10.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
 
+        jLabel10.setForeground(new java.awt.Color(0, 100, 0));
         jLabel10.setText("nota");
-        jPanel10.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, -1));
+        jPanel10.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, -1, -1));
 
+        jLabel11.setForeground(new java.awt.Color(0, 100, 0));
         jLabel11.setText("nota");
-        jPanel10.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, -1, -1));
+        jPanel10.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, -1, -1));
 
+        jLabel13.setForeground(new java.awt.Color(0, 100, 0));
         jLabel13.setText("nota");
-        jPanel10.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, -1, -1));
+        jPanel10.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, -1, -1));
 
-        jPanel49.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 50, 230, 80));
+        jLabel61.setText("Média Geral:");
+        jPanel10.add(jLabel61, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
 
-        jLabel19.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
-        jLabel19.setText("Número de Avaliações Feitas:");
+        jLabel62.setForeground(new java.awt.Color(0, 100, 0));
+        jLabel62.setText("nota");
+        jPanel10.add(jLabel62, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, -1, -1));
 
-        jLabel21.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
+        jPanel49.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, 340, 160));
+
+        jLabel19.setText("Número avaliaçoes Venda");
+
         jLabel21.setText("42");
 
-        jLabel31.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
-        jLabel31.setText("Número de Avaliações Pendentes:");
+        jLabel31.setText("Número avaliações Atendimento");
 
-        jLabel32.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
         jLabel32.setText("80");
 
-        jLabel33.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
-        jLabel33.setText("Total de Avaliações:");
+        jLabel33.setText("Número avaliações Oficina");
 
-        jLabel34.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
         jLabel34.setText("122");
+
+        jLabel53.setText("Número de Avaliações Feitas:");
+
+        jLabel58.setText("80");
+
+        jLabel57.setText("Número de Avaliações Pendentes:");
+
+        jLabel56.setText("42");
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -1082,41 +1101,54 @@ public class UIFMenu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addComponent(jLabel19)
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabel32))
+                        .addComponent(jLabel57)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel56))
                     .addGroup(jPanel11Layout.createSequentialGroup()
                         .addComponent(jLabel33)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(48, 48, 48)
                         .addComponent(jLabel34))
                     .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addComponent(jLabel31)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel21)))
-                .addContainerGap(36, Short.MAX_VALUE))
+                        .addComponent(jLabel53)
+                        .addGap(32, 32, 32)
+                        .addComponent(jLabel58))
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel31)
+                            .addComponent(jLabel19))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel32)
+                            .addComponent(jLabel21))))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel11Layout.createSequentialGroup()
-                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(jLabel32))
-                    .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel19)))
+                .addGap(27, 27, 27)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel19)
+                    .addComponent(jLabel32))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel21)
                     .addComponent(jLabel31))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel33)
                     .addComponent(jLabel34))
-                .addGap(19, 19, 19))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel53)
+                    .addComponent(jLabel58))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel56)
+                    .addComponent(jLabel57))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel49.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 240, 130));
+        jPanel49.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 10, 260, 180));
 
         javax.swing.GroupLayout SumarizacaoLayout = new javax.swing.GroupLayout(Sumarizacao);
         Sumarizacao.setLayout(SumarizacaoLayout);
@@ -1339,6 +1371,48 @@ public class UIFMenu extends javax.swing.JFrame {
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
 		setVisibleAllFalse();
 		Sumarizacao.setVisible(true);
+		try {
+			float mediaAvVenda = f.mediaAvVenda();
+			float mediaAvAtendimento = f.mediaAvAtendimento();
+			float mediaAvOficina = f.mediaAvOficina();
+			float qtdAvVenda = f.qtdAvVenda();
+			float qtdAvAtendimento = f.qtdAvAtendimento();
+			float qtdAvOficina = f.qtdAvOficina();
+			float qtdAvFeitas = qtdAvVenda + qtdAvAtendimento + qtdAvOficina;
+			float qtdVendas = f.qtdVenda();
+			float qtdAtendimentos = f.qtdAtendimento();
+			float qtdServicos = f.qtdServicos();
+			float qtdAvPendentes = qtdVendas + qtdAtendimentos + qtdServicos - qtdAvFeitas;
+			float mediaGeral = (mediaAvVenda*qtdAvVenda + mediaAvAtendimento*qtdAvAtendimento + mediaAvOficina*qtdAvOficina )/qtdAvFeitas;
+
+			//IMPLEMENTANDO AQUI
+			System.out.println("" + mediaAvVenda);
+			jLabel10.setText("" + mediaAvVenda);
+			jLabel11.setText("" + mediaAvAtendimento);
+			jLabel13.setText("" + mediaAvOficina);
+			jLabel32.setText("" + qtdAvVenda);
+			jLabel21.setText("" + qtdAvAtendimento);
+			jLabel34.setText("" + qtdAvOficina);
+			jLabel58.setText("" + qtdAvFeitas);
+			jLabel56.setText("" + qtdAvPendentes);
+			jLabel62.setText("" + mediaGeral);
+			if(mediaAvVenda < 5){
+				jLabel10.setForeground(Color.red);
+			}
+			if(mediaAvAtendimento < 5){
+				jLabel11.setForeground(Color.red);
+			}
+			if(mediaAvOficina < 5){
+				jLabel13.setForeground(Color.red);
+			}
+			if(mediaGeral < 5){
+				jLabel62.setForeground(Color.red);
+			}
+		} catch (ClassNotFoundException | SQLException | InstantiationException | IllegalAccessException ex) {
+			Logger.getLogger(UIFMenu.class.getName()).log(Level.SEVERE, null, ex);
+		}
+
+
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
@@ -2003,9 +2077,15 @@ public class UIFMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel52;
+    private javax.swing.JLabel jLabel53;
     private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel55;
+    private javax.swing.JLabel jLabel56;
+    private javax.swing.JLabel jLabel57;
+    private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel61;
+    private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;

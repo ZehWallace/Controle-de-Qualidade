@@ -220,7 +220,7 @@ public class ConexaoBD {
         st.execute(ins.toString());
     }
     //media venda
-    public float mediavenda() throws SQLException{
+    public float mediaAvVenda() throws SQLException{
         StringBuilder ins = new StringBuilder();
         ins.append("SELECT AVG(nota_venda) FROM av_venda;");
         st.execute(ins.toString());
@@ -231,7 +231,7 @@ public class ConexaoBD {
         return rs.getFloat(1);
     }
     //qtd de av. venda
-    public int qtdavvenda() throws SQLException{
+    public int qtdAvVenda() throws SQLException{
         StringBuilder ins = new StringBuilder();
         ins.append("SELECT COUNT(cod_av) FROM av_venda;");
         st.execute(ins.toString());
@@ -253,7 +253,7 @@ public class ConexaoBD {
         return rs.getInt(1);
     }
     //media atendimento
-    public float mediatendimento() throws SQLException{
+    public float mediaAvAtendimento() throws SQLException{
         StringBuilder ins = new StringBuilder();
         ins.append("SELECT AVG(nota_atend) FROM av_atendimento;");
         st.execute(ins.toString());
@@ -264,7 +264,7 @@ public class ConexaoBD {
         return rs.getFloat(1);
     }
     //qtd de av. atendimento
-    public int qtdavatendimento() throws SQLException{
+    public int qtdAvAtendimento() throws SQLException{
         StringBuilder ins = new StringBuilder();
         ins.append("SELECT COUNT(cod_av) FROM av_atendimento;");
         st.execute(ins.toString());
@@ -275,7 +275,7 @@ public class ConexaoBD {
         return rs.getInt(1);
     }
     //qtd de atendimento
-    public int qtdatendimento() throws SQLException{
+    public int qtdAtendimento() throws SQLException{
         StringBuilder ins = new StringBuilder();
         ins.append("SELECT COUNT(*) FROM atendimento;");
         st.execute(ins.toString());
@@ -286,7 +286,7 @@ public class ConexaoBD {
         return rs.getInt(1);
     }
     //media oficina
-    public float mediaoficina() throws SQLException{
+    public float mediaAvOficina() throws SQLException{
         StringBuilder ins = new StringBuilder();
         ins.append("SELECT AVG(nota_serv) FROM av_oficina;");
         st.execute(ins.toString());
@@ -297,7 +297,7 @@ public class ConexaoBD {
         return rs.getFloat(1);
     }
     //qtd de av. oficina
-    public int qtdavoficina() throws SQLException{
+    public int qtdAvOficina() throws SQLException{
         StringBuilder ins = new StringBuilder();
         ins.append("SELECT COUNT(cod_av) FROM av_oficina;");
         st.execute(ins.toString());
@@ -308,7 +308,7 @@ public class ConexaoBD {
         return rs.getInt(1);
     }
     //qtd de servições
-    public int qtdoficina() throws SQLException{
+    public int qtdServico() throws SQLException{
         StringBuilder ins = new StringBuilder();
         ins.append("SELECT COUNT(*) FROM servicos;");
         st.execute(ins.toString());
