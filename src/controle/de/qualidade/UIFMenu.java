@@ -141,6 +141,7 @@ public class UIFMenu extends javax.swing.JFrame {
                 return false;
             }
         };
+        jSeparator1 = new javax.swing.JSeparator();
         BackupPanel = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jPanel22 = new javax.swing.JPanel();
@@ -415,7 +416,7 @@ public class UIFMenu extends javax.swing.JFrame {
                 jComboBox2ActionPerformed(evt);
             }
         });
-        jPanel7.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, -1, -1));
+        jPanel7.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
 
         jLabel1.setText("De: ");
         jPanel14.add(jLabel1);
@@ -529,10 +530,12 @@ public class UIFMenu extends javax.swing.JFrame {
             .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(GeralPanelLayout.createSequentialGroup()
-                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 740, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(66, Short.MAX_VALUE))
             .addComponent(jPanel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(GeralPanelLayout.createSequentialGroup()
+                .addGap(301, 301, 301)
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(155, Short.MAX_VALUE))
+            .addComponent(jSeparator1)
         );
         GeralPanelLayout.setVerticalGroup(
             GeralPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -544,10 +547,12 @@ public class UIFMenu extends javax.swing.JFrame {
                 .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(3, 3, 3)
                 .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
+                .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel21, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -590,7 +595,7 @@ public class UIFMenu extends javax.swing.JFrame {
         jPanel17.add(jLabel9);
 
         jTextField6.setColumns(11);
-        jTextField6.setToolTipText("");
+        jTextField6.setToolTipText("Digite o CPF do cliente...");
         jTextField6.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextField6KeyPressed(evt);
@@ -611,6 +616,8 @@ public class UIFMenu extends javax.swing.JFrame {
             }
         });
         jPanel20.add(jButton2);
+
+        jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jTable13.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -674,6 +681,7 @@ public class UIFMenu extends javax.swing.JFrame {
 
         jLabel42.setText("Oficina");
 
+        jButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton4.setText("Visualizar Avaliação");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -700,27 +708,27 @@ public class UIFMenu extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel39)
-                .addGap(357, 357, 357))
             .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(jLabel37)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel38))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(jLabel35)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel36))))
+                        .addComponent(jLabel37)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel38))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(332, 332, 332)
-                        .addComponent(jButton4)))
+                        .addComponent(jLabel35)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel36)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel39)
+                        .addGap(357, 357, 357))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addComponent(jButton4)
+                        .addGap(311, 311, 311))))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -790,7 +798,7 @@ public class UIFMenu extends javax.swing.JFrame {
         jPanel67.add(jLabel44);
 
         jTextField11.setColumns(11);
-        jTextField11.setToolTipText("");
+        jTextField11.setToolTipText("Digite o CPF do Funcionário...");
         jTextField11.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextField11KeyPressed(evt);
@@ -811,6 +819,8 @@ public class UIFMenu extends javax.swing.JFrame {
             }
         });
         jPanel68.add(jButton20);
+
+        jPanel70.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jTable16.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -872,13 +882,13 @@ public class UIFMenu extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel70Layout.createSequentialGroup()
                 .addGap(178, 178, 178)
                 .addComponent(jLabel47)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 320, Short.MAX_VALUE)
                 .addComponent(jLabel52)
                 .addGap(188, 188, 188))
             .addGroup(jPanel70Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel70Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel70Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(jPanel70Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel70Layout.createSequentialGroup()
                                 .addComponent(jLabel50)
@@ -890,7 +900,7 @@ public class UIFMenu extends javax.swing.JFrame {
                                 .addComponent(jLabel51)))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel70Layout.createSequentialGroup()
-                        .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane17, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -899,10 +909,10 @@ public class UIFMenu extends javax.swing.JFrame {
                 .addGroup(jPanel70Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel70Layout.createSequentialGroup()
                         .addComponent(jLabel46)
-                        .addGap(370, 370, 370))
+                        .addGap(348, 348, 348))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel70Layout.createSequentialGroup()
                         .addComponent(jButton21)
-                        .addGap(332, 332, 332))))
+                        .addGap(306, 306, 306))))
         );
         jPanel70Layout.setVerticalGroup(
             jPanel70Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -958,7 +968,7 @@ public class UIFMenu extends javax.swing.JFrame {
                 .addComponent(jPanel68, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel70, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         getContentPane().add(FuncionarioPanel);
@@ -1753,26 +1763,6 @@ public class UIFMenu extends javax.swing.JFrame {
 		jTextField2.setText("");
     }//GEN-LAST:event_jTextField2FocusGained
 
-    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
-		if (jComboBox2.getSelectedIndex() == 0) {
-//			jScrollPane1.setVisible(false);
-//			jScrollPane18.setVisible(false);
-//			jScrollPane19.setVisible(false);
-		} else if (jComboBox2.getSelectedIndex() == 1) {
-			jScrollPane1.setVisible(true);
-			jScrollPane18.setVisible(false);
-			jScrollPane19.setVisible(false);
-		} else if (jComboBox2.getSelectedIndex() == 2) {
-			jScrollPane1.setVisible(false);
-			jScrollPane18.setVisible(true);
-			jScrollPane19.setVisible(false);
-		} else if (jComboBox2.getSelectedIndex() == 3) {
-			jScrollPane1.setVisible(false);
-			jScrollPane18.setVisible(false);
-			jScrollPane19.setVisible(true);
-		}
-    }//GEN-LAST:event_jComboBox2ActionPerformed
-
     private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
 		// TODO add your handling code here:
 		setVisibleAllFalse();
@@ -1879,6 +1869,26 @@ public class UIFMenu extends javax.swing.JFrame {
 		jPanel9.setVisible(true);
 		jPanel21.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        if (jComboBox2.getSelectedIndex() == 0) {
+            //			jScrollPane1.setVisible(false);
+            //			jScrollPane18.setVisible(false);
+            //			jScrollPane19.setVisible(false);
+        } else if (jComboBox2.getSelectedIndex() == 1) {
+            jScrollPane1.setVisible(true);
+            jScrollPane18.setVisible(false);
+            jScrollPane19.setVisible(false);
+        } else if (jComboBox2.getSelectedIndex() == 2) {
+            jScrollPane1.setVisible(false);
+            jScrollPane18.setVisible(true);
+            jScrollPane19.setVisible(false);
+        } else if (jComboBox2.getSelectedIndex() == 3) {
+            jScrollPane1.setVisible(false);
+            jScrollPane18.setVisible(false);
+            jScrollPane19.setVisible(true);
+        }
+    }//GEN-LAST:event_jComboBox2ActionPerformed
 
 	private void buscarGeral() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
 		String data_ini = jTextField1.getText();
@@ -2240,6 +2250,7 @@ public class UIFMenu extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable13;
     private javax.swing.JTable jTable14;
