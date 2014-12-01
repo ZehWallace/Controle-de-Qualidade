@@ -536,7 +536,7 @@ public class ConexaoBD {
             ResultSet rsnomecliente;
             
             st = myConnection.createStatement();
-            st.execute("SELECT nome_cliente FROM cliente WHERE cpf_cliente = '" + rs.getString("cpf_cliente") + "';");
+            st.execute("SELECT nome_cliente FROM cliente WHERE cpf_cliente = '" + cpf + "';");
             rsnomecliente = st.getResultSet();
             rsnomecliente.next();
             
