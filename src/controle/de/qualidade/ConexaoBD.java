@@ -219,6 +219,105 @@ public class ConexaoBD {
         ins.append(", '").append(av.getServ().getPlaca()).append("');");
         st.execute(ins.toString());
     }
+    //media venda
+    public float mediavenda() throws SQLException{
+        StringBuilder ins = new StringBuilder();
+        ins.append("SELECT AVG(nota_venda) FROM av_venda;");
+        st.execute(ins.toString());
+        ResultSet rs = st.getResultSet();
+        
+        rs.next();
+        
+        return rs.getFloat(1);
+    }
+    //qtd de av. venda
+    public int qtdavvenda() throws SQLException{
+        StringBuilder ins = new StringBuilder();
+        ins.append("SELECT COUNT(cod_av) FROM av_venda;");
+        st.execute(ins.toString());
+        ResultSet rs = st.getResultSet();
+        
+        rs.next();
+        
+        return rs.getInt(1);
+    }
+    //qtd de venda
+    public int qtdvenda() throws SQLException{
+        StringBuilder ins = new StringBuilder();
+        ins.append("SELECT COUNT(*) FROM venda;");
+        st.execute(ins.toString());
+        ResultSet rs = st.getResultSet();
+        
+        rs.next();
+        
+        return rs.getInt(1);
+    }
+    //media atendimento
+    public float mediatendimento() throws SQLException{
+        StringBuilder ins = new StringBuilder();
+        ins.append("SELECT AVG(nota_atend) FROM av_atendimento;");
+        st.execute(ins.toString());
+        ResultSet rs = st.getResultSet();
+        
+        rs.next();
+        
+        return rs.getFloat(1);
+    }
+    //qtd de av. atendimento
+    public int qtdavatendimento() throws SQLException{
+        StringBuilder ins = new StringBuilder();
+        ins.append("SELECT COUNT(cod_av) FROM av_atendimento;");
+        st.execute(ins.toString());
+        ResultSet rs = st.getResultSet();
+        
+        rs.next();
+        
+        return rs.getInt(1);
+    }
+    //qtd de atendimento
+    public int qtdatendimento() throws SQLException{
+        StringBuilder ins = new StringBuilder();
+        ins.append("SELECT COUNT(*) FROM atendimento;");
+        st.execute(ins.toString());
+        ResultSet rs = st.getResultSet();
+        
+        rs.next();
+        
+        return rs.getInt(1);
+    }
+    //media oficina
+    public float mediaoficina() throws SQLException{
+        StringBuilder ins = new StringBuilder();
+        ins.append("SELECT AVG(nota_serv) FROM av_oficina;");
+        st.execute(ins.toString());
+        ResultSet rs = st.getResultSet();
+        
+        rs.next();
+        
+        return rs.getFloat(1);
+    }
+    //qtd de av. oficina
+    public int qtdavoficina() throws SQLException{
+        StringBuilder ins = new StringBuilder();
+        ins.append("SELECT COUNT(cod_av) FROM av_oficina;");
+        st.execute(ins.toString());
+        ResultSet rs = st.getResultSet();
+        
+        rs.next();
+        
+        return rs.getInt(1);
+    }
+    //qtd de servições
+    public int qtdoficina() throws SQLException{
+        StringBuilder ins = new StringBuilder();
+        ins.append("SELECT COUNT(*) FROM servicos;");
+        st.execute(ins.toString());
+        ResultSet rs = st.getResultSet();
+        
+        rs.next();
+        
+        return rs.getInt(1);
+    }
     
         //DELETE FROM av_venda WHERE data_av BETWEEN '<>' AND '<>';
         //DELETE FROM av_atendimento WHERE data_av BETWEEN '<>' AND '<>';
