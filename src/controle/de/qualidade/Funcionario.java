@@ -129,6 +129,11 @@ public class Funcionario {
 		ConexaoBD con = new ConexaoBD();
 		return con.qtdServico();
 	}
+	
+	public void checar_data(String data_ini, String data_fim) throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException{
+		ConexaoBD con = new ConexaoBD();
+		con.checar_data_intervalo(data_ini, data_fim);
+	}
 
 	public String getCpf() {
 		return cpf;

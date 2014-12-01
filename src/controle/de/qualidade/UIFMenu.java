@@ -1390,22 +1390,22 @@ public class UIFMenu extends javax.swing.JFrame {
 
 			if (qtdAvVenda == 0) {
 				jLabel10.setText("Nenhuma Avaliação Venda");
-			}else{
+			} else {
 				jLabel10.setText("" + mediaAvVenda);
 			}
 			if (qtdAvAtendimento == 0) {
 				jLabel11.setText("Nenhuma Avaliação Atendimento");
-			}else{
+			} else {
 				jLabel11.setText("" + mediaAvAtendimento);
 			}
 			if (qtdAvOficina == 0) {
 				jLabel13.setText("Nenhuma Avaliação Oficina");
-			}else{
+			} else {
 				jLabel13.setText("" + mediaAvOficina);
 			}
-			if(qtdAvFeitas == 0){
+			if (qtdAvFeitas == 0) {
 				jLabel62.setText("Nenhuma Avaliação");
-			}else{
+			} else {
 				jLabel62.setText("" + mediaGeral);
 			}
 
@@ -1414,7 +1414,7 @@ public class UIFMenu extends javax.swing.JFrame {
 			jLabel34.setText("" + qtdAvOficina);
 			jLabel58.setText("" + qtdAvFeitas);
 			jLabel56.setText("" + qtdAvPendentes);
-			
+
 			if (mediaAvVenda < 5) {
 				jLabel10.setForeground(Color.red);
 			}
@@ -1450,11 +1450,18 @@ public class UIFMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-		jDialog1.setLocationRelativeTo(null);
-		jDialog1.setSize(400, 230);
-		jDialog1.setVisible(true);
 		jLabel27.setText(jTextField5.getText());
 		jLabel29.setText(jTextField9.getText());
+		warningLimparHist.setText("");
+		try {
+			f.checar_data(jTextField5.getText(), jTextField9.getText());
+			jDialog1.setLocationRelativeTo(null);
+			jDialog1.setSize(400, 230);
+			jDialog1.setVisible(true);
+		} catch (ClassNotFoundException | SQLException | InstantiationException | IllegalAccessException ex) {
+			Logger.getLogger(UIFMenu.class.getName()).log(Level.SEVERE, null, ex);
+			warningLimparHist.setText("Erro na conexão ou data inválida");
+		}
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -1791,23 +1798,38 @@ public class UIFMenu extends javax.swing.JFrame {
 		String cpf = jTextField5.getText().replaceAll("[^0-9]", "");
 		jTextField5.setText(cpf);
 		if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-			jDialog1.setLocationRelativeTo(null);
-			jDialog1.setSize(400, 230);
-			jDialog1.setVisible(true);
 			jLabel27.setText(jTextField5.getText());
 			jLabel29.setText(jTextField9.getText());
+			warningLimparHist.setText("");
+			try {
+				f.checar_data(jTextField5.getText(), jTextField9.getText());
+				jDialog1.setLocationRelativeTo(null);
+				jDialog1.setSize(400, 230);
+				jDialog1.setVisible(true);
+			} catch (ClassNotFoundException | SQLException | InstantiationException | IllegalAccessException ex) {
+				Logger.getLogger(UIFMenu.class.getName()).log(Level.SEVERE, null, ex);
+				warningLimparHist.setText("Erro na conexão ou data inválida");
+			}
 		}
+
     }//GEN-LAST:event_jTextField5KeyPressed
 
     private void jTextField9KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField9KeyPressed
 		String cpf = jTextField9.getText().replaceAll("[^0-9]", "");
 		jTextField9.setText(cpf);
 		if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-			jDialog1.setLocationRelativeTo(null);
-			jDialog1.setSize(400, 230);
-			jDialog1.setVisible(true);
 			jLabel27.setText(jTextField5.getText());
 			jLabel29.setText(jTextField9.getText());
+			warningLimparHist.setText("");
+			try {
+				f.checar_data(jTextField5.getText(), jTextField9.getText());
+				jDialog1.setLocationRelativeTo(null);
+				jDialog1.setSize(400, 230);
+				jDialog1.setVisible(true);
+			} catch (ClassNotFoundException | SQLException | InstantiationException | IllegalAccessException ex) {
+				Logger.getLogger(UIFMenu.class.getName()).log(Level.SEVERE, null, ex);
+				warningLimparHist.setText("Erro na conexão ou data inválida");
+			}
 		}
     }//GEN-LAST:event_jTextField9KeyPressed
 
