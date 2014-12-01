@@ -318,7 +318,6 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="cc" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="warningLabelGeral"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -510,10 +509,11 @@
                 <Property name="columns" type="int" value="8"/>
               </Properties>
               <Events>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextField1FocusGained"/>
                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField1KeyPressed"/>
               </Events>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="try{&#xa; javax.swing.text.MaskFormatter dataIni = new javax.swing.text.MaskFormatter(&quot;####-##-##&quot;);&#xa; dataIni.setPlaceholderCharacter(&apos;_&apos;);&#xa; jTextField1 = new javax.swing.JFormattedTextField(dataIni);&#xa; }catch(Exception e){&#xa;}"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="try{&#xa; javax.swing.text.MaskFormatter dataIni = new javax.swing.text.MaskFormatter(&quot;##/##/####&quot;);&#xa; dataIni.setPlaceholderCharacter(&apos;_&apos;);&#xa; jTextField1 = new javax.swing.JFormattedTextField(dataIni);&#xa; }catch(Exception e){&#xa;}"/>
               </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel3">
@@ -526,10 +526,11 @@
                 <Property name="columns" type="int" value="8"/>
               </Properties>
               <Events>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextField2FocusGained"/>
                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField2KeyPressed"/>
               </Events>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="try{&#xa; javax.swing.text.MaskFormatter dataFim = new javax.swing.text.MaskFormatter(&quot;####-##-##&quot;);&#xa; dataFim.setPlaceholderCharacter(&apos;_&apos;);&#xa; jTextField2 = new javax.swing.JFormattedTextField(dataFim);&#xa; }catch(Exception e){&#xa;}"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="try{&#xa; javax.swing.text.MaskFormatter dataFim = new javax.swing.text.MaskFormatter(&quot;##/##/####&quot;);&#xa; dataFim.setPlaceholderCharacter(&apos;_&apos;);&#xa; jTextField2 = new javax.swing.JFormattedTextField(dataFim);&#xa; }catch(Exception e){&#xa;}"/>
               </AuxValues>
             </Component>
             <Component class="javax.swing.JButton" name="jButton22">
