@@ -56,7 +56,7 @@ public class UIFMenu extends javax.swing.JFrame {
 		TableGeralPanel.setVisible(false);
 		TableSetorPanel.setVisible(false);
 		BackupPanel.setVisible(false);
-                RestorePanel.setVisible(false);
+		RestorePanel.setVisible(false);
 
 		this.f = f;
 		jLabel16.setText(f.getNome());
@@ -1682,7 +1682,7 @@ public class UIFMenu extends javax.swing.JFrame {
 		TableGeralPanel.setVisible(false);
 		TableSetorPanel.setVisible(false);
 		BackupPanel.setVisible(false);
-                RestorePanel.setVisible(false);
+		RestorePanel.setVisible(false);
 	}
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
 		setVisibleAllFalse();
@@ -2046,16 +2046,16 @@ public class UIFMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
     private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
-        // TODO add your handling code here:
-        setVisibleAllFalse();
-        RestorePanel.setVisible(true);
+		// TODO add your handling code here:
+		setVisibleAllFalse();
+		RestorePanel.setVisible(true);
     }//GEN-LAST:event_jMenuItem11ActionPerformed
 
     private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
-        // TODO add your handling code here:
-        BackupPgSQL bk = new BackupPgSQL();
-        bk.doRestore();
-	System.out.println("acabou...");
+		// TODO add your handling code here:
+		BackupPgSQL bk = new BackupPgSQL();
+		bk.doRestore();
+		System.out.println("acabou...");
     }//GEN-LAST:event_jButton26ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
