@@ -54,7 +54,7 @@ public class UIFMenu extends javax.swing.JFrame {
 		TableFuncionariosPanel.setVisible(false);
 		TableGeralPanel.setVisible(false);
 		TableSetorPanel.setVisible(false);
-                BackupPanel.setVisible(false);
+		BackupPanel.setVisible(false);
 
 		this.f = f;
 		jLabel16.setText(f.getNome());
@@ -85,14 +85,6 @@ public class UIFMenu extends javax.swing.JFrame {
         jPanel55 = new javax.swing.JPanel();
         jButton11 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
-        BackupPanel = new javax.swing.JPanel();
-        jPanel8 = new javax.swing.JPanel();
-        jPanel22 = new javax.swing.JPanel();
-        jLabel54 = new javax.swing.JLabel();
-        jPanel23 = new javax.swing.JPanel();
-        jButton24 = new javax.swing.JButton();
-        jButton23 = new javax.swing.JButton();
-        jPanel72 = new javax.swing.JPanel();
         GeralPanel = new javax.swing.JPanel();
         jPanel15 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
@@ -129,7 +121,7 @@ public class UIFMenu extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         try{
-            javax.swing.text.MaskFormatter dataIni = new javax.swing.text.MaskFormatter("##/##/####");
+            javax.swing.text.MaskFormatter dataIni = new javax.swing.text.MaskFormatter("####-##-##");
             dataIni.setPlaceholderCharacter('_');
             jTextField1 = new javax.swing.JFormattedTextField(dataIni);
         }catch(Exception e){
@@ -137,12 +129,19 @@ public class UIFMenu extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         try{
-            javax.swing.text.MaskFormatter dataFim = new javax.swing.text.MaskFormatter("##/##/####");
+            javax.swing.text.MaskFormatter dataFim = new javax.swing.text.MaskFormatter("####-##-##");
             dataFim.setPlaceholderCharacter('_');
             jTextField2 = new javax.swing.JFormattedTextField(dataFim);
         }catch(Exception e){
         }
         jButton22 = new javax.swing.JButton();
+        BackupPanel = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
+        jPanel22 = new javax.swing.JPanel();
+        jLabel54 = new javax.swing.JLabel();
+        jPanel23 = new javax.swing.JPanel();
+        jButton24 = new javax.swing.JButton();
+        jButton23 = new javax.swing.JButton();
         SetorPanel = new javax.swing.JPanel();
         jPanel46 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
@@ -487,38 +486,6 @@ public class UIFMenu extends javax.swing.JFrame {
         setTitle("Menu Funcionário");
         getContentPane().setLayout(new javax.swing.OverlayLayout(getContentPane()));
 
-        BackupPanel.setLayout(new java.awt.GridLayout(4, 0));
-        BackupPanel.add(jPanel8);
-
-        jPanel22.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 15));
-
-        jLabel54.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel54.setText("Deseja Fazer o Backup do Banco de Dados?");
-        jPanel22.add(jLabel54);
-
-        BackupPanel.add(jPanel22);
-
-        jButton24.setText("Confirmar");
-        jButton24.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton24ActionPerformed(evt);
-            }
-        });
-        jPanel23.add(jButton24);
-
-        jButton23.setText("Restaurar");
-        jButton23.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton23ActionPerformed(evt);
-            }
-        });
-        jPanel23.add(jButton23);
-
-        BackupPanel.add(jPanel23);
-        BackupPanel.add(jPanel72);
-
-        getContentPane().add(BackupPanel);
-
         jPanel15.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 10));
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -680,10 +647,42 @@ public class UIFMenu extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
-                .addComponent(jPanel21, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel21, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         getContentPane().add(GeralPanel);
+
+        BackupPanel.setLayout(new java.awt.GridLayout(4, 0));
+        BackupPanel.add(jPanel8);
+
+        jPanel22.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 15));
+
+        jLabel54.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel54.setText("Deseja Fazer o Backup do Banco de Dados?");
+        jPanel22.add(jLabel54);
+
+        BackupPanel.add(jPanel22);
+
+        jButton24.setText("Confirmar");
+        jButton24.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton24ActionPerformed(evt);
+            }
+        });
+        jPanel23.add(jButton24);
+
+        jButton23.setText("Restaurar");
+        jButton23.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton23ActionPerformed(evt);
+            }
+        });
+        jPanel23.add(jButton23);
+
+        BackupPanel.add(jPanel23);
+
+        getContentPane().add(BackupPanel);
 
         SetorPanel.setLayout(new java.awt.GridLayout(4, 0));
 
@@ -1138,7 +1137,7 @@ public class UIFMenu extends javax.swing.JFrame {
                 .addComponent(jPanel68, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel70, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         getContentPane().add(FuncionarioPanel);
@@ -1590,7 +1589,7 @@ public class UIFMenu extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
-        setSize(new java.awt.Dimension(822, 540));
+        setSize(new java.awt.Dimension(822, 513));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -1609,7 +1608,7 @@ public class UIFMenu extends javax.swing.JFrame {
 		TableFuncionariosPanel.setVisible(false);
 		TableGeralPanel.setVisible(false);
 		TableSetorPanel.setVisible(false);
-                BackupPanel.setVisible(false);
+		BackupPanel.setVisible(false);
 	}
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
 		setVisibleAllFalse();
@@ -1617,6 +1616,7 @@ public class UIFMenu extends javax.swing.JFrame {
 		jPanel7.setVisible(false);
 		jPanel16.setVisible(false);
 		jPanel21.setVisible(false);
+		jTextField1.requestFocus();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -1763,12 +1763,15 @@ public class UIFMenu extends javax.swing.JFrame {
 
 		if (opc == 1) {
 			AvVenda av = (AvVenda) avaliacoes_vendas.get(row);
+			av.setNome_cliente(c.getNome());
 			new UIVisAvVenda(c, av).setVisible(true);
 		} else if (opc == 2) {
 			AvAtendimento av = (AvAtendimento) avaliacoes_atendimentos.get(row);
+			av.setNome_cliente(c.getNome());
 			new UIVisAvAtendimento(c, av).setVisible(true);
 		} else if (opc == 3) {
 			AvOficina av = (AvOficina) avaliacoes_oficina.get(row);
+			av.setNome_cliente(c.getNome());
 			new UIVisAvOficina(c, av).setVisible(true);
 		}
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -1793,6 +1796,7 @@ public class UIFMenu extends javax.swing.JFrame {
 				String cpf = av.getCpf_cliente();
 				c = new Cliente();
 				c.buscarCliente(cpf);
+				av.setNome_cliente(c.getNome());
 				new UIVisAvVenda(c, av).setVisible(true);
 			} catch (SQLException | ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
 				Logger.getLogger(UIFMenu.class.getName()).log(Level.SEVERE, null, ex);
@@ -1804,6 +1808,7 @@ public class UIFMenu extends javax.swing.JFrame {
 				c = new Cliente();
 				c.buscarCliente(cpf);
 				c.buscarCliente(av.getCpf_cliente());
+				av.setNome_cliente(c.getNome());
 				new UIVisAvAtendimento(c, av).setVisible(true);
 			} catch (SQLException | ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
 				Logger.getLogger(UIFMenu.class.getName()).log(Level.SEVERE, null, ex);
@@ -1832,16 +1837,41 @@ public class UIFMenu extends javax.swing.JFrame {
 		} catch (ClassNotFoundException | SQLException | InstantiationException | IllegalAccessException ex) {
 			Logger.getLogger(UIFMenu.class.getName()).log(Level.SEVERE, null, ex);
 		}
+		jTable1.setSelectionMode(SINGLE_SELECTION);
+		jTable18.setSelectionMode(SINGLE_SELECTION);
+		jTable19.setSelectionMode(SINGLE_SELECTION);
     }//GEN-LAST:event_jButton22ActionPerformed
 
     private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
 		String data = jTextField1.getText().replaceAll("[^0-9]", "");
 		jTextField1.setText(data);
+		if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+			try {
+				this.buscarGeral();
+			} catch (SQLException ex) {
+				jPanel70.setVisible(false);
+				warningLabelGeral.setText("Erro: Falha na conexão com o BD");
+				Logger.getLogger(UILogin.class.getName()).log(Level.SEVERE, null, ex);
+			} catch (ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
+				Logger.getLogger(UILogin.class.getName()).log(Level.SEVERE, null, ex);
+			}
+		}
     }//GEN-LAST:event_jTextField1KeyPressed
 
     private void jTextField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyPressed
 		String data = jTextField2.getText().replaceAll("[^0-9]", "");
 		jTextField2.setText(data);
+		if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+			try {
+				this.buscarGeral();
+			} catch (SQLException ex) {
+				jPanel70.setVisible(false);
+				warningLabelGeral.setText("Erro: Falha na conexão com o BD");
+				Logger.getLogger(UILogin.class.getName()).log(Level.SEVERE, null, ex);
+			} catch (ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
+				Logger.getLogger(UILogin.class.getName()).log(Level.SEVERE, null, ex);
+			}
+		}
     }//GEN-LAST:event_jTextField2KeyPressed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -1864,7 +1894,9 @@ public class UIFMenu extends javax.swing.JFrame {
 		if (opc == 1) {
 			try {
 				AvVenda av = (AvVenda) avaliacoes_vendas.get(row);
+				c = new Cliente();
 				c.buscarCliente(av.getCpf_cliente());
+				av.setNome_cliente(c.getNome());
 				new UIVisAvVenda(c, av).setVisible(true);
 			} catch (SQLException | ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
 				Logger.getLogger(UIFMenu.class.getName()).log(Level.SEVERE, null, ex);
@@ -1872,7 +1904,9 @@ public class UIFMenu extends javax.swing.JFrame {
 		} else if (opc == 2) {
 			try {
 				AvAtendimento av = (AvAtendimento) avaliacoes_atendimentos.get(row);
+				c = new Cliente();
 				c.buscarCliente(av.getCpf_cliente());
+				av.setNome_cliente(c.getNome());
 				new UIVisAvAtendimento(c, av).setVisible(true);
 			} catch (SQLException | ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
 				Logger.getLogger(UIFMenu.class.getName()).log(Level.SEVERE, null, ex);
@@ -1880,7 +1914,9 @@ public class UIFMenu extends javax.swing.JFrame {
 		} else if (opc == 3) {
 			try {
 				AvOficina av = (AvOficina) avaliacoes_oficina.get(row);
+				c = new Cliente();
 				c.buscarCliente(av.getCpf_cliente());
+				av.setNome_cliente(c.getNome());
 				new UIVisAvOficina(c, av).setVisible(true);
 			} catch (SQLException | ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
 				Logger.getLogger(UIFMenu.class.getName()).log(Level.SEVERE, null, ex);
@@ -1889,25 +1925,25 @@ public class UIFMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
-        setVisibleAllFalse();
-	BackupPanel.setVisible(true);
+		setVisibleAllFalse();
+		BackupPanel.setVisible(true);
     }//GEN-LAST:event_jMenuItem10ActionPerformed
 
     private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
-        BackupPgSQL bk = new BackupPgSQL();
-            try {
-                bk.run();
-            } catch (InterruptedException ex) {
-                Logger.getLogger(UIFMenu.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        System.out.println("acabou...");
+		BackupPgSQL bk = new BackupPgSQL();
+		try {
+			bk.run();
+		} catch (InterruptedException ex) {
+			Logger.getLogger(UIFMenu.class.getName()).log(Level.SEVERE, null, ex);
+		}
+		System.out.println("acabou...");
     }//GEN-LAST:event_jButton24ActionPerformed
 
     private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
-        // TODO add your handling code here:
-         BackupPgSQL bk = new BackupPgSQL();
-         bk.doRestore();
-         System.out.println("acabou...");
+		// TODO add your handling code here:
+		BackupPgSQL bk = new BackupPgSQL();
+		bk.doRestore();
+		System.out.println("acabou...");
     }//GEN-LAST:event_jButton23ActionPerformed
 
 	private void buscarGeral() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
@@ -1918,19 +1954,18 @@ public class UIFMenu extends javax.swing.JFrame {
 		//tem também que ver se só tem número e se ta do tamanho certo.
 		//data_ini e data_fim tb fazem a busca no formato AAAA/MM/DD, mas o usuário digita DD/MM/AAAA, então
 		//tem que mudar isso. (já fiz o baratin que não pode clicar no meio do field)
-		
-		//avaliacoes_vendas = f.obterAvVendasGeral(data_ini, data_fim);
-		//avaliacoes_atendimentos = f.obterAvAtendimentosGeral(data_ini, data_fim);
-		//avaliacoes_oficina = f.obterAvOficinaGeral(data_ini, data_fim);
+		avaliacoes_vendas = f.obterAvVendasGeral(data_ini, data_fim);
+		avaliacoes_atendimentos = f.obterAvAtendimentosGeral(data_ini, data_fim);
+		avaliacoes_oficina = f.obterAvOficinaGeral(data_ini, data_fim);
 
 		this.cria_model_visualizar_av_venda();
 		this.cria_model_visualizar_av_atendimento();
 		this.cria_model_visalizar_av_serv_oficina();
-		
+
 		jTable1.setModel(visualizar_av_venda_model);
 		jTable18.setModel(visualizar_av_atendimentos_model);
 		jTable19.setModel(visualizar_av_serv_oficina_model);
-		
+
 		jPanel7.setVisible(true);
 		jPanel16.setVisible(true);
 		jPanel21.setVisible(true);
@@ -2271,7 +2306,6 @@ public class UIFMenu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel70;
     private javax.swing.JPanel jPanel71;
-    private javax.swing.JPanel jPanel72;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;

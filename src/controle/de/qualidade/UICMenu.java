@@ -445,12 +445,15 @@ public class UICMenu extends javax.swing.JFrame {
 		jLabel3.setText("");
 		if (avaliacoes_vendas.size() > 0 && opc == 1 && row != -1) {
 			AvVenda av = (AvVenda) avaliacoes_vendas.get(row);
+			av.setNome_cliente(c.getNome());
 			new UIVisAvVenda(c, av).setVisible(true);
 		} else if (avaliacoes_oficina.size() > 0 && opc == 2 && row != -1) {
 			AvOficina av = (AvOficina) avaliacoes_oficina.get(row);
+			av.setNome_cliente(c.getNome());
 			new UIVisAvOficina(c, av).setVisible(true);
 		} else if (avaliacoes_atendimentos.size() > 0 && opc == 3 && row != -1) {
 			AvAtendimento av = (AvAtendimento) avaliacoes_atendimentos.get(row);
+			av.setNome_cliente(c.getNome());
 			new UIVisAvAtendimento(c, av).setVisible(true);
 		} else {
 			jLabel3.setText("Nenhum item selecionado!");

@@ -25,26 +25,25 @@ public class UIVisAvOficina extends javax.swing.JFrame {
 	public UIVisAvOficina(Cliente c, AvOficina av) {
 		this.c = c;
 		this.av = av;
-		Color orange = new Color(204,102,0);
+		Color orange = new Color(204, 102, 0);
 		initComponents();
-                
-                String dIni = av.getServ().getData_ini();
-                String dFim = av.getServ().getData_fim();
-              
-                System.out.println(dIni);
-                System.out.println(dFim);
-                
-                Date data = new Date();
-                Timestamp dataIni = Timestamp.valueOf(dIni);
-                Timestamp dataFim = Timestamp.valueOf(dFim);
-                
-              
-                
-               long x = dataIni.getTime();
-               long y = dataFim.getTime();
-               
-               Long tempo = (long) ((y-x) * 1.66666667 * 0.00001);
-                
+		
+		jLabel13.setText(c.getNome());
+		String dIni = av.getServ().getData_ini();
+		String dFim = av.getServ().getData_fim();
+
+		System.out.println(dIni);
+		System.out.println(dFim);
+
+		Date data = new Date();
+		Timestamp dataIni = Timestamp.valueOf(dIni);
+		Timestamp dataFim = Timestamp.valueOf(dFim);
+
+		long x = dataIni.getTime();
+		long y = dataFim.getTime();
+
+		Long tempo = (long) ((y - x) * 1.66666667 * 0.00001);
+
 		jTextArea1.setEditable(false);
 		Vector tipoServVet = av.getServ().getTipo_servicos();
 		StringBuilder ins = new StringBuilder();
@@ -66,26 +65,27 @@ public class UIVisAvOficina extends javax.swing.JFrame {
 			jLabel9.setForeground(Color.red);
 			jLabel9.setText("Não");
 		}
-                if(tempo < 60)
-                    jLabel11.setText(tempo.toString() + " minuto(s)");
-                else if(tempo >= 60){
-                    Integer dias = 0;
-                    if(tempo >= 1440){
-                        while(tempo >= 1440){
-                            dias++;
-                            tempo -= 1440;
-                        }
-                    }
-                    Integer horas = 0;
-                    while(tempo >= 60){
-                        horas++;
-                        tempo -= 60;
-                    }
-                    if(dias > 0)
-                        jLabel11.setText(dias.toString() + "dia(s), " + horas.toString() + "hora(s) e " + tempo.toString() + " minuto(s)");
-                    else
-                        jLabel11.setText(horas.toString() + "hora(s) e " + tempo.toString() + " minuto(s)");
-                }
+		if (tempo < 60) {
+			jLabel11.setText(tempo.toString() + " minuto(s)");
+		} else if (tempo >= 60) {
+			Integer dias = 0;
+			if (tempo >= 1440) {
+				while (tempo >= 1440) {
+					dias++;
+					tempo -= 1440;
+				}
+			}
+			Integer horas = 0;
+			while (tempo >= 60) {
+				horas++;
+				tempo -= 60;
+			}
+			if (dias > 0) {
+				jLabel11.setText(dias.toString() + "dia(s), " + horas.toString() + "hora(s) e " + tempo.toString() + " minuto(s)");
+			} else {
+				jLabel11.setText(horas.toString() + "hora(s) e " + tempo.toString() + " minuto(s)");
+			}
+		}
 		jTextArea1.setText(ins.toString());
 		jLabel3.setText(av.getServ().getData_ini_splitted());
 		jLabel5.setText(av.getData_splitted());
@@ -138,9 +138,12 @@ public class UIVisAvOficina extends javax.swing.JFrame {
         jTextArea2 = new javax.swing.JTextArea();
         jPanel8 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
+        jPanel12 = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        getContentPane().setLayout(new java.awt.GridLayout(6, 0));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 10));
 
@@ -148,7 +151,7 @@ public class UIVisAvOficina extends javax.swing.JFrame {
         jLabel1.setText("Avaliação da Oficina");
         jPanel1.add(jLabel1);
 
-        getContentPane().add(jPanel1);
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 40));
 
         jScrollPane1.setBorder(javax.swing.BorderFactory.createTitledBorder("Descrição"));
 
@@ -168,7 +171,7 @@ public class UIVisAvOficina extends javax.swing.JFrame {
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel2);
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 108, -1, -1));
 
         jPanel3.setLayout(new java.awt.GridLayout(2, 0));
 
@@ -192,7 +195,7 @@ public class UIVisAvOficina extends javax.swing.JFrame {
 
         jPanel3.add(jPanel7);
 
-        getContentPane().add(jPanel3);
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 216, 400, 108));
 
         jPanel4.setLayout(new java.awt.GridLayout(3, 0));
 
@@ -228,7 +231,7 @@ public class UIVisAvOficina extends javax.swing.JFrame {
 
         jPanel4.add(jPanel9);
 
-        getContentPane().add(jPanel4);
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 324, 400, 108));
 
         jScrollPane2.setBorder(javax.swing.BorderFactory.createTitledBorder("Sugestão"));
 
@@ -248,7 +251,7 @@ public class UIVisAvOficina extends javax.swing.JFrame {
             .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel5);
+        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 432, -1, -1));
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton1.setText("Voltar");
@@ -259,7 +262,17 @@ public class UIVisAvOficina extends javax.swing.JFrame {
         });
         jPanel8.add(jButton1);
 
-        getContentPane().add(jPanel8);
+        getContentPane().add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 540, 400, 108));
+
+        jPanel12.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+
+        jLabel12.setText("Cliente:");
+        jPanel12.add(jLabel12);
+
+        jLabel13.setText("cliente");
+        jPanel12.add(jLabel13);
+
+        getContentPane().add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 400, 50));
 
         setSize(new java.awt.Dimension(416, 687));
         setLocationRelativeTo(null);
@@ -274,6 +287,8 @@ public class UIVisAvOficina extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -285,6 +300,7 @@ public class UIVisAvOficina extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
