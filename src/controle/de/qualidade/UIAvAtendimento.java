@@ -29,6 +29,7 @@ public class UIAvAtendimento extends javax.swing.JFrame {
 		this.c = c;
 		this.a = a;
 		initComponents();
+		this.setResizable(false);
 		this.jTextArea2.setEditable(false);
 		this.jTextArea2.setText(a.getDescr_atend());
 		this.jLabel3.setText(a.getData_ini() + " - " + a.getData_fim());

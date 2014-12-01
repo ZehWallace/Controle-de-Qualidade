@@ -31,6 +31,7 @@ public class UIAvVenda extends javax.swing.JFrame {
 		this.v = v;
 		System.out.println(v.toString());
 		initComponents();
+		this.setResizable(false);
 		jTextArea2.setEditable(false);
 		jTextArea2.setText(v.getDescr_venda().replaceAll("@", "\n"));
 

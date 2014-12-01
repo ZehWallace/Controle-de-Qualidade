@@ -21,8 +21,7 @@ public class UILogin extends javax.swing.JFrame {
 	 */
 	public UILogin() {
 		initComponents();
-//		jTextField1.getCaret().setBlinkRate(0);
-//		jTextField1.setCaretColor(Color.white);
+		this.setResizable(false);
 	}
 
 	/**

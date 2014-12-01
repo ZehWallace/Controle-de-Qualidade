@@ -27,6 +27,7 @@ public class UIAvOficina extends javax.swing.JFrame {
 		this.c = c;
 		this.serv = serv;
 		initComponents();
+		this.setResizable(false);
 		jTextArea2.setEditable(false);
 		Vector tipoServVet = serv.getTipo_servicos();
 		StringBuilder ins = new StringBuilder();

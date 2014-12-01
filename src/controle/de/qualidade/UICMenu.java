@@ -30,6 +30,7 @@ public class UICMenu extends javax.swing.JFrame {
 		String temp;
 		this.c = tempc;
 		initComponents();
+		this.setResizable(false);
 		temp = c.getCpf();
 		this.numCPF.setText(temp.substring(0, 3) + "." + temp.substring(3, 6) + "." + temp.substring(6, 9) + "-" + temp.substring(9, 11));
 		this.numCPF1.setText(temp.substring(0, 3) + "." + temp.substring(3, 6) + "." + temp.substring(6, 9) + "-" + temp.substring(9, 11));
@@ -374,7 +375,7 @@ public class UICMenu extends javax.swing.JFrame {
 
         getContentPane().add(jTabbedPane1);
 
-        setSize(new java.awt.Dimension(416, 381));
+        setSize(new java.awt.Dimension(415, 381));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 

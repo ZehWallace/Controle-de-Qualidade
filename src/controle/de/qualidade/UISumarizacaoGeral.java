@@ -16,6 +16,7 @@ public class UISumarizacaoGeral extends javax.swing.JFrame {
      */
     public UISumarizacaoGeral() {
         initComponents();
+		this.setResizable(false);
     }
 
     /**

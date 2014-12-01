@@ -22,6 +22,7 @@ public class UIAvSucesso extends javax.swing.JFrame {
     public UIAvSucesso(Cliente tempc) {
         c = tempc;
         initComponents();
+		this.setResizable(false);
     }
 
     private UIAvSucesso() {

@@ -29,6 +29,7 @@ public class UIVisAvAtendimento extends javax.swing.JFrame {
 		this.c = c;
 		Color orange = new Color(204, 102, 0);
 		initComponents();
+		this.setResizable(false);
 		jLabel15.setText(c.getNome());
 		String dIni = av.getAtendimento().getData_ini();
 		String dFim = av.getAtendimento().getData_fim();

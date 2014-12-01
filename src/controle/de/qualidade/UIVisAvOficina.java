@@ -27,7 +27,7 @@ public class UIVisAvOficina extends javax.swing.JFrame {
 		this.av = av;
 		Color orange = new Color(204, 102, 0);
 		initComponents();
-		
+		this.setResizable(false);
 		jLabel13.setText(c.getNome());
 		String dIni = av.getServ().getData_ini();
 		String dFim = av.getServ().getData_fim();

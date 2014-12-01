@@ -27,6 +27,7 @@ public class UIVisAvVenda extends javax.swing.JFrame {
 	 */
 	public UIVisAvVenda(Cliente c, AvVenda av) {
 		initComponents();
+		this.setResizable(false);
 		this.c = c;
 		this.av = av;
 		Color orange = new Color(204, 102, 0);

@@ -22,6 +22,7 @@ public class UIAvNaoSucesso extends javax.swing.JFrame {
     public UIAvNaoSucesso(Cliente tempc) {
         c = tempc;
         initComponents();
+		this.setResizable(false);
     }
 
     private UIAvNaoSucesso() {

@@ -40,6 +40,7 @@ public class UIFMenu extends javax.swing.JFrame {
 	 */
 	public UIFMenu(Funcionario f) {
 		initComponents();
+		this.setResizable(false);
 		BemVindoPanel.setVisible(true);
 		ClientePanel.setVisible(false);
 		DadosProdutosPanel.setVisible(false);
