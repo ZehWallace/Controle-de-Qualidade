@@ -45,7 +45,7 @@ public class UIVisAvAtendimento extends javax.swing.JFrame {
 		jTextArea1.setEditable(false);
 		jTextArea2.setEditable(false);
 		jLabel13.setText(av.getNome_atendente());
-		jLabel3.setText(av.getData_atendimento());
+		jLabel3.setText(av.getData_ini_splitted());
                 if(tempo < 60)
                     jLabel11.setText(tempo.toString() + " minuto(s)");
                 else if(tempo >= 60){
@@ -66,7 +66,7 @@ public class UIVisAvAtendimento extends javax.swing.JFrame {
                     else
                         jLabel11.setText(horas.toString() + "hora(s) e " + tempo.toString() + " minuto(s)");
                 }
-		jLabel5.setText(av.getData());
+		jLabel5.setText(av.getData_splitted());
 		int probl_res = av.getProbl_res();
 		if(probl_res == 1){
 			//jLabel9.setForeground(Color.green);
