@@ -20,7 +20,7 @@ public class BackupPgSQL {
         try {
             ProcessBuilder pb;        
             final Process p;        
-            pb = new ProcessBuilder("C:\\Program Files\\PostgreSQL\\9.3\\bin\\pg_dump.exe ","-h", "localhost", "-p", "5432","-U", "postgres",  "-F", "p", "-f", "C:\\Users\\davys_000\\Desktop\\CQ_bkp3.backup", "ControleDeQualidade");        
+            pb = new ProcessBuilder("C:\\Program Files\\PostgreSQL\\9.3\\bin\\pg_dump.exe ", "-Fc", "-h", "localhost", "-p", "5432", "-U", "postgres", "-f", "C:\\Users\\davys_000\\Desktop\\CQ_bkp.backup", "ControleDeQualidade");        
             pb.environment().put("PGPASSWORD", "postgres");        
             pb.redirectErrorStream(true);        
             p = pb.start();
@@ -34,7 +34,7 @@ public class BackupPgSQL {
         try{        
             ProcessBuilder pb;        
             final Process p;        
-            pb = new ProcessBuilder("C:\\Program Files\\PostgreSQL\\9.3\\bin\\pg_dump.exe ", "-d", "postgres", "-h", "localhost", "-p", "5432","-U", "postgres", "-f", "C:\\Users\\davys_000\\Desktop\\CQ_bkp.backup", "Teste");        
+            pb = new ProcessBuilder("C:\\Program Files\\PostgreSQL\\9.3\\bin\\pg_restore.exe ", "-c", "-d", "Teste", "-h", "localhost", "-p", "5432","-U", "postgres", "C:\\Users\\davys_000\\Desktop\\CQ_bkp.backup");        
             pb.environment().put("PGPASSWORD", "postgres");        
             pb.redirectErrorStream(true);        
             p = pb.start();         
