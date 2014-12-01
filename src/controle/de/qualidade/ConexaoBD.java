@@ -229,7 +229,7 @@ public class ConexaoBD {
         StringBuilder ins = new StringBuilder();
         ins.append("SELECT cod_av, nota_venda, sugestao_venda, data_av, av.cpf_cliente, av.cpf_vendedor, av.data_venda, tipo_venda, descr_venda ");
         ins.append("FROM av_venda av, venda v ");
-        ins.append(" WHERE av.data_venda BETWEEN '").append(datainit).append("' AND '").append(datafim).append("'");
+        ins.append(" WHERE av.data_av BETWEEN '").append(datainit).append("' AND '").append(datafim).append("'");
         ins.append(" AND av.cpf_vendedor = v.cpf_vendedor");
         ins.append(" AND av.data_venda = v.data_venda;");
         st.execute(ins.toString());
@@ -263,7 +263,7 @@ public class ConexaoBD {
         StringBuilder ins = new StringBuilder();
         ins.append("SELECT cod_av, nota_atend, sugestao, data_av, av.cpf_cliente, av.cpf_atendente, a.data_ini, a.data_fim, probl_res, dresc_prob");
         ins.append(" FROM av_atendimento av, atendimento a");
-        ins.append(" WHERE av.data_atend BETWEEN '").append(datainit).append("' AND '").append(datafim).append("'");
+        ins.append(" WHERE av.data_av BETWEEN '").append(datainit).append("' AND '").append(datafim).append("'");
         ins.append(" AND av.cpf_cliente = a.cpf_cliente");
         ins.append(" AND av.cpf_atendente = a.cpf_atendente");
         ins.append(" AND av.data_atend = a.data_ini;");
@@ -361,7 +361,7 @@ public class ConexaoBD {
         while (rs.next()) {
             ResultSet rsnome;
             st = myConnection.createStatement();
-            st.execute("SELECT nome_cliente FROM cliente WHERE cpf_cliente = '" + rs.getString("cpf_cliente") + "';");
+            st.execute("SELECT nome_vendedor FROM funcionario_vendedor WHERE cpf_vendedor = '" + rs.getString("cpf_vendedor") + "';");
             rsnome = st.getResultSet();
             rsnome.next();
             v = new Venda(rs.getString("cpf_vendedor"), rs.getString("cpf_cliente"), rs.getString("data_venda"), rs.getString("tipo_venda"), rs.getString("descr_venda"), rsnome.getString(1));
@@ -417,7 +417,7 @@ public class ConexaoBD {
         while (rs.next()) {
             ResultSet rsnome;
             st = myConnection.createStatement();
-            st.execute("SELECT nome_cliente FROM cliente WHERE cpf_cliente = '" + rs.getString("cpf_cliente") + "';");
+            st.execute("SELECT nome_atendente FROM funcionario_atendente WHERE cpf_atendente = '" + rs.getString("cpf_atendente") + "';");
             rsnome = st.getResultSet();
             rsnome.next();
             a = new Atendimento(rs.getString("cpf_cliente"), rs.getString("cpf_atendente"), rs.getString("data_ini"), rs.getString("data_fim"), rs.getString("dresc_prob"), rsnome.getString(1));

@@ -64,6 +64,7 @@ public class AvVenda extends Avaliacao {
 		this.nome_vendedor = nome_vendedor;
 		this.nome_cliente = nome_cliente;
 		this.venda = v;
+		System.out.println(codigo + " " + nota + " " + sugestao + " " + data + " " + cpfC + " " + cpfF + " " + dataVenda + " " + nome_vendedor + " " + nome_cliente);
 	}
 
 	/**
@@ -118,6 +119,14 @@ public class AvVenda extends Avaliacao {
 
 	public String getNome_cliente() {
 		return nome_cliente;
+	}
+
+	public void setNome_vendedor(String nome_vendedor) {
+		this.nome_vendedor = nome_vendedor;
+	}
+
+	public void setNome_cliente(String nome_cliente) {
+		this.nome_cliente = nome_cliente;
 	}
 
 	public String getData_venda_splitted() {

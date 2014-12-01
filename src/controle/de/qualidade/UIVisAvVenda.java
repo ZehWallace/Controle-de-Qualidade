@@ -36,11 +36,12 @@ public class UIVisAvVenda extends javax.swing.JFrame {
 		String dvenda[] = av.getData_venda().split("-");
 		String newDataVenda = dvenda[2] + "/" + dvenda[1] + "/" + dvenda[0];
 
-		jLabel9.setText(av.getVenda().getNome_func());
+		jLabel9.setText(av.getNome_vendedor());
 		jLabel3.setText(newDataVenda);
 		jLabel5.setText(newData);
 		float nota = av.getNota();
 		jLabel7.setText("" + nota);
+		jLabel11.setText(av.getNome_cliente());
 		if (nota > 6) {
 			//jLabel7.setForeground(Color.green);
 		} else if (nota <= 6 && nota >= 4) {
@@ -65,10 +66,10 @@ public class UIVisAvVenda extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
         jPanel3 = new javax.swing.JPanel();
+        jPanel10 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -86,10 +87,12 @@ public class UIVisAvVenda extends javax.swing.JFrame {
         jTextArea2 = new javax.swing.JTextArea();
         jPanel8 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Visualizar Avaliação Venda");
-        getContentPane().setLayout(new java.awt.GridLayout(6, 0));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 10));
 
@@ -97,29 +100,19 @@ public class UIVisAvVenda extends javax.swing.JFrame {
         jLabel1.setText("Avaliação de Venda");
         jPanel1.add(jLabel1);
 
-        getContentPane().add(jPanel1);
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 2, 400, 40));
 
-        jScrollPane1.setBorder(javax.swing.BorderFactory.createTitledBorder("Descrição"));
+        jPanel3.setLayout(new java.awt.GridLayout(4, 0));
 
-        jTextArea1.setBackground(new java.awt.Color(240, 240, 240));
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        jPanel10.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE)
-        );
+        jLabel10.setText("Cliente:");
+        jPanel10.add(jLabel10);
 
-        getContentPane().add(jPanel2);
+        jLabel11.setText("Zeh!");
+        jPanel10.add(jLabel11);
 
-        jPanel3.setLayout(new java.awt.GridLayout(3, 0));
+        jPanel3.add(jPanel10);
 
         jPanel9.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 5, 6));
 
@@ -151,7 +144,7 @@ public class UIVisAvVenda extends javax.swing.JFrame {
 
         jPanel3.add(jPanel7);
 
-        getContentPane().add(jPanel3);
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 107, 400, 90));
 
         jPanel4.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 25));
 
@@ -164,7 +157,7 @@ public class UIVisAvVenda extends javax.swing.JFrame {
         jLabel7.setText("9.8");
         jPanel4.add(jLabel7);
 
-        getContentPane().add(jPanel4);
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 197, 400, -1));
 
         jScrollPane2.setBorder(javax.swing.BorderFactory.createTitledBorder("Sugestão"));
 
@@ -184,7 +177,7 @@ public class UIVisAvVenda extends javax.swing.JFrame {
             .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel5);
+        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 262, -1, -1));
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton1.setText("Voltar");
@@ -195,7 +188,16 @@ public class UIVisAvVenda extends javax.swing.JFrame {
         });
         jPanel8.add(jButton1);
 
-        getContentPane().add(jPanel8);
+        getContentPane().add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 327, 400, 65));
+
+        jScrollPane1.setBorder(javax.swing.BorderFactory.createTitledBorder("Descrição"));
+
+        jTextArea1.setBackground(new java.awt.Color(240, 240, 240));
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 400, 65));
 
         setSize(new java.awt.Dimension(416, 434));
         setLocationRelativeTo(null);
@@ -209,6 +211,8 @@ public class UIVisAvVenda extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -218,7 +222,7 @@ public class UIVisAvVenda extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;

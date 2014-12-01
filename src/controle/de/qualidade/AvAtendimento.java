@@ -13,11 +13,11 @@ import java.sql.SQLException;
  */
 class AvAtendimento extends Avaliacao {
 
-	private final String cpf_atendente;
-	private final String data_atendimento;
-	private final Atendimento atendimento;
-	private final String nome_atendente;
-	private final String nome_cliente;
+	private String cpf_atendente;
+	private String data_atendimento;
+	private Atendimento atendimento;
+	private String nome_atendente;
+	private String nome_cliente;
 
 	private final int probl_res;
 
@@ -108,5 +108,25 @@ class AvAtendimento extends Avaliacao {
 
 	public String getNome_cliente() {
 		return nome_cliente;
+	}
+
+	public void setCpf_atendente(String cpf_atendente) {
+		this.cpf_atendente = cpf_atendente;
+	}
+
+	public void setData_atendimento(String data_atendimento) {
+		this.data_atendimento = data_atendimento;
+	}
+
+	public void setAtendimento(Atendimento atendimento) {
+		this.atendimento = atendimento;
+	}
+
+	public void setNome_atendente(String nome_atendente) {
+		this.nome_atendente = nome_atendente;
+	}
+
+	public void setNome_cliente(String nome_cliente) {
+		this.nome_cliente = nome_cliente;
 	}
 }
