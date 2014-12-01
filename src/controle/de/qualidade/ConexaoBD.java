@@ -9,14 +9,21 @@ public class ConexaoBD {
 	private Statement st;
 
 	// Construtor
-	public ConexaoBD() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
-		Class.forName("org.postgresql.Driver").newInstance();
+	public ConexaoBD() {
+		try {
+            //Cria uma instancia de conexao com o SGBD MySQL, usando
+			//   o driver apropriado
+			Class.forName("org.postgresql.Driver").newInstance();
 
-		myConnection = DriverManager.getConnection("jdbc:postgresql:"
-				+ "//localhost/ControleDeQualidade?user=postgres&password=postgres");
+			myConnection = DriverManager.getConnection("jdbc:postgresql:"
+					+ "//localhost/ControleDeQualidade?user=postgres&password=postgres");
 
-		//Cria um comando (statement) vinculado a conexao
-		st = myConnection.createStatement();
+			//Cria um comando (statement) vinculado aa conexao
+			st = myConnection.createStatement();
+
+		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException e) {
+			new UIErroConexao().setVisible(true);
+		}
 	}
 
 	public Cliente buscaCliente(String cpf) throws SQLException {
