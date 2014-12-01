@@ -15,6 +15,7 @@ public class AvOficina extends Avaliacao {
 
 	private ServicoOficina serv;
 	private int prob_res;
+	private String nome_cliente;
 
 	//cria avaliacao para adicionar no BD
 	public AvOficina(ServicoOficina s, int prob_res, String cpf_cliente, String data, float nota, String sugestao) throws ClassNotFoundException, InstantiationException, SQLException, IllegalAccessException {
@@ -24,6 +25,7 @@ public class AvOficina extends Avaliacao {
 		this.setData(data);
 		this.setNota(nota);
 		this.setSugestao(sugestao);
+		this.nome_cliente = null;
 		this.criarAvOficina();
 	}
 
@@ -34,7 +36,19 @@ public class AvOficina extends Avaliacao {
 		this.setData(data);
 		this.setNota(nota);
 		this.setSugestao(sugestao);
+		this.nome_cliente = null;
 		this.setCod_av(cod_av);
+	}
+
+	public AvOficina(ServicoOficina s, int prob_res, String cpf_cliente, String data, float nota, String sugestao, String cod_av, String nome_cliente) {
+		this.serv = s;
+		this.prob_res = prob_res;
+		this.setCpf_cliente(cpf_cliente);
+		this.setData(data);
+		this.setNota(nota);
+		this.setSugestao(sugestao);
+		this.setCod_av(cod_av);
+		this.nome_cliente = nome_cliente;
 	}
 
 	public void criarAvOficina() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
@@ -50,6 +64,7 @@ public class AvOficina extends Avaliacao {
 		res.append(this.getServ().getPlaca()).append("@");
 		res.append(this.getData_splitted()).append("@");
 		res.append(this.getNota()).append("@");
+		res.append(this.nome_cliente).append("@");
 		res.append("");
 		return res.toString();
 	}
@@ -60,5 +75,9 @@ public class AvOficina extends Avaliacao {
 
 	public int getProb_res() {
 		return prob_res;
+	}
+
+	public String getNome_cliente() {
+		return nome_cliente;
 	}
 }
