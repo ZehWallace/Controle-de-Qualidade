@@ -121,6 +121,7 @@ public class UIFMenu extends javax.swing.JFrame {
         }catch(Exception e){
         }
         jButton22 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable(){
@@ -456,6 +457,10 @@ public class UIFMenu extends javax.swing.JFrame {
             }
         });
         jPanel14.add(jButton22);
+
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton1.setText("Buscar Tudo");
+        jPanel14.add(jButton1);
 
         jPanel9.setLayout(new javax.swing.OverlayLayout(jPanel9));
 
@@ -2055,6 +2060,7 @@ public class UIFMenu extends javax.swing.JFrame {
     private javax.swing.JPanel Sumarizacao;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
