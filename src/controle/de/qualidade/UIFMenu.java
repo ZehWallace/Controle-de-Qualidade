@@ -680,9 +680,9 @@ public class UIFMenu extends javax.swing.JFrame {
 
         jLabel36.setText("Zé");
 
-        jLabel41.setText("Oficina");
+        jLabel41.setText("Atendimento");
 
-        jLabel42.setText("Atendimento");
+        jLabel42.setText("Oficina");
 
         jButton4.setText("Visualizar Avaliação");
         jButton4.addActionListener(new java.awt.event.ActionListener() {

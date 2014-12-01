@@ -803,12 +803,12 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel41">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Oficina"/>
+                <Property name="text" type="java.lang.String" value="Atendimento"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel42">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Atendimento"/>
+                <Property name="text" type="java.lang.String" value="Oficina"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="jButton4">

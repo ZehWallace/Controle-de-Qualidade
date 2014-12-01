@@ -69,12 +69,22 @@ public class UIVisAvOficina extends javax.swing.JFrame {
                 if(tempo < 60)
                     jLabel11.setText(tempo.toString() + " minuto(s)");
                 else if(tempo >= 60){
+                    Integer dias = 0;
+                    if(tempo >= 1440){
+                        while(tempo >= 1440){
+                            dias++;
+                            tempo -= 1440;
+                        }
+                    }
                     Integer horas = 0;
                     while(tempo >= 60){
                         horas++;
                         tempo -= 60;
                     }
-                    jLabel11.setText(horas.toString() + "hora(s) e " + tempo.toString() + " minuto(s)");
+                    if(dias > 0)
+                        jLabel11.setText(dias.toString() + "dia(s), " + horas.toString() + "hora(s) e " + tempo.toString() + " minuto(s)");
+                    else
+                        jLabel11.setText(horas.toString() + "hora(s) e " + tempo.toString() + " minuto(s)");
                 }
 		jTextArea1.setText(ins.toString());
 		jLabel3.setText(av.getServ().getData_ini_splitted());
