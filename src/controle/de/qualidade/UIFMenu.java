@@ -276,8 +276,9 @@ public class UIFMenu extends javax.swing.JFrame {
         jPanel35 = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
         jPanel33 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
         jPanel34 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jPanel36 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
         try{
@@ -294,9 +295,9 @@ public class UIFMenu extends javax.swing.JFrame {
             jTextField9 = new javax.swing.JFormattedTextField(dataFim);
         }catch(Exception e){
         }
-        jPanel36 = new javax.swing.JPanel();
-        jPanel37 = new javax.swing.JPanel();
         jButton7 = new javax.swing.JButton();
+        jPanel37 = new javax.swing.JPanel();
+        warningLimparHist = new javax.swing.JLabel();
         DadosSetoresPanel = new javax.swing.JPanel();
         jPanel44 = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
@@ -474,9 +475,19 @@ public class UIFMenu extends javax.swing.JFrame {
         jDialog1.getContentPane().add(jPanel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 400, 40));
 
         jButton11.setText("Voltar");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
         jPanel55.add(jButton11);
 
         jButton10.setText("Limpar");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
         jPanel55.add(jButton10);
 
         jDialog1.getContentPane().add(jPanel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 400, 40));
@@ -1158,8 +1169,6 @@ public class UIFMenu extends javax.swing.JFrame {
 
         getContentPane().add(ProdutoPanel);
 
-        LimparPanel.setLayout(new java.awt.GridLayout(1, 0));
-
         jPanel1.setLayout(new java.awt.GridLayout(5, 0));
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -1167,27 +1176,45 @@ public class UIFMenu extends javax.swing.JFrame {
         jPanel35.add(jLabel22);
 
         jPanel1.add(jPanel35);
+        jPanel1.add(jPanel33);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel7.setText("Período:");
-        jPanel33.add(jLabel7);
-
-        jPanel1.add(jPanel33);
-
-        jLabel8.setText("De: ");
-        jPanel34.add(jLabel8);
-
-        jTextField5.setColumns(8);
-        jPanel34.add(jTextField5);
-
-        jLabel12.setText("Até: ");
-        jPanel34.add(jLabel12);
-
-        jTextField9.setColumns(8);
-        jPanel34.add(jTextField9);
+        jPanel34.add(jLabel7);
 
         jPanel1.add(jPanel34);
-        jPanel1.add(jPanel36);
+
+        jLabel8.setText("De: ");
+        jPanel36.add(jLabel8);
+
+        jTextField5.setColumns(8);
+        jTextField5.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextField5FocusGained(evt);
+            }
+        });
+        jTextField5.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField5KeyPressed(evt);
+            }
+        });
+        jPanel36.add(jTextField5);
+
+        jLabel12.setText("Até: ");
+        jPanel36.add(jLabel12);
+
+        jTextField9.setColumns(8);
+        jTextField9.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextField9FocusGained(evt);
+            }
+        });
+        jTextField9.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField9KeyPressed(evt);
+            }
+        });
+        jPanel36.add(jTextField9);
 
         jButton7.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jButton7.setText("Confirmar");
@@ -1196,11 +1223,28 @@ public class UIFMenu extends javax.swing.JFrame {
                 jButton7ActionPerformed(evt);
             }
         });
-        jPanel37.add(jButton7);
+        jPanel36.add(jButton7);
+
+        jPanel1.add(jPanel36);
+
+        warningLimparHist.setForeground(new java.awt.Color(204, 0, 0));
+        warningLimparHist.setText("warningLimparHist");
+        jPanel37.add(warningLimparHist);
 
         jPanel1.add(jPanel37);
 
-        LimparPanel.add(jPanel1);
+        javax.swing.GroupLayout LimparPanelLayout = new javax.swing.GroupLayout(LimparPanel);
+        LimparPanel.setLayout(LimparPanelLayout);
+        LimparPanelLayout.setHorizontalGroup(
+            LimparPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 806, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        LimparPanelLayout.setVerticalGroup(
+            LimparPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(LimparPanelLayout.createSequentialGroup()
+                .addGap(2, 2, 2)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         getContentPane().add(LimparPanel);
 
@@ -1659,10 +1703,11 @@ public class UIFMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField3ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-		// TODO add your handling code here:
 		jDialog1.setLocationRelativeTo(null);
 		jDialog1.setSize(400, 230);
 		jDialog1.setVisible(true);
+		jLabel27.setText(jTextField5.getText());
+		jLabel29.setText(jTextField9.getText());
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -1972,6 +2017,55 @@ public class UIFMenu extends javax.swing.JFrame {
 		}
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+		String data_ini = jLabel27.getText();
+		String data_fim = jLabel29.getText();
+
+		try {
+			f.deletarHistorico(data_ini, data_fim);
+			warningLimparHist.setText("Histórico Deletado!");
+			jDialog1.dispose();
+		} catch (ClassNotFoundException | SQLException | InstantiationException | IllegalAccessException ex) {
+			Logger.getLogger(UIFMenu.class.getName()).log(Level.SEVERE, null, ex);
+		}
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+		jDialog1.dispose();
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jTextField5KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5KeyPressed
+		String cpf = jTextField5.getText().replaceAll("[^0-9]", "");
+		jTextField5.setText(cpf);
+		if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+			jDialog1.setLocationRelativeTo(null);
+			jDialog1.setSize(400, 230);
+			jDialog1.setVisible(true);
+			jLabel27.setText(jTextField5.getText());
+			jLabel29.setText(jTextField9.getText());
+		}
+    }//GEN-LAST:event_jTextField5KeyPressed
+
+    private void jTextField9KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField9KeyPressed
+		String cpf = jTextField9.getText().replaceAll("[^0-9]", "");
+		jTextField9.setText(cpf);
+		if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+			jDialog1.setLocationRelativeTo(null);
+			jDialog1.setSize(400, 230);
+			jDialog1.setVisible(true);
+			jLabel27.setText(jTextField5.getText());
+			jLabel29.setText(jTextField9.getText());
+		}
+    }//GEN-LAST:event_jTextField9KeyPressed
+
+    private void jTextField5FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField5FocusGained
+		jTextField5.setText("");
+    }//GEN-LAST:event_jTextField5FocusGained
+
+    private void jTextField9FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField9FocusGained
+		jTextField9.setText("");
+    }//GEN-LAST:event_jTextField9FocusGained
+
 	private void buscarGeral() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
 		String data_ini = jTextField1.getText();
 		String data_fim = jTextField2.getText();
@@ -1985,9 +2079,9 @@ public class UIFMenu extends javax.swing.JFrame {
 		avaliacoes_atendimentos = f.obterAvAtendimentosGeral(data_ini, data_fim);
 		avaliacoes_oficina = f.obterAvOficinaGeral(data_ini, data_fim);
 
-		this.cria_model_visualizar_av_venda();
-		this.cria_model_visualizar_av_atendimento();
-		this.cria_model_visalizar_av_serv_oficina();
+		this.cria_model_visualizar_av_venda_geral();
+		this.cria_model_visualizar_av_atendimento_geral();
+		this.cria_model_visalizar_av_serv_oficina_geral();
 
 		jTable1.setModel(visualizar_av_venda_model);
 		jTable18.setModel(visualizar_av_atendimentos_model);
@@ -2015,8 +2109,8 @@ public class UIFMenu extends javax.swing.JFrame {
 			this.avaliacoes_vendas = ftemp.obterAvVendasFunc();
 			this.avaliacoes_atendimentos = ftemp.obterAvAtendimentosFunc();
 
-			cria_model_visualizar_av_venda_func();
-			cria_model_visualizar_av_atendimento_func();
+			cria_model_visualizar_av_venda_geral();
+			cria_model_visualizar_av_atendimento_geral();
 
 			jTable16.setModel(visualizar_av_venda_model);
 			jTable17.setModel(visualizar_av_atendimentos_model);
@@ -2082,7 +2176,7 @@ public class UIFMenu extends javax.swing.JFrame {
 		visualizar_av_venda_model = new DefaultTableModel(dataVector, header);
 	}
 
-	private void cria_model_visualizar_av_venda_func() {
+	private void cria_model_visualizar_av_venda_geral() {
 		//magica
 		String rows[] = avaliacoes_vendas.toString().replace("[", "").replace("]", "").split(",");
 		Vector<Vector<String>> dataVector = new Vector<Vector<String>>();
@@ -2119,7 +2213,7 @@ public class UIFMenu extends javax.swing.JFrame {
 		visualizar_av_atendimentos_model = new DefaultTableModel(dataVector, header);
 	}
 
-	private void cria_model_visualizar_av_atendimento_func() {
+	private void cria_model_visualizar_av_atendimento_geral() {
 		//magica
 		String rows[] = avaliacoes_atendimentos.toString().replace("[", "").replace("]", "").split(",");
 		Vector<Vector<String>> dataVector = new Vector<Vector<String>>();
@@ -2151,6 +2245,24 @@ public class UIFMenu extends javax.swing.JFrame {
 		header.add("Placa");
 		header.add("Data Avaliacao");
 		header.add("Nota");
+		visualizar_av_serv_oficina_model = new DefaultTableModel(dataVector, header);
+	}
+
+	private void cria_model_visalizar_av_serv_oficina_geral() {
+		//magica
+		String rows[] = avaliacoes_oficina.toString().replace("[", "").replace("]", "").split(",");
+		Vector<Vector<String>> dataVector = new Vector<Vector<String>>();
+		for (String row : rows) {
+			row = row.trim();  //UPDATE
+			Vector<String> data = new Vector<String>();
+			data.addAll(Arrays.asList(row.split("@")));
+			dataVector.add(data);
+		}
+		Vector<String> header = new Vector<String>(2);
+		header.add("Placa");
+		header.add("Data Avaliacao");
+		header.add("Nota");
+		header.add("Cliente");
 		visualizar_av_serv_oficina_model = new DefaultTableModel(dataVector, header);
 	}
 	/**
@@ -2394,5 +2506,6 @@ public class UIFMenu extends javax.swing.JFrame {
     private javax.swing.JLabel warningLabel;
     private javax.swing.JLabel warningLabelFuncionario;
     private javax.swing.JLabel warningLabelGeral;
+    private javax.swing.JLabel warningLimparHist;
     // End of variables declaration//GEN-END:variables
 }

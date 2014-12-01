@@ -79,6 +79,11 @@ public class Funcionario {
 		vetorAvOficina = con.buscaTodasAvOficinaIntervalo(data_ini, data_fim); //MUDAR
 		return vetorAvOficina;
 	}
+	
+	public void deletarHistorico(String data_ini, String data_fim) throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException{
+		ConexaoBD con = new ConexaoBD();
+		con.deletaavintervalo(data_ini, data_fim);
+	}
 
 	public String getCpf() {
 		return cpf;
