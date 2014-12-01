@@ -259,16 +259,16 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <Component id="jPanel7" min="-2" pref="740" max="-2" attributes="0"/>
-                  <EmptySpace min="78" max="32767" attributes="0"/>
-              </Group>
               <Component id="jPanel15" max="32767" attributes="0"/>
               <Component id="jPanel47" alignment="0" max="32767" attributes="0"/>
               <Component id="jPanel14" alignment="0" max="32767" attributes="0"/>
               <Component id="jPanel13" alignment="0" max="32767" attributes="0"/>
               <Component id="jPanel21" alignment="0" max="32767" attributes="0"/>
-              <Component id="jPanel16" max="32767" attributes="0"/>
+              <Group type="102" attributes="0">
+                  <Component id="jPanel7" min="-2" pref="740" max="-2" attributes="0"/>
+                  <EmptySpace pref="66" max="32767" attributes="0"/>
+              </Group>
+              <Component id="jPanel9" alignment="1" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -283,10 +283,10 @@
                   <Component id="jPanel13" min="-2" pref="24" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                   <Component id="jPanel7" min="-2" pref="40" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                  <Component id="jPanel16" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                  <Component id="jPanel21" pref="76" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jPanel9" pref="158" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jPanel21" min="-2" pref="66" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -322,30 +322,114 @@
             </Component>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="jPanel16">
+        <Container class="javax.swing.JPanel" name="jPanel21">
 
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" min="-2" pref="268" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Component id="jScrollPane18" min="-2" pref="268" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Component id="jScrollPane19" min="-2" pref="268" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane1" min="-2" pref="150" max="-2" attributes="0"/>
-                  <Component id="jScrollPane18" min="-2" pref="150" max="-2" attributes="0"/>
-                  <Component id="jScrollPane19" min="-2" pref="150" max="-2" attributes="0"/>
-              </Group>
-            </DimensionLayout>
+          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout">
+            <Property name="verticalGap" type="int" value="9"/>
           </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JButton" name="jButton3">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="13" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Visualizar Avalia&#xe7;&#xe3;o"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+              </Events>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="jPanel47">
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="jLabel2">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="12" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Per&#xed;odo:"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="jPanel7">
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+            <Property name="useNullLayout" type="boolean" value="false"/>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JComboBox" name="jComboBox2">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="new javax.swing.DefaultComboBoxModel(new String[] { &quot;Selecione uma op&#xe7;&#xe3;o&quot;, &quot;Avalia&#xe7;&#xf5;es Venda&quot;, &quot;Avalia&#xe7;&#xf5;es Atendimento&quot;, &quot;Avalia&#xe7;&#xf5;es Oficina&quot; })" type="code"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox2ActionPerformed"/>
+              </Events>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="320" y="10" width="-1" height="-1"/>
+                </Constraint>
+              </Constraints>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="jPanel14">
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="jLabel1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="De: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextField1">
+              <Properties>
+                <Property name="columns" type="int" value="8"/>
+              </Properties>
+              <Events>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextField1FocusGained"/>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField1KeyPressed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="try{&#xa; javax.swing.text.MaskFormatter dataIni = new javax.swing.text.MaskFormatter(&quot;##/##/####&quot;);&#xa; dataIni.setPlaceholderCharacter(&apos;_&apos;);&#xa; jTextField1 = new javax.swing.JFormattedTextField(dataIni);&#xa; }catch(Exception e){&#xa;}"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel3">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="At&#xe9;: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextField2">
+              <Properties>
+                <Property name="columns" type="int" value="8"/>
+              </Properties>
+              <Events>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextField2FocusGained"/>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField2KeyPressed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="try{&#xa; javax.swing.text.MaskFormatter dataFim = new javax.swing.text.MaskFormatter(&quot;##/##/####&quot;);&#xa; dataFim.setPlaceholderCharacter(&apos;_&apos;);&#xa; jTextField2 = new javax.swing.JFormattedTextField(dataFim);&#xa; }catch(Exception e){&#xa;}"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButton22">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="12" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Buscar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton22ActionPerformed"/>
+              </Events>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="jPanel9">
           <SubComponents>
             <Container class="javax.swing.JScrollPane" name="jScrollPane1">
               <AuxValues>
@@ -423,128 +507,33 @@
               </SubComponents>
             </Container>
           </SubComponents>
-        </Container>
-        <Container class="javax.swing.JPanel" name="jPanel21">
-
-          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout">
-            <Property name="verticalGap" type="int" value="9"/>
-          </Layout>
-          <SubComponents>
-            <Component class="javax.swing.JButton" name="jButton3">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="13" style="1"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Visualizar Avalia&#xe7;&#xe3;o"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
-              </Events>
-            </Component>
-          </SubComponents>
-        </Container>
-        <Container class="javax.swing.JPanel" name="jPanel47">
-
-          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
-          <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel2">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="12" style="1"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Per&#xed;odo:"/>
-              </Properties>
-            </Component>
-          </SubComponents>
-        </Container>
-        <Container class="javax.swing.JPanel" name="jPanel7">
-
-          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
-            <Property name="useNullLayout" type="boolean" value="false"/>
-          </Layout>
-          <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel10">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Oficina"/>
-              </Properties>
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="650" y="10" width="-1" height="-1"/>
-                </Constraint>
-              </Constraints>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel21">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Venda"/>
-              </Properties>
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="110" y="10" width="-1" height="-1"/>
-                </Constraint>
-              </Constraints>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel53">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Atendimento"/>
-              </Properties>
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="370" y="10" width="-1" height="-1"/>
-                </Constraint>
-              </Constraints>
-            </Component>
-          </SubComponents>
-        </Container>
-        <Container class="javax.swing.JPanel" name="jPanel14">
-
-          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
-          <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="De: "/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextField1">
-              <Properties>
-                <Property name="columns" type="int" value="8"/>
-              </Properties>
-              <Events>
-                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextField1FocusGained"/>
-                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField1KeyPressed"/>
-              </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="try{&#xa; javax.swing.text.MaskFormatter dataIni = new javax.swing.text.MaskFormatter(&quot;##/##/####&quot;);&#xa; dataIni.setPlaceholderCharacter(&apos;_&apos;);&#xa; jTextField1 = new javax.swing.JFormattedTextField(dataIni);&#xa; }catch(Exception e){&#xa;}"/>
-              </AuxValues>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel3">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="At&#xe9;: "/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextField2">
-              <Properties>
-                <Property name="columns" type="int" value="8"/>
-              </Properties>
-              <Events>
-                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextField2FocusGained"/>
-                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField2KeyPressed"/>
-              </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="try{&#xa; javax.swing.text.MaskFormatter dataFim = new javax.swing.text.MaskFormatter(&quot;##/##/####&quot;);&#xa; dataFim.setPlaceholderCharacter(&apos;_&apos;);&#xa; jTextField2 = new javax.swing.JFormattedTextField(dataFim);&#xa; }catch(Exception e){&#xa;}"/>
-              </AuxValues>
-            </Component>
-            <Component class="javax.swing.JButton" name="jButton22">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="12" style="1"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Buscar"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton22ActionPerformed"/>
-              </Events>
-            </Component>
-          </SubComponents>
+          <LayoutCode>
+            <CodeStatement>
+              <CodeExpression id="1_jPanel9">
+                <CodeVariable name="jPanel9" type="8194" declaredType="javax.swing.JPanel"/>
+                <ExpressionOrigin>
+                  <ExpressionProvider type="ComponentRef">
+                    <ComponentRef name="jPanel9"/>
+                  </ExpressionProvider>
+                </ExpressionOrigin>
+              </CodeExpression>
+              <StatementProvider type="CodeMethod">
+                <CodeMethod name="setLayout" class="java.awt.Container" parameterTypes="java.awt.LayoutManager"/>
+              </StatementProvider>
+              <Parameters>
+                <CodeExpression id="2">
+                  <ExpressionOrigin>
+                    <ExpressionProvider type="CodeConstructor">
+                      <CodeConstructor class="javax.swing.OverlayLayout" parameterTypes="java.awt.Container"/>
+                    </ExpressionProvider>
+                    <Parameters>
+                      <CodeExpression id="1_jPanel9"/>
+                    </Parameters>
+                  </ExpressionOrigin>
+                </CodeExpression>
+              </Parameters>
+            </CodeStatement>
+          </LayoutCode>
         </Container>
       </SubComponents>
     </Container>
@@ -2183,9 +2172,9 @@
   </SubComponents>
   <LayoutCode>
     <CodeStatement>
-      <CodeExpression id="1">
+      <CodeExpression id="3">
         <ExpressionOrigin>
-          <CodeExpression id="2">
+          <CodeExpression id="4">
             <ExpressionOrigin>
               <ExpressionProvider type="ComponentRef">
                 <ComponentRef name="."/>
@@ -2201,13 +2190,13 @@
         <CodeMethod name="setLayout" class="java.awt.Container" parameterTypes="java.awt.LayoutManager"/>
       </StatementProvider>
       <Parameters>
-        <CodeExpression id="3">
+        <CodeExpression id="5">
           <ExpressionOrigin>
             <ExpressionProvider type="CodeConstructor">
               <CodeConstructor class="javax.swing.OverlayLayout" parameterTypes="java.awt.Container"/>
             </ExpressionProvider>
             <Parameters>
-              <CodeExpression id="1"/>
+              <CodeExpression id="3"/>
             </Parameters>
           </ExpressionOrigin>
         </CodeExpression>
