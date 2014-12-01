@@ -237,13 +237,20 @@ public class ConexaoBD {
         ResultSet rs = st.getResultSet();
 
         while (rs.next()) {
-            ResultSet rsnome;
+            ResultSet rsnomecliente,rsnomefunc;
             st = myConnection.createStatement();
             st.execute("SELECT nome_cliente FROM cliente WHERE cpf_cliente = '" + rs.getString("cpf_cliente") + "';");
-            rsnome = st.getResultSet();
-            rsnome.next();
-            v = new Venda(rs.getString("cpf_vendedor"), rs.getString("cpf_cliente"), rs.getString("data_venda"), rs.getString("tipo_venda"), rs.getString("descr_venda"), rsnome.getString(1));
-            Av = new AvVenda(rs.getString("cod_av"), rs.getFloat("nota_venda"), rs.getString("sugestao_venda"), rs.getString("data_av"), rs.getString("cpf_cliente"), rs.getString("cpf_vendedor"), rs.getString("data_venda"), rsnome.getString(1), v);
+            //pega o nome do cliente
+            rsnomecliente = st.getResultSet();
+            rsnomecliente.next();
+            st = myConnection.createStatement();
+            st.execute("SELECT nome_vendedor FROM funcionario_vendedor  WHERE cpf_vendedor = '" + rs.getString("cpf_vendedor") + "';");
+           //pega o nome do func.
+            rsnomefunc = st.getResultSet();
+            rsnomefunc.next();
+            
+            v = new Venda(rs.getString("cpf_vendedor"), rs.getString("cpf_cliente"), rs.getString("data_venda"), rs.getString("tipo_venda"), rs.getString("descr_venda"), rsnomecliente.getString(1));
+            Av = new AvVenda(rs.getString("cod_av"), rs.getFloat("nota_venda"), rs.getString("sugestao_venda"), rs.getString("data_av"), rs.getString("cpf_cliente"), rs.getString("cpf_vendedor"),rs.getString("data_venda"),rsnomefunc.getString(1), rsnomecliente.getString(1), v);
             res.addElement(Av);
         }
         return res;
@@ -265,13 +272,18 @@ public class ConexaoBD {
         ResultSet rs = st.getResultSet();
 
         while (rs.next()) {
-            ResultSet rsnome_atendente;
+            ResultSet rsnome_cliente,rsnome_atendente;
             st = myConnection.createStatement();
             st.execute("SELECT nome_cliente FROM cliente WHERE cpf_cliente = '" + rs.getString("cpf_cliente") + "';");
+            rsnome_cliente = st.getResultSet();
+            rsnome_cliente.next();
+            st = myConnection.createStatement();
+            st.execute("SELECT nome_atendente FROM funcionario_atendente WHERE cpf_atendente = '" + rs.getString("cpf_atendente") + "';");
             rsnome_atendente = st.getResultSet();
             rsnome_atendente.next();
-            a = new Atendimento(rs.getString("cpf_cliente"), rs.getString("cpf_atendente"), rs.getString("data_ini"), rs.getString("data_fim"), rs.getString("dresc_prob"), rsnome_atendente.getString(1));
-            Av = new AvAtendimento(rs.getString("cpf_cliente"), rs.getString("cpf_atendente"), rs.getString("data_av"), rs.getString("data_ini"), rs.getFloat("nota_atend"), rs.getString("sugestao"), a, rs.getInt("probl_res"), rsnome_atendente.getString(1));
+            
+            a = new Atendimento(rs.getString("cpf_cliente"), rs.getString("cpf_atendente"), rs.getString("data_ini"), rs.getString("data_fim"), rs.getString("dresc_prob"), rsnome_cliente.getString(1));
+            Av = new AvAtendimento(rs.getString("cpf_cliente"), rs.getString("cpf_atendente"), rs.getString("data_av"), rs.getString("data_ini"), rs.getFloat("nota_atend"), rs.getString("sugestao"), a, rs.getInt("probl_res"),rsnome_atendente.getString(1), rsnome_cliente.getString(1));
             res.addElement(Av);
         }
   
@@ -481,6 +493,14 @@ public class ConexaoBD {
         }
 
         return res;
+    }
+
+    private String rsnomefunc(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private String rsnome_atendente(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
