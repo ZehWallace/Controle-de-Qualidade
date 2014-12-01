@@ -1071,7 +1071,7 @@ public class UIFMenu extends javax.swing.JFrame {
         jLabel62.setText("nota");
         jPanel10.add(jLabel62, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, -1, -1));
 
-        jPanel49.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, 340, 160));
+        jPanel49.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, 360, 160));
 
         jLabel19.setText("Número avaliaçoes Venda");
 
@@ -1383,29 +1383,48 @@ public class UIFMenu extends javax.swing.JFrame {
 			float qtdAtendimentos = f.qtdAtendimento();
 			float qtdServicos = f.qtdServicos();
 			float qtdAvPendentes = qtdVendas + qtdAtendimentos + qtdServicos - qtdAvFeitas;
-			float mediaGeral = (mediaAvVenda*qtdAvVenda + mediaAvAtendimento*qtdAvAtendimento + mediaAvOficina*qtdAvOficina )/qtdAvFeitas;
+			float mediaGeral = (mediaAvVenda * qtdAvVenda + mediaAvAtendimento * qtdAvAtendimento + mediaAvOficina * qtdAvOficina) / qtdAvFeitas;
 
 			//IMPLEMENTANDO AQUI
 			System.out.println("" + mediaAvVenda);
-			jLabel10.setText("" + mediaAvVenda);
-			jLabel11.setText("" + mediaAvAtendimento);
-			jLabel13.setText("" + mediaAvOficina);
+
+			if (qtdAvVenda == 0) {
+				jLabel10.setText("Nenhuma Avaliação Venda");
+			}else{
+				jLabel10.setText("" + mediaAvVenda);
+			}
+			if (qtdAvAtendimento == 0) {
+				jLabel11.setText("Nenhuma Avaliação Atendimento");
+			}else{
+				jLabel11.setText("" + mediaAvAtendimento);
+			}
+			if (qtdAvOficina == 0) {
+				jLabel13.setText("Nenhuma Avaliação Oficina");
+			}else{
+				jLabel13.setText("" + mediaAvOficina);
+			}
+			if(qtdAvFeitas == 0){
+				jLabel62.setText("Nenhuma Avaliação");
+			}else{
+				jLabel62.setText("" + mediaGeral);
+			}
+
 			jLabel32.setText("" + qtdAvVenda);
 			jLabel21.setText("" + qtdAvAtendimento);
 			jLabel34.setText("" + qtdAvOficina);
 			jLabel58.setText("" + qtdAvFeitas);
 			jLabel56.setText("" + qtdAvPendentes);
-			jLabel62.setText("" + mediaGeral);
-			if(mediaAvVenda < 5){
+			
+			if (mediaAvVenda < 5) {
 				jLabel10.setForeground(Color.red);
 			}
-			if(mediaAvAtendimento < 5){
+			if (mediaAvAtendimento < 5) {
 				jLabel11.setForeground(Color.red);
 			}
-			if(mediaAvOficina < 5){
+			if (mediaAvOficina < 5) {
 				jLabel13.setForeground(Color.red);
 			}
-			if(mediaGeral < 5){
+			if (mediaGeral < 5) {
 				jLabel62.setForeground(Color.red);
 			}
 		} catch (ClassNotFoundException | SQLException | InstantiationException | IllegalAccessException ex) {
