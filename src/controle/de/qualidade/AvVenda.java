@@ -17,6 +17,7 @@ import java.util.Vector;
 public class AvVenda extends Avaliacao {
 
 	private String nome_vendedor;
+	private String nome_cliente;
 	private String data_venda;
 	private String cpf_vendedor;
 	private Venda venda;
@@ -32,8 +33,9 @@ public class AvVenda extends Avaliacao {
 		this.cpf_vendedor = cpfF;
 		this.data_venda = dataVenda;
 		this.nome_vendedor = null;
+		this.nome_cliente = null;
 		this.adicionarAvVenda();
-		
+
 	}
 
 	/**
@@ -48,6 +50,19 @@ public class AvVenda extends Avaliacao {
 		this.setNota(nota);
 		this.setSugestao(sugestao);
 		this.nome_vendedor = nome_vendedor;
+		this.venda = v;
+	}
+
+	public AvVenda(String codigo, float nota, String sugestao, String data, String cpfC, String cpfF, String dataVenda, String nome_vendedor, String nome_cliente, Venda v) throws SQLException {
+		this.setCod_av(codigo);
+		this.setCpf_cliente(cpfC);
+		this.cpf_vendedor = cpfF;
+		this.setData(data);
+		this.data_venda = dataVenda;
+		this.setNota(nota);
+		this.setSugestao(sugestao);
+		this.nome_vendedor = nome_vendedor;
+		this.nome_cliente = nome_cliente;
 		this.venda = v;
 	}
 
@@ -66,8 +81,9 @@ public class AvVenda extends Avaliacao {
 		StringBuilder res = new StringBuilder();
 		res.append(this.venda.getTipo_venda()).append("@");
 		res.append(this.getData_splitted()).append("@");
-		res.append(nome_vendedor).append("@");
 		res.append(this.getNota()).append("@");
+		res.append(nome_vendedor).append("@");
+		res.append(nome_cliente).append("@");
 		res.append("");
 		return res.toString();
 	}
@@ -95,11 +111,11 @@ public class AvVenda extends Avaliacao {
 	public void setData_venda(String data_venda) {
 		this.data_venda = data_venda;
 	}
-        
-        public String getData_venda_splitted(){
-            String d[] = this.data_venda.split("-");
-            String aux = d[2] + "/" + d[1] + "/" + d[0];
-            return aux;
-        }
+
+	public String getData_venda_splitted() {
+		String d[] = this.data_venda.split("-");
+		String aux = d[2] + "/" + d[1] + "/" + d[0];
+		return aux;
+	}
 
 }
