@@ -112,6 +112,14 @@ public class AvVenda extends Avaliacao {
 		this.data_venda = data_venda;
 	}
 
+	public String getNome_vendedor() {
+		return nome_vendedor;
+	}
+
+	public String getNome_cliente() {
+		return nome_cliente;
+	}
+
 	public String getData_venda_splitted() {
 		String d[] = this.data_venda.split("-");
 		String aux = d[2] + "/" + d[1] + "/" + d[0];

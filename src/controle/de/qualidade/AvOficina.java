@@ -76,4 +76,8 @@ public class AvOficina extends Avaliacao {
 	public int getProb_res() {
 		return prob_res;
 	}
+
+	public String getNome_cliente() {
+		return nome_cliente;
+	}
 }

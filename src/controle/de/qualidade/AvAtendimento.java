@@ -18,6 +18,7 @@ class AvAtendimento extends Avaliacao {
 	private final Atendimento atendimento;
 	private final String nome_atendente;
 	private final String nome_cliente;
+
 	private final int probl_res;
 
 	//cria nova avaliacao para inserir no banco
@@ -103,5 +104,9 @@ class AvAtendimento extends Avaliacao {
 
 	public int getProbl_res() {
 		return probl_res;
+	}
+
+	public String getNome_cliente() {
+		return nome_cliente;
 	}
 }
