@@ -148,6 +148,8 @@ public class UIFMenu extends javax.swing.JFrame {
         jLabel54 = new javax.swing.JLabel();
         jPanel23 = new javax.swing.JPanel();
         jButton24 = new javax.swing.JButton();
+        jPanel12 = new javax.swing.JPanel();
+        jLabel60 = new javax.swing.JLabel();
         ClientePanel = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
@@ -305,6 +307,8 @@ public class UIFMenu extends javax.swing.JFrame {
         jLabel55 = new javax.swing.JLabel();
         jPanel73 = new javax.swing.JPanel();
         jButton26 = new javax.swing.JButton();
+        jPanel18 = new javax.swing.JPanel();
+        jLabel59 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu6 = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
@@ -582,6 +586,11 @@ public class UIFMenu extends javax.swing.JFrame {
         jPanel23.add(jButton24);
 
         BackupPanel.add(jPanel23);
+
+        jLabel60.setForeground(new java.awt.Color(51, 102, 0));
+        jPanel12.add(jLabel60);
+
+        BackupPanel.add(jPanel12);
 
         getContentPane().add(BackupPanel);
 
@@ -1066,7 +1075,7 @@ public class UIFMenu extends javax.swing.JFrame {
         jPanel10.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
 
         jLabel5.setText("Vendas:");
-        jPanel10.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 40, -1));
+        jPanel10.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 60, -1));
 
         jLabel6.setText("Oficina:");
         jPanel10.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
@@ -1252,6 +1261,11 @@ public class UIFMenu extends javax.swing.JFrame {
         jPanel73.add(jButton26);
 
         RestorePanel.add(jPanel73);
+
+        jLabel59.setForeground(new java.awt.Color(0, 102, 0));
+        jPanel18.add(jLabel59);
+
+        RestorePanel.add(jPanel18);
 
         getContentPane().add(RestorePanel);
 
@@ -1743,6 +1757,7 @@ public class UIFMenu extends javax.swing.JFrame {
     private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
 		setVisibleAllFalse();
 		BackupPanel.setVisible(true);
+                jLabel60.setText("");
     }//GEN-LAST:event_jMenuItem10ActionPerformed
 
     private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
@@ -1752,6 +1767,7 @@ public class UIFMenu extends javax.swing.JFrame {
 		} catch (InterruptedException ex) {
 			Logger.getLogger(UIFMenu.class.getName()).log(Level.SEVERE, null, ex);
 		}
+                jLabel60.setText("Backup Realizado");
 		System.out.println("acabou...");
     }//GEN-LAST:event_jButton24ActionPerformed
 
@@ -1767,6 +1783,7 @@ public class UIFMenu extends javax.swing.JFrame {
 		// TODO add your handling code here:
 		setVisibleAllFalse();
 		RestorePanel.setVisible(true);
+                jLabel59.setText("");
     }//GEN-LAST:event_jMenuItem11ActionPerformed
 
     private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
@@ -1774,6 +1791,7 @@ public class UIFMenu extends javax.swing.JFrame {
 		BackupPgSQL bk = new BackupPgSQL();
 		bk.doRestore();
 		System.out.println("acabou...");
+                jLabel59.setText("Backup Restaurado.");
     }//GEN-LAST:event_jButton26ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
@@ -2174,7 +2192,9 @@ public class UIFMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel58;
+    private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel7;
@@ -2197,11 +2217,13 @@ public class UIFMenu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
+    private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel21;

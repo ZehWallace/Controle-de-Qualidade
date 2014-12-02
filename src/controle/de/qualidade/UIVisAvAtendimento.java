@@ -31,7 +31,8 @@ public class UIVisAvAtendimento extends javax.swing.JFrame {
 		initComponents();
 		this.setResizable(false);
 		jLabel15.setText(c.getNome());
-		String dIni = av.getAtendimento().getData_ini();
+		
+                String dIni = av.getAtendimento().getData_ini();
 		String dFim = av.getAtendimento().getData_fim();
 		Date data = new Date();
 		Timestamp dataIni = Timestamp.valueOf(dIni);
